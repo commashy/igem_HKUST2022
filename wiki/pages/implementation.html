@@ -1,0 +1,141 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Implementation{% endblock %}
+{% block lead %}From brainstorming to real life{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Implementation of Our Project
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col" id="concern">
+                  <h5><strong>Health Concerns</strong></h5>
+                  <br>
+                  <p>Considering the high fish consumption level in Hong Kong, it is no surprise that a seemingly insignificant problem in the supply chain would be amplified and affect different nodes of the chain. As shown in our previous research, we learned that inconsistent cold chain management due to hot summers and human malpractice would accelerate bioamines formation, posing significant health threats to consumers.</p>
+                  <p>According to the Hong Kong Centre for Food Safety (CFS), a total of 26 local group histamine poisoning outbreaks have been reported in recent years - not to mention the unreported individual cases that are often confused with fish allergy<sup><a href="https://www.cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_150_02.html" target="_blank">[1]</a></sup>.</p>
+                  <p>A more recent case was reported by CFS on June 8th 2022, involving food poisoning caused by tuna fillets from a local restaurant in Tsim Sha Tsui. “The test results showed that a tuna fillet sample contained histamine at a level of 2,600 milligrams per kilogram”, which is much higher than the recommended upper limit of 200 milligrams per kilogram. CFS immediately advised the restaurant to stop sales and discard the affected products; additionally, it also “provided health education on food safety” and “instructed them to implement improvement measures to ensure food safety”<sup><a href="https://www.info.gov.hk/gia/general/202206/08/P2022060800803.htm" target="_blank">[2]</a></sup>.</p>
+                  <p style="text-align:center">
+                    <img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/place-under-health-concern.png" width=60%/>
+                  </p>
+                  <hr id="lack">
+
+                  <h5><strong>Lack of Inspection Standards</strong></h5>
+                  <br>
+                  <p>Despite CFS’s efforts in educating the public and businesses about the harms of bioamine poisoning and methods to reduce its risks, most of the policies put in place are recommendation-based, instead of regulations that impose mandatory requirements. Mr. Henry Yip from the Hong Kong Fish Marketing Organization (FMO) explained to us that <span style="color:#678BD6;font-weight:bold">there currently isn’t a standard for fish quality inspection at different handling points,</span> leading to quality variability, especially since most of the spoilage inspection is performed manually based on experience. Meetings with Dr. Quentin Fong from the University of Alaska Fairbanks also confirmed the presence of this problem in Hong Kong. He explained that although health codes are required by the government, the seafood handling procedures are mostly standardized by guidelines, rather than regulations.</p>
+                  <p style="text-align:center">
+                    <img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/placed-under-lack-of-inspection-standards.png" width=80%/>
+                  </p>
+                  <br>
+                  <hr id="methods">
+
+                  <h5><strong>Current Methods and Competitor Analysis</strong></h5>
+                  <br>
+                  <p>Upon confirming the problems, the existing or proposed solutions were investigated to see how we can develop a more comprehensive and effective product.</p>
+                  <p>As described by the local seafood businesses that we interviewed, rigorous quality inspection procedures are usually performed at third-party testing laboratories, which could take up to three to five days. Although major quality inspection service providers like HQTS Group and Pro QC provide comprehensive testing reports, Mr. Willem Landman, an expert on corporate food safety, explained that using external services could lead to <span style="color:#678BD6;font-weight:bold">much higher time, monetary, and logistical costs</span> compared to in-house testing procedures.
+                  <p>Food experts around the world have observed similar problems in their own communities and begun developing more convenient quality inspection methods. Take Quality Certified Foods as an example, they are “a group of scientists and food professionals that measure and quantify the quality of foods through bio-metric technology”. While their Certified Quality Reader 3.0 allows businesses to perform in-house thorough quality inspection, it is still relatively expensive and has not been widely accepted by the general market; we suspect that their lack of public presence is due to their marketing strategy to target <span style="color:#678BD6;font-weight:bold">high-end food providers</span> instead of the general food businesses - which is what our project focuses on.</p>
+                  <p>Apart from fully commercialized products and services, we have also looked into other research teams who are developing similar products in innovative ways. A team from the City University of Hong Kong has been working on a sensor that detects histamine and formaldehyde (the latter being an illegal additive used in seafood as preservatives but is hazardous to human health); their detection method is based on “the selective bonding interaction in vapor and liquid phase”. Having received a grant worth 20 million RMB from the Ministry of Finance, State Oceanic Administration, and Xminnov, the team aims to provide a rapid screening test that complies with the <span style="color:#678BD6;font-weight:bold">standards established by WHO and FDA.</span></p>
+                  <p>Apart from AOAC 977.13, a widely accepted but complicated method for histamine testing, there is currently a gap in the market for a <span style="color:#678BD6;font-weight:bold">quick and user-friendly bioamines testing kit.</span></p>
+                  <p>All these projects further convinced us of the urgency to develop a convenient method for detecting food spoilage and showed us the different aspects that we can improve on top of these existing solutions.</p>
+                  <hr id="target">
+
+                  <h5><strong>Target User</strong></h5>
+                  <br>
+                  <p>Despite having successfully identified the problems and gaps in existing solutions, we still need to pinpoint the target user in order to further adjust our final products according to their specific needs. To achieve this, we released consumer surveys and the three most significant findings are as follows:</p>
+                    <ol type = "1">
+                      <li>More than 85% of respondents consume fish at least once per week, with almost 20% of them consuming more than 4 times per week; 30% of respondents purchase from wet markets, and almost 60% from supermarkets. Around 34% and 32% of respondents believe that the most important control points in the seafood supply chain are seafood processing factories and transportation facilities, respectively. These indicate <span style="color:#678BD6;font-weight:bold">the need for stricter fish quality control at wet markets, supermarkets, and fish processing factories that link to these markets.</span><br></li>
+                      <li>About 58% of the respondents indicate that they would pay more than 10% of the fish's original price for guaranteeing its quality and absence of spoilage. Out of these, 22.4% of them are willing to pay 20% or more to do so, demonstrating their <span style="color:#678BD6;font-weight:bold">priority for food safety over price.</span><br></li>
+                      <li>More than 50% of respondents strongly believe that a set of standards for seafood quality inspection needs to be established, showing that <span style="color:#678BD6;font-weight:bold">consumers put a strong emphasis on seafood freshness and safety</span> despite the fact that very few of them know about the relevant existing measures or regulations - or the lack of them in some regions.<br></li>
+                    </ol>
+                    <p>In addition, meetings with Quality Control experts like Mr. Willem Landman and Mr. Mark Van Asten also provided valuable suggestions to help us better design our final product. With their years of experience in the industry, they both mentioned that a simple screening test for harmful substances like bioamines would <span style="color:#678BD6;font-weight:bold">save businesses significant costs</span> compared to other third-party testing services.</p>
+                    <p>By integrating these major findings,  we learned that <span style="color:#678BD6;font-weight:bold">our target users should be the supply chain nodes like fish processing factories and retailers, instead of final consumers</span> and that both consumers and businesses are willing to incorporate a product like ours into the supply chain. Thus, in contrast to our very initial idea of developing a rapid testing kit for end-consumers, we discover that <span style="color:#678BD6;font-weight:bold">the real needs lie in the retailer handling points</span> and that we must design our products for their convenience.</p>
+                  <p style="text-align:center">
+                    <img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/put-under-target-users.png" width=80%/>
+                  </p>
+                  <hr id="manual">
+
+                  <h5><strong>User Manual</strong></h5>
+                  <br>
+                  <p>Although our target users are not the general public with almost zero technical expertise, we still aimed to simplify the protocol for using our testing kit in order to allow staff in fish businesses to easily adapt to the new form of quality inspection without much training.</p>
+                  <p>According to our survey to the public, more than two thirds of the respondents mentioned that a ‘swab test’ is the sample collection method that they find the most convenient. Additionally, interviews with Mr. Henry Yip and Dr. Peter Luk from the Fish Marketing Organization (FMO) and Agriculture, Fisheries, and Conservation Department (AFCD), also confirmed the validity and effectiveness of implementing swab test in our product. Thus, we proceeded with our hardware design keeping these in mind (read more about our <a href="https://static.igem.wiki/teams/4225/wiki/final-fisherly-biosensor-user-manual.pdf" target="_blank">user manual</a>.)</p>
+                   <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/implementation-survey-swab.png"/></p>
+                   <br>
+                   <hr id = "advantage">
+
+                  <h5><strong>Advantages over Other Methods</strong></h5>
+                  <br>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/implementation-blue-venn-diagram-presentation.png"/></p>
+                  <hr id ="haccp">
+                  
+                  <h5><strong>HACCP</strong></h5>
+                  <br>
+                  <p>Upon studying the operational flow of a fish processing business in Hong Kong, we learned that even with proper certification and equipment for cold chain management, <span style="color:#678BD6;font-weight:bold">temperature inconsistency</span> can still occur due to physical restriction, external environment, or human erroneous factors, leading to the need to measure the fish spoilage level at specific control points, which are where our testing kit will best be utilized.
+                  <p>In order to ensure a smooth transition from prototyping to actual implementation, we needed a regulatory framework to introduce our product into the industry.</p>
+                  <p>Initially developed by NASA to ensure food safety during space operations, the Hazard Analysis Critical Control Point (HACCP) system is “an effective and rational means of assuring food safety from harvest to consumption” (FDA). It is now widely implemented in the food industry and recognized as a global food quality standard. As HACCP has become compulsory for the U.S. “manufacturers of meat and poultry, seafood, and juice products” and specific food production businesses in some other developed countries, the Hong Kong regulatory body expressed their desire to follow the footsteps of international standards and <span style="color:#678BD6;font-weight:bold">further incorporate HACCP into the local food industry.</span><sup><a href="https://www.cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_117_02.html#:~:text=Over%20the%20past%20decades%2C%20HACCP,and%20poultry%20establishments%20in%20Canada." target="_blank">[3]</a></sup></p>
+                  <p>According to a research report performed by Data Bridge<sup><a href="https://www.databridgemarketresearch.com/reports/global-food-certification-market" target="_blank">[4]</a></sup>, the global food certification market is expected to grow, indicating that more businesses in the food industry will incorporate Quality Assurance and Quality Control systems into their operations, including HACCP, which is one of the most popular and recognized frameworks. They explain that this growth is driven by the “rising consumer awareness regarding food safety, stringent food certification and standards and rising number of government initiatives to ensure food safety”.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/implementation-photo2.png"/></p>
+                  <p>Here in Hong Kong, we also observe more businesses implementing the HACCP system in their logistics for ensuring food safety and maintaining, or in some cases improving, customer satisfaction. While larger local businesses like Café de Coral, Vitasoy, and Maxim’s have enough resources and capacity to incorporate the HACCP system into their operations, some smaller fish businesses do not.</p>
+                  <p>This is where the Fisherly biosensor comes in - we provide smaller fish businesses with an affordable and effective tool to obtain the HACCP certification. Instead of spending a huge amount of money on comprehensive lab results and waiting for three to five days, they can now perform quick bioamines screening tests using our product, fulfilling some of the HACCP requirements much more easily.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>[1] Yung, K. (2019, August 23). Histamine in Fish and Fish Products. Food Safety Focus, 150. https://www.cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_150_02.html</p>
+                  <p>[2] The Centre for Food Safety (2022, June 8). CFS proactively follows up on food poisoning outbreak involving tuna fillet. The Government of the Hong Kong Special Administrative Region. https://www.info.gov.hk/gia/general/202206/08/P2022060800803.htm</p>
+                  <p>[3] Tang, S. P. (2018, April). HACCP – An Effective System to Improve Food Safety. Food Safety Focus, 117. https://www.cfs.gov.hk/english/multimedia/multimedia_pub/multimedia_pub_fsf_117_02.<br>html#:~:text=Over%20the%20past%20decades%2C%20HACCP,and%20poultry%20establishments%20in%20Canada.</p>
+                  <p>[4] Data Bridge Market Research (2021, July). Global Food Certification Market – Industry Trends and Forecast to 2028. https://www.databridgemarketresearch.com/reports/global-food-certification-market#</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#concern" class="bnav__link bnav__link--full-width">Health concerns</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#lack" class="bnav__link bnav__link--full-width">Lack of Inspection<br>Standards</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#methods" class="bnav__link bnav__link--full-width">Current methods</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#target" class="bnav__link bnav__link--full-width">Target User</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#manual" class="bnav__link bnav__link--full-width">User manual</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#advantage" class="bnav__link bnav__link--full-width">Advantage</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#haccp" class="bnav__link bnav__link--full-width">HACCP</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

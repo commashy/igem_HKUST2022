@@ -1,0 +1,42 @@
+{% extends "layout2.html" %}
+
+{% block title %}Meetings{% endblock %}
+{% block lead %}Exchanging ideas and improving our models{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Meetings
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Summary</strong></h5>
+                  <p>Our meetings are categorized into two parts, the first part being where we collaborated with another iGEM team to share technical methods and different perspectives we each take into account to describe a biological system. Upon meeting the entire MAHE team on July 5th, the two modeling teams gathered for a second meeting. The second part is where we received advice from one of our professors from the engineering school, Professor Henry Hei Ning LAM, who has prior experience in modeling biological systems and generously offered advice in defining our system.</p>
+
+
+                  <h5><strong>1. MAHE (6 Aug, 2022)</strong></h5>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-18.jpeg"/></p> 
+                  <p>After meeting with the entire team prior, the dry lab modules from each team hosted a second meeting to discuss matters specifically related to mathematical modeling. In particular, our team wanted to discuss more about stochastic modeling of the protein and promoter interactions. It was a great opportunity to get to know more about the softwares that they use: BUDE Alanine scan, ClusPro (for molecular docking), Schrodinger Maestro (visualization). In return, we provided some tips on constructing the ODEs and the interpretational methods to generate meaningful graphs from the ODEs.</p>
+
+
+                  <h5><strong>2. Professor Henry Lam (HKUST)</strong></h5>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-19-3.jpeg"/></p> 
+                  <p style="text-align:center;">First meeting with Professor Henry (30 March, 2022)</p>
+                  <p>In the initial stages of the project design, we were asking advice on the limitations of modeling as we wanted to minimize the number of assumptions in order to reach the most realistic model. Our key focuses were on the initial reaction rate, modeling of the kill switch, and algae paper elasticity. Professor Henry shared with us to simplify our currently existing model especially for parameters whose values are guessed or fitted.</p>
+
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-20.jpeg"/></p> 
+                  <p style="text-align:center;">Second meeting with Professor Henry (3 August, 2022)</p>
+                  <p>Upon progression of our project, we had already constructed the ODEs accordingly and were reaching out to discuss more specific matters. Particularly, we were asking advice on the synergistic effect of some parameters and the initial concentrations of parameters. Overall, his generous advice guided us to successfully capture the essence of our cell-free system, and we could effectively carry on with our further analysis of our models.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

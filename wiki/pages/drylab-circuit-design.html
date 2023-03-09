@@ -1,0 +1,575 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Circuit Design{% endblock %}
+{% block lead %}Modeling our cycles using mathematical softwares{% endblock %}
+
+{% block page %}
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Modeling for Circuit Design
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>Our goal of modeling is to simulate the reactions that occur in our cell-free system with parameters represented by numerical data to predict the colorimetric outcomes of our biosensor. In order to achieve this outcome, we implemented ordinary differential equations (ODEs) that capture the essence of the protein dynamics in our system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="cycle0">
+    <h1 class="pt-5 mx-auto text-center">
+        1. Cycle 0 
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>ODEs</strong></h5>
+                  <br>
+                  <p>In our design, the oxidation process of bioamines by the constitutively promoted diamine oxidase (<em>rDAO</em>) that renders hydrogen peroxide (<em>H&#8322O&#8322</em>) is one of the most significant processes to activate the <em>oxyS</em> and the <em>katG</em> promoter.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drycd-pic-1.png" width=80%/></p>
+                  <p>The oxidation process of bioamines can be simplified as follows.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?Diamine&space;\to&space;H_{2}O_{2}&space;\&space;(Reaction&space;\&space;Rate&space;=&space;k_{1})" title="equation 0" /></p>
+                  <p>This simplification can be done as we assume that the concentration of rDAO is constant or has reached equilibrium state when we are using the chassis.</p>
+                  <p style="text-align:center;"><img src="https://latex.codecogs.com/svg.image?k\left&space;[&space;rDAO&space;\right&space;]=k_1{}" title="https://latex.codecogs.com/svg.image?k\left [ rDAO \right ]=k_1{}" /></p>
+                  <p>In our ODEs, rather than setting an initial concentration of bioamines, we assume a continuous input (m1) of diamine from our sample.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[Diamine]}{dt}&space;=&space;m_{1}&space;-&space;k_{1}[Diamine]&space;-&space;d_{1}[Diamine]\&space;\&space;\&space;\&space;\&space;\cdots&space;(1)" title="equation 1" /> </p>
+                  <p><em>OxyR</em>, the hydrogen peroxide stressor, is represented as <em>OxyR<sub>N</sub></em> when it is inactivated (<em>N</em> for non-activation) and <em>OxyR<sub>A</sub></em> (<em>A</em> for activation) when it is activated by <em>H<sub>2</sub>O<sub>2</sub></em>. It is noted that only oxidized <em>OxyR</em> binds to a conserved <em>OxyR</em> binding 
+                  site in the <em>oxyS</em> and <em>katG</em> regulatory region. Moreover, no degradation constant is rendered to 
+                  <em>PoxyS</em> and <em>Pkat</em> as the number of plasmid in a bacteria is constant.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?H_{2}O_{2}&space;&plus;&space;OxyR_{N}&space;\to&space;&space;OxyR_{A}\&space;\&space;(Reaction&space;\&space;rate&space;=&space;k_{2})" title="equation 1.5" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[H_{2}O_{2}]}{dt}&space;=&space;k_{1}[Diamine]&space;-&space;k_{2}[OxyR_{N}][H_{2}O_{2}]&space;-&space;d_{2}[H_{2}O_{2}]&space;\&space;\&space;\&space;\&space;\&space;\cdots&space;(2)" title="equation 2" /> </p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[OxyR_{N}]}{dt}&space;=&space;m_{2}&space;-&space;k_{2}[OxyR_{N}][H_{2}O_{2}]&space;-&space;d_{3}[OxyR_{N}]&space;\&space;\&space;\&space;\&space;\&space;\cdots&space;(3)" title="equation 3" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[OxyR_{A}]}{dt}&space;=&space;k_{2}[OxyR_{N}][H_{2}O_{2}]&space;-&space;d_{4}[OxyR_{A}]\&space;\&space;\&space;\&space;\&space;\cdots&space;(4)" title="equation 4" /></p>
+
+                  <p>As the association and dissociation of the operator (<em>PoxyS</em>) and the transcription factor protein 
+                  (<em>OxyR<sub>A</sub></em>) event occurs on a much faster time-scale than gene expression<sup><a href="https://www.math.uwaterloo.ca/~bingalls/MMSB/MMSB_w_solutions.pdf" target="_blank">[1]</a></sup>, the association of <em>OxyR<sub>A</sub></em> and <em>PoxyS</em> to express <em>mRNA</em> molecules for fluorescent proteins can be treated in equilibrium. </p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?[OxyR_{A}]&space;&plus;&space;[Unbound\&space;&space;PoxyS]&space;\rightleftharpoons&space;[OxyR_{A}&space;-&space;bound&space;\&space;PoxyS]" title="equilibrium 1" />
+                  <br><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\textrm{(Reaction&space;rate&space;=&space;}&space;k_{3},&space;\textrm{Reverse&space;reaction&space;rate&space;=&space;}k_{-3}&space;)" title="Reaction rate 1" /></p>
+                  <p>As the rate of transcription from a regulated gene depends on the promoter occupancy, the rate of activated transcription (<em>k&#8323</em>) is proportional to the occupancy and can be represented as follows, when <em>K = k<sub>-3</sub>/k<sub>3</sub></em>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\textrm{Rate&space;of&space;activated&space;transcription&space;}=&space;\alpha&space;\frac{[OxyR_{A}]/K}{1&plus;[OxyR_{A}]/K}" title="Rate of activated transcription" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[PoxyS]}{dt}&space;=&space;-k_{3}[OxyR_{A}][PoxyS]\&space;\&space;\&space;\&space;\&space;\cdots&space;(5)" title="equation 5" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[&space;mRNA_{GFP}{}&space;\right&space;]}{dt}=\frac{\alpha&space;\left&space;[&space;OxyR_A{}&space;\right&space;]}{K&plus;\left&space;[&space;OxyR_A{}&space;\right&space;]}-d_5{}\left&space;[&space;mRNA_GFP{}&space;\right&space;]\;&space;\cdots&space;\left&space;(&space;6&space;\right&space;)" title="equation 6" /></p>
+
+                  <p>*In the ODEs, [<em>PoxyS</em>] represents the concentration of <em>OxyR<sub>A</sub></em> bound operators.
+              Similarly, when <em>L = k<sub>-4</sub>&#8725;k<sub>4</sub></em>, the expression of <em>RFP</em> can be described as follows.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?[OxyR_{A}]&space;&plus;&space;[Unbound\&space;&space;Pkat]&space;\rightleftharpoons&space;[OxyR_{A}&space;-&space;bound&space;\&space;Pkat]" title="equilibrium 2" />
+                  <br><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\textrm{(Reaction&space;rate&space;=&space;}&space;k_{4},&space;\textrm{Reverse&space;reaction&space;rate&space;=&space;}k_{-4}&space;)" title="Reaction rate 2" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[Pkat]}{dt}&space;=&space;-k_{4}[OxyR_{A}][Pkat]\&space;\&space;\&space;\&space;\&space;\cdots&space;(7)" title="equation 7" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[&space;mRNA_{RFP}{}&space;\right&space;]}{dt}=\frac{\beta&space;\left&space;[&space;OxyR_A{}&space;\right&space;]}{L&plus;\left&space;[&space;OxyR_A{}&space;\right&space;]}-d_6{}\left&space;[&space;&space;mRNA_{RFP}{}\right&space;]\:\cdots&space;&space;\,&space;\left&space;(&space;8&space;\right&space;)" title="equation 8" /></p>
+
+                  <p>*In the ODEs, [<em>Pkat</em>] represents the concentration of <em>OxyR<sub>A</sub></em> bound operators.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?mRNA_{GFP}\&space;&space;\to&space;\&space;&space;GFP&space;\&space;(Reaction\&space;&space;rate:&space;k_{5})" title="GFP" />
+                  <br><img class="img-fluid" src="https://latex.codecogs.com/svg.image?mRNA_{RFP}\&space;&space;\to&space;\&space;&space;RFP&space;\&space;(Reaction\&space;&space;rate:&space;k_{6})" title="RFP" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[GFP]}{dt}&space;=&space;k_{5}[mRNA_{GFP}]\&space;-\&space;d_{7}[GFP]\&space;\&space;\&space;\&space;\&space;\cdots&space;(9)" title="equation 9" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d[RFP]}{dt}&space;=&space;k_{6}[mRNA_{RFP}]\&space;-\&space;d_{8}[RFP]\&space;\&space;\&space;\&space;\&space;\cdots&space;(10)" title="equation 10" /></p>
+
+                  <button class="collapsible">Constants</button>
+                  <div class="content mb-2" >
+                    <p></p>
+                    <h5><strong>Kinetic rate constants</strong></h5>
+                    <br>
+                    <p>Rate constants for specific reactions are difficult to obtain and vary according to different environments including the availability of resources. In our model, reactions were categorized by either fast-occurring or slow-occurring processes, then the constants were adjusted to suit the desired outcomes. </p>
+                    <hr>
+
+                    <h5><strong>Protein Degradation Rates</strong></h5>
+                    <br>
+                    <p>Protein degradation, an aspect of proteolysis, ensures maintenance and rapid regulation of individual protein concentration in a system<sup><a href="https://www.future-science.com/doi/10.2144/000112453" target="_blank">[2]</a></sup>. While the exact degradation of the specific protein in our cell-free system is unknown, the half-life of a protein (the time it takes for the concentration of the target protein to be reduced by 50%) provides a good reference for the mathematical model. The degradation rate of the protein is a key attributor in stabilizing the model while providing insight about the expiration of the colorimetric output biosensors, as the expression of fluorescent proteins will be degraded over time. Assuming the degradation rate of proteins is first order, then the degradation rate (k) is inversely correlated to the half life, where k can be represented as below.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k&space;=&space;\frac{ln(2)}{t_{1/2}}" title="degradation rate" /></p>
+                  </div>
+                    <hr>
+
+                    <h5><strong>Results and Interpretation</strong></h5>
+                    <br>
+                    <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-75.jpg"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 1.1.1</b> GFP and RFP concentration modeling outputs of Cycle 0 with Bioamines represented on a log-scale axis.</small></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-76.jpg"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 1.1.2</b> GFP and RFP concentration modeling outputs of Cycle 0 with Bioamines represented on a linear axis</small></p>
+                      </div>
+                    </div>
+                  <p>Results of Cycle 0 prove the successful RFP expression at a higher bioamine concentration (Figure 1.1). However, the expression of both GFP and RFP render a color mixing issue as the final colorimetric output at a high bioamine is a combination of visible light wavelengths of 395 nm and 588 nm, which renders a yellow color.</p>
+                  <p>The specific shade of color can be visualized via the RGB Color Addition simulation provided by <em>the Physics Classroom</em><sup><a href="https://www.physicsclassroom.com/Physics-Interactives/Light-and-Color/RGB-Color-Addition/RGB-Color-Addition-Interactive" target="_blank">[3]</a></sup>. As this phenomenon does not meet our purpose of generating a red color at a higher bioamine concentration to warn the consumers, thus the circuit was improved to cleave the GFP under high concentrations of bioamines. </p> 
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drycd-pic-4.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.2</b> The simulation of the combination of GFP and RFP. The color in the middle represents the likely colorimetric output of Cycle 0.</small></p>
+                  <hr>
+
+                  <h5><strong>Sensitivity Analysis</strong></h5>
+                  <u><b>Introduction</b></u>
+                  <br>
+                  <p>As mentioned briefly in the introduction, the mathematical model is a schematic representation of a real-world process. In this section explaining the sensitivity analysis, we would like to emphasize the purpose of mathematical models that can be classified into three main categories. First, mathematical models are used to highlight the understanding of the mechanisms that govern the phenomena of interest. Second, mathematical models are used to predict the currently unknown state of a system. Third, mathematical models are used to produce a desirable condition by controlling components of a system. All three objectives deeply involve the implementation of input components of a real system, which are represented as ‘parameters’ in a mathematical model. The three sensitivity models implemented for Fisherly portray remarkable sensitivity to the amino acid sequences of proteins<sup><a href="https://pubmed.ncbi.nlm.nih.gov/21877294/" target="_blank">[4]</a></sup>, which facilitates experimental studies and the results allows us to reduce the cost or time associated with further experiments by narrowing down the significant parameters required to meet the expected performance criteria. Thus, the identification of the most influential parameters inside a mathematical model is a vital step to fulfill the purposes of the mathematical model. We decided to identify the influential parameters of our model using the following three global sensitivity analysis methods: Morris, Sobol, and eFAST.</p>
+
+                  <u><b>The Morris Method</b></u>
+                  <br>
+                  <p>The Morris Method is the global sensitivity analysis developed by Max D. Morris as a preliminary screening measure for inputs of a computational model. The elemental structure of the Morris Method is designed as an individually randomized one-factor-at-a-time (OAT) test. As the name OAT suggests, the value of a single input parameter is differentiated to measure the corresponding <span style="color:#678BD6;font-weight:bold">elementary effect.</span></p>
+                  <p>For a better illustration, let’s consider a computational model <em>Y(x)</em>, that accepts the input vector <em>X</em> containing <em>K</em> inputs.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?X&space;=&space;[x_{1},&space;x_{2},&space;x_{3},&space;\cdots&space;&space;,&space;x_{K-1},&space;x_{K}&space;]&space;" title="x vector" /></p>
+                  <p>As the analysis is repeated for <i>n</i> times, the <i>i</i>-th run will start with the input vector <em>X<sub>i</sub></em> consisting of random input parameter values selected from the possible input space. Within each run, the value of the parameter <i>x<sub>k</sub></i> is changed to <i>x<sub>k</sub></i> + &#8710; every step, while keeping the values of other <i>K</i> - 1 parameters the same. At the end of each step the elementary effect of <i>k</i>-th parameter, which is defined as below, is calculated.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?EE_{k}&space;=&space;\frac{y(x_{1},&space;x_{2},&space;\cdots&space;&space;,&space;x_{k}&space;&plus;&space;\Delta&space;,&space;\cdots&space;&space;,&space;x_{K})&space;-&space;y(x_{1},&space;x_{2},&space;\cdots&space;,&space;x_{K})}{\Delta&space;}" title="elemntary effect" /></p>
+                  <p>Even though the elementary effect alone is a local sensitivity analysis of a model, the Morris Method is still considered global sensitivity analysis as the final result is computed by averaging all elementary effects throughout the different points of the input space.</p>
+                  <p>We chose the Morris Method as our first global sensitivity analysis tool because of its evident advantage as a preliminary screening measure. As Dr. Morris commented, the complicated computational models are often “time-consuming and hence expensive”. However, the Morris Method is easy-to-implement and easy-to-interpret global sensitivity analysis that requires relatively low computational power and time. Also, the Morris Method is independent of explicit assumptions of inputs having important effects, monotonicity of outputs with respect to inputs, or adequacy of a low-order polynomial model as an approximation to the computational model. The Morris Method was the most ideal choice to filter out insignificant parameters that can be neglected in the future engineering cycles.</p>
+                  <p>The results of the Morris Method are shown below.</p>
+                  <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-61-new.png"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 1.3.1</b> The elementary effects of the corresponding parameter at a specific running point</small></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-51-new.png"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 1.3.2</b> Morris Sensitivity analysis results</small></p>
+                      </div>
+                    </div>
+                  <p>However, the outputs generated are ranks that simply indicate which of the parameters serve as the influential parameter of our model. Additionally, the results are prone to change depending on the number of simulations run. This can be attributed to the non-linear characteristic of our circuit, with multiple parameters influencing a single colorimetric output. In our trial, the number of maximum simulations was set to 70,000 times, and the most significant parameters were shown to be 16(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_3{}"/>), 13(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_1{}"/>), 14(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}"/>) whereas the moderate significant parameters were shown to be 7(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?\beta&space;"/>), 9(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?L"/>), 8(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?k"/>), and 6(<img class="img-fluid" src="https://latex.codecogs.com/svg.image?\alpha&space;"/>). While <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_2{}"/> and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_1{}"/>(for respective representations of these parameters, please refer back to the ODEs of Cycle 0)  the finding of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_2{}"/> and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}"/> is significant in that we are able to vary the expression of OxyR in our circuit by using a more or less sensitive promoter to render changes in the colorimetric output as we wish.</p>
+                  <p>However, the Morris Method fails to give quantitative influence of each parameter on the output variation nor the insights about the non-linear effects of parameters on the output and interactions among different parameters. Therefore, we  decided to move onto the next sensitivity analysis: the Sobol Method.</p>
+
+                  <u><b>The Sobol Method</b></u>
+                  <br>
+                  <p>The Sobol Method is a form of a global sensitivity analysis that utilizes the Monte Carlo method as its basis for computation. Unlike the Morris method, the Sobol Method has the advantage of being able to provide multiple orders of Sensitivity Indices (also known as second order sensitivity indices), instead of a single interaction between two selected parameters. Moreover, in comparison with the  eFAST which will be elaborated in the later section, it is more computationally efficient than the latter<sup><a href="https://www.sciencedirect.com/science/article/pii/S0168169913002482?via%3Dihub" target="_blank">[5]</a></sup>.</p>
+                  <p>Treat the model as a function where X is the vector of p model inputs, which are orthogonal to each other, and Y is the chosen model output<sup><a href="https://www.sciencedirect.com/science/article/pii/S0168169913002482?via%3Dihub" target="_blank">[6]</a></sup>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?Y&space;=&space;f(X)&space;=&space;f(x_{1},&space;x_{2},&space;\cdots&space;,&space;x_{p})" title="https://latex.codecogs.com/svg.image?Y = f(X) = f(x_{1}, x_{2}, \cdots , x_{p})" /> <br> <img class="img-fluid" src="https://latex.codecogs.com/svg.image?X&space;=&space;(x_{1},&space;x_{2},&space;\cdots&space;,&space;x_{p})" title="https://latex.codecogs.com/svg.image?X = (x_{1}, x_{2}, \cdots , x_{p})" /></p>
+                  <p>Accordingly, the model output <i>Y</i> or <i>f(X)</i> can then be decomposed hierarchically as a sum of different functions when <i>f<sub>0</sub></i>, <i>f<sub>i</sub></i>(<i>x<sub>i</sub></i>), and <i>f<sub>i,j</sub></i> are defined as follows.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?f(X)&space;=&space;f_{0}&space;&plus;&space;\sum_{i=1}^{p}&space;f_{i}(x_{i})&space;&plus;&space;\sum_{1\leq&space;i<&space;j<&space;p}^{p}&space;f_{i,j}(x_{i},&space;x_{j})&space;&plus;&space;\cdots&space;&space;&plus;&space;f_{1,&space;2,&space;\cdots&space;,&space;p}&space;(x_{1},&space;x_{2},&space;\cdots&space;,&space;x_{p})\&space;\&space;\&space;\&space;\&space;\cdots&space;&space;(11)" title="equation 11" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-e-equation.png"  width=40%/></p>
+                  <p>Then, we can take the square of either side of equation (11) to obtain the following equation.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\int&space;f^{2}(X)dX&space;-&space;f_{0}^{2}&space;=&space;\sum_{i=1}^{p}&space;\sum_{k_{1}<&space;\cdots&space;<&space;k_{i}}^{p}&space;\int&space;f_{k_{1},&space;\cdots&space;,&space;k_{i}}^{2}&space;d(x_{1})\cdots&space;d(x_{k_{i}})\&space;\&space;\&space;\&space;\&space;\cdots&space;(12)" title="equation 12" /></p>
+                  <p>Let’s define variance as follows.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?Var(z)&space;=&space;\int&space;f^{2}(z)dz&space;-&space;\mathbb{P}(z)\&space;\&space;\&space;\&space;\&space;\cdots&space;(13)" title="equation 13" /></p>
+                  <p>Both sides of equation (12) can then be converted into probabilistic parameters to obtain the total variance as follows.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?Var(f(X))&space;=&space;\sum_{i=1}^{p}&space;Var(f_{i}(x_{i}))&space;&plus;&space;\sum_{1\leq&space;i<&space;j<&space;p}^{p}&space;Var(f_{i,&space;j}(x_{i},&space;x_{j}))&space;&plus;&space;\cdots" title="equation 14.1" /><br><img class="img-fluid" src="https://latex.codecogs.com/svg.image?&plus;&space;Var&space;(f_{1,&space;2,&space;\cdots&space;,&space;p}(x_{1},&space;x_{2},&space;\cdots&space;,&space;x_{p}))&space;\&space;\&space;\&space;\&space;\&space;\cdots&space;(14)" title="equation 14.2" /> </p>
+                  <p>Upon obtaining equation (14), we can then define <i>Sobol Indices (SI)</i> as</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\textrm{First&space;Order&space;SI}\&space;\&space;\&space;&space;S_{i}&space;=&space;\frac{Var(f(x_{i}))}{Var(Y)}" title="First order" /></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\textrm{Second&space;Order&space;SI}&space;\&space;\&space;\&space;\&space;\&space;S_{i,&space;j}&space;=&space;\frac{Var(x_{i,&space;j})}{Var(Y)}" title="Second order" /></p>  
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\textrm{Total&space;Order&space;SI}&space;\&space;\&space;\&space;\&space;\&space;S_{i,&space;j}&space;=&space;\frac{Var(x_{i,&space;j,&space;\cdots&space;,&space;p})}{Var(Y)}" title="Total order" /></p> 
+                  <p><i>First Order SI</i> is defined as the fraction of the variance of the output contributed only by parameter <i>x<sub>i</sub></i> over the total variance. To put it simply, <i>S<sub>i</sub></i> measures the effect of varying only <i>x<sub>i</sub></i> towards the model output <i>Y</i>, while it is normalized via the total output variance <i>Var(Y)</i>. On the other hand, <i>Total Order SI</i> measures the effect of <i>x<sub>i</sub></i> and all of the interaction between parameters of any order with  <i>x<sub>i</sub></i> towards <i>Y</i> and is normalled with <i>Var(Y)</i>. A higher value of <i>SI</i> of a certain parameter implies that a minor change in this parameter may lead to a relatively bigger change in <i>Y</i>. In other words, <i>Sobol Indices (SI)</i> value indicates the sensitivity of a certain parameter that allows us to define the more influential parameters.</p> 
+                  <p>As the initial circuit has 2 outputs, 2 independent sobol sensitivity analysis for GFP and RFP respectively are done. We used the SALib package in Python to run our sensitivity analysis to obtain these results.</p>
+                  <p>As the initial circuit has 2 outputs, 2 independent sobol sensitivity analysis for GFP and RFP respectively are done. We use SALib package in Python to run our sensitivity analysis to obtain these results:</p>
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-57.png"/></p> 
+                    </div>
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-58.png"/></p> 
+                  </div>
+                  <p style="text-align:center;"><small><b>Figure 1.4.1, 1.4.2</b> Sobol Analysis Result for cycle 0 ODE.<br>* is defined as SA values that are negative.</small></p>
+                   
+                  <p>From these results, ignoring the degradation constants (d), we can obtain that the 6 parameters (<img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_5{}" title="https://latex.codecogs.com/svg.image?k_5{}" />, <img src="https://latex.codecogs.com/svg.image?\alpha&space;" title="https://latex.codecogs.com/svg.image?\alpha " />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k" title="https://latex.codecogs.com/svg.image?k" />, and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}" title="https://latex.codecogs.com/svg.image?m_2{}" />) are sensitive towards GFP output, while 6 parameters (<img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_6{}" title="https://latex.codecogs.com/svg.image?k_6{}" />, <img src="https://latex.codecogs.com/svg.image?\beta&space;" title="https://latex.codecogs.com/svg.image?\beta " />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?L" title="https://latex.codecogs.com/svg.image?L" />, and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}" title="https://latex.codecogs.com/svg.image?m_2{}" />) are significant for RFP output. From those parameters, there are three of them that are significant for both outputs: <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}" /> and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}" title="https://latex.codecogs.com/svg.image?m_2{}" />.</p>
+                  <p>After checking these three parameters (Figure 1.4.1, 1.4.2), we realized that any improvement towards them will not fix this color mixing issue. Changing those parameters produces similar graphs where both the <i>GFP</i> and <i>RFP</i> values increase as the parameter value increases. To solve this color mixing issue, we proposed to the circuit design team to either improve the activity of RBS that is upstream of <i>RFP</i> (increase <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_6{}" title="https://latex.codecogs.com/svg.image?k_6{}" />), impeding the function of RBS that is upstream of <i>GFP</i> (decrease <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_5{}" title="https://latex.codecogs.com/svg.image?k_5{}" />) or introduce a new system to solve the color mixing issue. After interviewing with Professor Yong Lai, the latter direction was chosen by the circuit design, and the TEV degradation system was proposed. Sobol analysis was done again for the improved circuit, Cycle 1, and the results are shown in the “Sobol Analysis of Cycle 1” section of this page.</p>
+                  </div>
+
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-70.png"/>
+                      <br><small><b>Figure 1.5.1</b> Different <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}"/> Parameters</small></p>
+                    </div>
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-71.png"/>
+                      <br><small><b>Figure 1.5.2</b> Different <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}"/> Parameters</small></p>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-72.png"/>
+                      <br><small><b>Figure 1.5.3</b> Different <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}" title="https://latex.codecogs.com/svg.image?m_2{}"/> Parameters</small></p>
+                    </div>
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-73.png"/>
+                      <br><small><b>Figure 1.5.4</b> Changing <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_5{}" title="https://latex.codecogs.com/svg.image?k_5{}" /> and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_{6}{}" title="https://latex.codecogs.com/svg.image?k_{6}{}" /> Parameters</small></p>
+                    </div>
+                  </div>
+                  <p>From these results, we can obtain that the 4 parameters (<img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_4{}" title="https://latex.codecogs.com/svg.image?k_4{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_5{}" title="https://latex.codecogs.com/svg.image?k_5{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_1{}" title="https://latex.codecogs.com/svg.image?d_1{}" />, and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_2{}" title="https://latex.codecogs.com/svg.image?d_2{}" />) are important in GFP output, while 5 parameters (<img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_7{}" title="https://latex.codecogs.com/svg.image?k_7{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_8{}" title="https://latex.codecogs.com/svg.image?k_8{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?g_1{}" title="https://latex.codecogs.com/svg.image?g_1{}" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m" title="https://latex.codecogs.com/svg.image?m" />, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_3{}" title="https://latex.codecogs.com/svg.image?d_3{}" />, and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_3{}" title="https://latex.codecogs.com/svg.image?d_4{}" />) with SI values above 0.05 being significant. </p>
+                  <hr>
+
+                  <h5><strong>eFAST</strong></h5>
+                  <br>
+                  <p>(E)eFAST, or the extended Fourier Amplitude Sensitivity Test is in an updated version of the FAST or the Fourier Amplitude Sensitivity Test. Hence, the understanding of the FAST must come before looking into the details of eFAST. Just like the Sobol Method, the FAST is a variance-based sensitivity analysis method. However, a key difference from the Sobol method is where the computation for SA in  eFAST is achieved using spectral analysis, instead of Monte Carlo method (5). Let’s say <img class="img-fluid" src="https://latex.codecogs.com/svg.image?y=f(X)" title="https://latex.codecogs.com/svg.image?y=f(X)" /> to be the model of interest, where y represents the output of the model, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?f" title="https://latex.codecogs.com/svg.image?f" /> is the function of the model, and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?X=(x_1{},x_2{},&space;...,&space;x_n{})" title="https://latex.codecogs.com/svg.image?X=(x_1{},x_2{}, ..., x_n{})" /> is the input vector of the model composed of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?n" title="https://latex.codecogs.com/svg.image?n" /> input factors. The input vector <img class="img-fluid" src="https://latex.codecogs.com/svg.image?X" title="https://latex.codecogs.com/svg.image?X" /> is assumed to be random with the probability density function of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?P(X)=P(x_1{},x_2{},&space;...,&space;x_n{})" title="https://latex.codecogs.com/svg.image?P(X)=P(x_1{},x_2{}, ..., x_n{})" />.</p>
+                  <p>Furthermore, the domain of the input vector is regarded as a unit hypercube.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?K_x{}^{n}=\left\{&space;x_1{},...,x_n{}|x_1{}\sim&space;f_i{x_i{}},&space;i=1,...,n\right\}" title="https://latex.codecogs.com/svg.image?K_x{}^{n}=\left\{ x_1{},...,x_n{}|x_1{}\sim f_i{x_i{}}, i=1,...,n\right\}" /></p>
+                  <p>The input values of the FAST analysis are sampled from the input space via periodic search functions. Each input value is designated with a unique integer frequency, which is later used to determine the sensitivity indices of the input parameter. The general form of a periodic search function is defined as below.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_i{(s)}=&space;G_i{(sin\:&space;w_i{s})},&space;\forall&space;i=1,2,...,n" title="https://latex.codecogs.com/svg.image?x_i{(s)}= G_i{(sin\: w_i{s})}, \forall i=1,2,...,n" /></p>
+                  <p>In the general from, s is a scalar variable varying over the range &#8722; &#8734; &#60; s &#60; &#43; &#8734;. G<sub>i</sub> are transformation function and {&#x3C9;<sub>i</sub>} is a set of different frequencies. For the initial FAST analysis, the search function was set as the following equation.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_i{(s)}=&space;\frac{1}{2}&plus;\frac{1}{\pi&space;}{arcsin(sin\:&space;w_i{s}&plus;\varphi&space;_i{})},&space;\forall&space;i\in&space;[1,n]" title="https://latex.codecogs.com/svg.image?x_i{(s)}= \frac{1}{2}+\frac{1}{\pi }{arcsin(sin\: w_i{s}+\varphi _i{})}, \forall i\in [1,n]" /></p>
+                  <p>Both the scalar variable s and the random shift parameter <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\varphi&space;_i{}" title="https://latex.codecogs.com/svg.image?\varphi _i{}" /> have an uniform distribution over (0,2π]. Then, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_i{}\sim&space;p_{x_i}(x_i)&space;" title="https://latex.codecogs.com/svg.image?x_i{}\sim p_{x_i}(x_i) " /> is obtained through the following transformation.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_i{(s)}=&space;F^{-1}(u_i{}),&space;\forall&space;i=&space;1,...,n" title="https://latex.codecogs.com/svg.image?x_i{(s)}= F^{-1}(u_i{}), \forall i= 1,...,n" /></p>
+                  <p>The Fourier coefficients, derived by the evaluation of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?f(x(s))&space;" title="https://latex.codecogs.com/svg.image?f(x(s)) " />, are represented as <img class="img-fluid" src="https://latex.codecogs.com/svg.image?c_\omega&space;{}&space;" title="https://latex.codecogs.com/svg.image?c_\omega {} " />.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?c_\omega&space;{}=\frac{1}{\pi}\int_{0}^{2\pi}f(x(s))e^{i\omega&space;s}ds,&space;\forall&space;\omega&space;\in&space;N^{*}&space;" title="https://latex.codecogs.com/svg.image?c_\omega {}=\frac{1}{\pi}\int_{0}^{2\pi}f(x(s))e^{i\omega s}ds, \forall \omega \in N^{*} " /></p>
+                  <p>Lastly, the first-order sensitivity indices or the “main effect” of a parameter is computed according to the following equation.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?S_{x_i}{}^{FAST}=\frac{\sum_{l=1}^{&plus;\infty&space;}\left|&space;c_l_{\omega_i}{}\right|^{2}}{\sum_{\omega=1}^{&plus;\infty&space;}\left|&space;c_{\omega_i}{}\right|^{2}},&space;\;&space;\forall&space;i=1,...,n" title="https://latex.codecogs.com/svg.image?S_{x_i}{}^{FAST}=\frac{\sum_{l=1}^{+\infty }\left| c_l_{\omega_i}{}\right|^{2}}{\sum_{\omega=1}^{+\infty }\left| c_{\omega_i}{}\right|^{2}}, \; \forall i=1,...,n" /></p>
+                  <p>Despite the advantage of FAST in terms of lighter computational burden, the classical FAST was only capable of computing the “main effect”, assuming the input parameters to be independent of each other. The lack of capacity to derive the “Total Sensitivity Index” was the major drawback of the classical FAST compared to the Sobol Method. The eFAST resolved the limitation of the classical FAST as the eFAST derives the total sensitivity index of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_i{}" title="https://latex.codecogs.com/svg.image?x_i{}" /> or <img class="img-fluid" src="https://latex.codecogs.com/svg.image?ST_{x_i}{}" title="https://latex.codecogs.com/svg.image?ST_{x_i}{}" /> by assigning higher frequency to <img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_i{}" title="https://latex.codecogs.com/svg.image?x_i{}" /> and low frequencies to other parameters <img class="img-fluid" src="https://latex.codecogs.com/svg.image?x_{\sim&space;i}{}" title="https://latex.codecogs.com/svg.image?x_{\sim i}{}" />. The total sensitivity index is defined as the following equation.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?ST_{x_i}=\frac{\sum_{\omega&space;=\frac{\omega&space;_i{}}{2}&plus;1}^{N/2&space;}\left|&space;c_{\omega_i}{}\right|^{2}}{\sum_{\omega=1}^{N/2&space;}\left|&space;c_{\omega_i}{}\right|^{2}}" title="https://latex.codecogs.com/svg.image?ST_{x_i}=\frac{\sum_{\omega =\frac{\omega _i{}}{2}+1}^{N/2 }\left| c_{\omega_i}{}\right|^{2}}{\sum_{\omega=1}^{N/2 }\left| c_{\omega_i}{}\right|^{2}}" /></p>
+                  <p>The results of the eFAST analysis are shown below.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-60.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.6</b> eFAST Sensitivity Analysis results for Cycle 0</small></p>
+                  <p>As shown in Figure 1.6, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}"/> and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_3{}"/> were shown to be significant parameters, where the rest of the parameters had minimal effect. As <img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_4{}"/> is a parameter that represents the degradation rate of OxyR, we have disregarded the constant in our interpretation. Nevertheless, this is consistent with the findings of both the Sobol analysis and the Morris analysis method that <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}"/> is a significant parameter.</p>
+
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-78.png" width=60%/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.7</b> Varying <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}"/> parameters in Cycle 0</small></p>
+                  <p>As seen in Figure 1.7, differing the parameters of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}"/> by 10% brought about visible changes in the outputs. Combined with the results of our optimization results, we will be able to adjust our circuit components in Cycle 0 to obtain the most yield of the fluorescent proteins. However, we hope to serve as a reminder that all three sensitivity analyses were performed based on similar constructions of ODEs and parameter boundaries that may have led to concurrent results. Thus, the conclusions should further be clarified by experimental data to confirm the significant influences of varying specific element concentrations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="cycle1">
+    <h1 class="pt-5 mx-auto text-center">
+        2. Cycle 1
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>The level of <em>OxyR</em> protein does not change in cells treated with H<sub>2</sub>Osub>2</sub>, an indication that it is activated post-translationally. In vitro experiments demonstrated that <em>OxyR</em> can exist in either oxidized or reduced forms. Only the oxidized form binds DNA at the promoters of katG, dps, gorA, and so on, where activated <em>OxyR</em> stimulates transcription by interacting with the carboxyl-terminal domain of the α-subunit of RNA polymerase.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-5.png" width=60%/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-6.png"width=30%/></p>
+                  <p>The key characteristic of Cycle 1 is the additional expression of the TEV protease which acts as the inactivation of the <em>GFP</em>.  Both <em>GFP</em> and <em>RFP</em> are expressed by the constitutive promoter. Both the <em>RFP</em> and the <em>GFP</em> is constitutively promoted and the biosensor renders only the red color when there is high concentration of bioamines due to the cleavage of <em>GFP</em> by <em>TEV protease</em>. We designed <em>GFP</em> and <em>OxyR</em> to be expressed originating from the same promoter, and thus the same rate constant m3 was used for continuous input. Additionally, <em>GFPt</em> (visible) refers to the <em>TEV cleavage site</em>–tagged <em>GFP</em>, and the cleaved form is represented as <em>GFPd</em>. The <em>RFPt</em> refers to the <em>TEV cleavage site</em>–tagged <em>RFP</em>, and the cleaved form is represented as <em>RFPd</em>(visible).</p>
+
+
+                  <button class="collapsible">Full ODEs of Cycle 1</button>
+                  <div class="content">
+                    <br>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[&space;Diamine&space;\right&space;]}{dt}=m_1{}-k_1{\left&space;[&space;Diamine&space;\right&space;]}" title="https://latex.codecogs.com/svg.image?\frac{d\left [ Diamine \right ]}{dt}=m_1{}-k_1{\left [ Diamine \right ]}" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[H_2{}O_2{}&space;\right&space;]}{dt}=k_1{\left&space;[&space;Diamine&space;\right&space;]}-k_2{\left&space;[&space;OxyR_N{}&space;\right&space;]\left&space;[&space;H_2{}O_2{}&space;\right&space;]}-d_1[H_2{}O_2{}]" title="https://latex.codecogs.com/svg.image?\frac{d\left [H_2{}O_2{} \right ]}{dt}=k_1{\left [ Diamine \right ]}-k_2{\left [ OxyR_N{} \right ]\left [ H_2{}O_2{} \right ]}-d_1[H_2{}O_2{}]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[OxyR_N{}&space;\right&space;]}{dt}=m_2-k_2{\left&space;[&space;OxyR_N{}&space;\right&space;]\left&space;[&space;H_2{}O_2{}&space;\right&space;]}-d_2[H_2{}O_2{}]" title="https://latex.codecogs.com/svg.image?\frac{d\left [OxyR_N{} \right ]}{dt}=m_2-k_2{\left [ OxyR_N{} \right ]\left [ H_2{}O_2{} \right ]}-d_2[H_2{}O_2{}]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[OxyR_A{}&space;\right&space;]}{dt}=k_2{\left&space;[&space;OxyR_N{}&space;\right&space;]\left&space;[&space;H_2{}O_2{}&space;\right&space;]}-d_3[OxyR_A]" title="https://latex.codecogs.com/svg.image?\frac{d\left [OxyR_A{} \right ]}{dt}=k_2{\left [ OxyR_N{} \right ]\left [ H_2{}O_2{} \right ]}-d_3[OxyR_A]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[mRNA_{TEV}{}&space;&space;\right&space;]}{dt}=\frac{\gamma&space;\left&space;[&space;OxyR_A{}&space;\right&space;]}{S&plus;\left&space;[&space;OxyR_A{}&space;\right&space;]}-d_4{}\left&space;[&space;mRNA_{TEV}{}&space;\right&space;]&space;\;&space;\;&space;\left&space;(&space;S=\frac{k_{-2}{}}{k_2{}}&space;\right&space;)"/></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[TEV&space;\right&space;]}{dt}=k_6{\left&space;[&space;mRNA_{TEV}{}&space;\right&space;]-d_5[TEV]" title="https://latex.codecogs.com/svg.image?\frac{d\left [TEV \right ]}{dt}=k_6{\left [ mRNA_{TEV}{} \right ]-d_5[TEV]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[GFPt&space;\right&space;]}{dt}=m_3{}-k_7{\left&space;[&space;GFPt&space;\right&space;][TEV]-d_6[GFPt]" title="https://latex.codecogs.com/svg.image?\frac{d\left [GFPt \right ]}{dt}=m_3{}-k_7{\left [ GFPt \right ][TEV]-d_6[GFPt]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[GFPd&space;\right&space;]}{dt}=k_8{\left&space;[&space;GFPt&space;\right&space;][TEV]-d_7[GFPd]" title="https://latex.codecogs.com/svg.image?\frac{d\left [GFPd \right ]}{dt}=k_8{\left [ GFPt \right ][TEV]-d_7[GFPd]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[RFPt&space;\right&space;]}{dt}=m_4{}-k_9{\left&space;[&space;RFPt&space;\right&space;][TEV]-d_8[RFPt]" title="https://latex.codecogs.com/svg.image?\frac{d\left [RFPt \right ]}{dt}=m_4{}-k_9{\left [ RFPt \right ][TEV]-d_8[RFPt]" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{d\left&space;[RFPd&space;\right&space;]}{dt}=k_{10}{\left&space;[&space;RFPt&space;\right&space;][TEV]-d_9[RFPd]" title="https://latex.codecogs.com/svg.image?\frac{d\left [RFPd \right ]}{dt}=k_{10}{\left [ RFPt \right ][TEV]-d_9[RFPd]" /></p>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="constant">
+    <h1 class="pt-5 mx-auto text-center">
+        Constant chart
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Kinetic Reaction Rates</strong></h5>
+                  <br>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"><strong>Reaction</strong></th>
+                        <th scope="col"><strong>Rate Constant</strong></th>
+                        <th scope="col"><strong>Estimated Value</strong></th>
+                        <th scope="col"><strong>Assumption</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?Diamine\rightarrow&space;H_2{}O_2{}" title="https://latex.codecogs.com/svg.image?Diamine\rightarrow H_2{}O_2{}" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?9.63\times&space;10^{-5}&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?9.63\times 10^{-5} (per\; sec)" /></td>
+                        <td>Half life: 2 hours<sup><a href="https://www.sciencedirect.com/science/article/pii/S030881461201134X?via%3Dihub" target="_blank">[7]</a></sup></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?H_2{}O_2{}&plus;OxyR_N{}\rightarrow&space;OxyR_A{}" title="https://latex.codecogs.com/svg.image?H_2{}O_2{}+OxyR_N{}\rightarrow OxyR_A{}" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?4.20\times&space;10^{-4}&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?4.20\times 10^{-4} (per\; sec)" /></td>
+                        <td>Second order reaction<sup><a href="https://www.pnas.org/doi/10.1073/pnas.1807954115" target="_blank">[8]</a></sup></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?OxyR_A{}&plus;katGp\leftrightarrow&space;&space;mRNA_{TEV_p}{}" title="https://latex.codecogs.com/svg.image?OxyR_A{}+katGp\leftrightarrow mRNA_{TEV_p}{}" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_3{}" title="https://latex.codecogs.com/svg.image?k_3{}" /></td>
+                        <td>No reference</td>
+                        <td>N/A</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?mRNA_{TEV_p}{}\rightarrow&space;TEV_p{}" title="https://latex.codecogs.com/svg.image?mRNA_{TEV_p}{}\rightarrow TEV_p{}" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_4{}" title="https://latex.codecogs.com/svg.image?k_4{}" /></td>
+                        <td>No reference</td>
+                        <td>N/A</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?GFPt&space;&plus;&space;TEV_p{}\rightarrow&space;GFPd&plus;TEV_p{}" title="https://latex.codecogs.com/svg.image?GFPt + TEV_p{}\rightarrow GFPd+TEV_p{}" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_5{}" title="https://latex.codecogs.com/svg.image?k_5{}" /></td>
+                        <td>No reference</td>
+                        <td>N/A</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?RFPt&space;&plus;&space;TEV_p{}\rightarrow&space;RFP&plus;TEV_p{}" title="https://latex.codecogs.com/svg.image?RFPt + TEV_p{}\rightarrow RFP+TEV_p{}" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_6{}" title="https://latex.codecogs.com/svg.image?k_6{}" /></td>
+                        <td>No reference</td>
+                        <td>N/A</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"><strong>Reaction</strong></th>
+                        <th scope="col"><strong>Rate Constant</strong></th>
+                        <th scope="col"><strong>Estimated Value</strong></th>
+                        <th scope="col"><strong>Assumption</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\phi\rightarrow&space;&space;Diamine" title="https://latex.codecogs.com/svg.image?\phi\rightarrow Diamine" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_1{}" title="https://latex.codecogs.com/svg.image?m_1{}" /></td>
+                        <td>0</td>
+                        <td>Active transport;First order reaction</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\phi\rightarrow&space;&space;OxyR_N{}" title="https://latex.codecogs.com/svg.image?\phi\rightarrow OxyR_N{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_2{}" title="https://latex.codecogs.com/svg.image?m_2{}" /></td>
+                        <td>0.1</td>
+                        <td>Controllable</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\phi\rightarrow&space;&space;GFPt" title="https://latex.codecogs.com/svg.image?\phi\rightarrow GFPt" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_3{}" title="https://latex.codecogs.com/svg.image?m_3{}" /></td>
+                        <td>0.53</td>
+                        <td>Controllable</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\phi\rightarrow&space;&space;RFPt" title="https://latex.codecogs.com/svg.image?\phi\rightarrow RFPt" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?m_4{}" title="https://latex.codecogs.com/svg.image?m_4{}" /></td>
+                        <td>0.10</td>
+                        <td>Controllable</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                  <h5><strong>Degradation Rates</strong></h5>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"><strong>Protein</strong></th>
+                        <th scope="col"><strong>Constant</strong></th>
+                        <th scope="col"><strong>Value</strong></th>
+                        <th scope="col"><strong>Half-Life</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?H_2{}O_2{}\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?H_2{}O_2{}\rightarrow \phi" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_1{}" title="https://latex.codecogs.com/svg.image?d_1{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?8.02\times&space;10^{-6}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?8.02\times 10^{-6}\; (per\; sec)" /></td>
+                        <td>24 hours<sup><a href="https://www3.epa.gov/pesticides/chem_search/cleared_reviews/csr_PC-000595_12-Jul-07_a.pdf" target="_blank">[9]</a></sup></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?OxyR_N{}\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?OxyR_N{}\rightarrow \phi" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_2{}" title="https://latex.codecogs.com/svg.image?d_2{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?1\;&space;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?1\; (per\; sec)" /></td>
+                        <td>No reference</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?OxyR_A{}\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?OxyR_A{}\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_3{}" title="https://latex.codecogs.com/svg.image?d_3{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?1\;&space;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?1\; (per\; sec)" /></td>
+                        <td>No reference</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?mRNA_{TEV}{}\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?mRNA_{TEV}{}\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_4{}" title="https://latex.codecogs.com/svg.image?d_4{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?2.10\times&space;10^{-3}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?2.10\times 10^{-3}\; (per\; sec)" /></td>
+                        <td>5.5 minutes<sup><a href="https://www.pnas.org/doi/full/10.1073/pnas.112318199" target="_blank">[10]</a></sup></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?TEV\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?TEV\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_5{}" title="https://latex.codecogs.com/svg.image?d_5{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?6.42\times&space;10^{-5}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?6.42\times 10^{-5}\; (per\; sec)" /></td>
+                        <td>No reference</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?GFPt\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?GFPt\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_6{}" title="https://latex.codecogs.com/svg.image?d_6{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?6.88\times&space;10^{-5}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?6.88\times 10^{-5}\; (per\; sec)" /></td>
+                        <td>2.8 hours<sup><a href="https://onlinelibrary.wiley.com/doi/10.1002/cyto.a.20461" target="_blank">[11]</a></sup></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?RFPt\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?RFPt\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_7{}" title="https://latex.codecogs.com/svg.image?d_7{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?1.38\times&space;10^{-4}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?1.38\times 10^{-4}\; (per\; sec)" /></td>
+                        <td>No reference; same as RFPt</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?GFPd\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?GFPd\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_8{}" title="https://latex.codecogs.com/svg.image?d_8{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?1.38\times&space;10^{-4}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?1.38\times 10^{-4}\; (per\; sec)" /></td>
+                        <td>No reference; sames as GFPd</td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?RFPd\rightarrow&space;\phi" title="https://latex.codecogs.com/svg.image?RFPd\rightarrow \phi" /></th>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d_9{}" title="https://latex.codecogs.com/svg.image?d_9{}" /></td>
+                        <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?9.63\times&space;10^{-6}\;&space;(per\;&space;sec)" title="https://latex.codecogs.com/svg.image?9.63\times 10^{-6}\; (per\; sec)" /></td>
+                        <td>20 hours<sup><a href="https://elifesciences.org/articles/46181" target="_blank">[12]</a></sup></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr>
+
+                  <h5><strong>Results and Interpretation</strong></h5>
+                  <br>
+                  <p>The outputs of Cycle 1 successfully proves the distinct color segregation under varying bioamine concentrations.</small></p>
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-27-2.png"/></p>
+                      <p><small><b>Figure 2.1.1</b> GFP and RFP concentration modeling outputs of Cycle 1 with Bioamines represented on a log-scale axis. <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" /> Parameters</small></p>
+                    </div>
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-28-2.png"/></p>
+                      <p><small><b>Figure 2.1.2</b> GFP and RFP concentration modeling outputs of Cycle 1 with Bioamines represented on a linear axis. <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}" /> Parameters</small></p>
+                    </div>
+                  </div>
+                  
+                  <p>Comparison of high bioamine and low bioamine environments</p>
+                  <p>In this section, we are going to implement realistic bioamine level thresholds and compare the colorimetric outputs accordingly. Our aim is to generate a green color when the fish is edible, and red when it is not safe to consume. Assuming the regulation for total bioamines resides around 1000 ppm, the following trend can be observed as follows.</p>
+                  
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic8.png"/><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic9.png"/><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic10.png"/></p>
+                    </div>
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic11.png"/><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic12.png"/><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic13.png"/></p>
+                    </div>
+                  </div>
+
+                  <p>A further analysis of the colorimetric output generated at different bioamine thresholds proves that the mechanism of generating different colored outputs functions. As seen from the outputs of our sensitivity analysis, we have good understanding of the significant parameters, implying the flexibility of our biosensor to be altered in certain parts to meet different requirements. While histamine is regulated to 200 ppm in many countries, the exact regulation standard for total bioamines (TBA) is unknown. Thus, our temporary TBA threshold of 1000 ppm is likely to be altered through further specification of local and international regulations in the future. Additionally, our biosensor holds the significance that it can be built to detect bioamines not limited to seafood, but other types of meat as well. The colorimetric outputs can be modified to take into account the various regulations of total bioamines via adding preliminary histamine into our solution buffer and increasing or decreasing the promoter’s sensitivity to bioamines.</p>
+                  <hr>
+                  
+                  <h5><strong>Sobol Analysis of Cycle 1</strong></h5>
+                  <br>
+                  <p>Sobol analysis was performed again with the ODEs set for cycle 1 to provide insights not only on the improvement of cycle 1, but also on the future direction that the circuit design team can hold in order to further improve our circuit. The corresponding sensitivity analysis results are shown as follows.</p>
+
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-29.png"/></p>
+                    </div>
+                    <div class="col-sm">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-30.png"/></p>
+                    </div>
+                  </div>
+                  <p style="text-align:center;"><small><b>Figure 2.2</b>Sobol Analysis of Cycle 1 on GFP and RFP respectively</small></p>
+                  <p style="text-align:center;"><small><b>*is defined as SA values that are negative.</b></small></p>
+                  <p>Interestingly, the Sobol Analysis of cycle 1 shows that there are no sensitive parameters that are commonly found in both GFP and RFP outputs. Assuming that degradation terms are ignored, this implies that changing GFP sensitive parameters (such as <img src="https://latex.codecogs.com/svg.image?m_3{}" title="https://latex.codecogs.com/svg.image?m_3{}" />) would not affect the RFP performance, while changing RFP sensitive parameters (such as <img src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" />, <img src="https://latex.codecogs.com/svg.image?k_2{}" title="https://latex.codecogs.com/svg.image?k_2{}" />, <img src="https://latex.codecogs.com/svg.image?k_4{}" title="https://latex.codecogs.com/svg.image?k_4{}" />, <img src="https://latex.codecogs.com/svg.image?k_6{}" title="https://latex.codecogs.com/svg.image?k_6{}" />, <img src="https://latex.codecogs.com/svg.image?\alpha&space;" title="https://latex.codecogs.com/svg.image?\alpha " />, <img src="https://latex.codecogs.com/svg.image?k_7{}" title="https://latex.codecogs.com/svg.image?k_7{}" />, <img src="https://latex.codecogs.com/svg.image?m_2{}" title="https://latex.codecogs.com/svg.image?m_2{}" />, <img src="https://latex.codecogs.com/svg.image?m_4{}" title="https://latex.codecogs.com/svg.image?m_4{}" /> and <img src="https://latex.codecogs.com/svg.image?d_4{}" title="https://latex.codecogs.com/svg.image?d_4{}" />) would not affect the GFP performance. These observations are further elaborated in Figure 2.3.1 and Figure 2.3.2 below.</p>
+
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-31.png"/></p>
+                      <p style="text-align:center;"><small><b>Figure 2.3.1</b> Modeling of GFP with varying m3 Parameter Values</small></p>
+                    </div>
+                    <div class="col-sm">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-32.png"/></p>
+                      <p style="text-align:center;"><small><b>Figure 2.3.2</b>  Modeling of RFP with varying k1 Parameter Values</small></p>
+                    </div>
+                  </div>
+                  
+                    <p>Moreover, the results from Figure 2.4.2 are extremely significant for us. The parameter under observation, <img src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" /> is the rate constant for the reaction of the conversion of diamine to <img src="https://latex.codecogs.com/svg.image?H_2{}O_2{}"/> , with <img src="https://latex.codecogs.com/svg.image?k_1{}=k\left&space;[rDAO&space;&space;\right&space;]" title="https://latex.codecogs.com/svg.image?k_1{}=k\left [rDAO \right ]" />. Thus, by increasing the rDAO concentration, we could increase <img src="https://latex.codecogs.com/svg.image?k_1{}" title="https://latex.codecogs.com/svg.image?k_1{}" />, hence increase the RFP output. We shared our observation with the circuit design, and they found out that pelB tag could increase the concentration of functional rDAO in our system. Refer to our design page for more information.</p>
+                    
+                    <div style="text-align:center">
+                      <a href="https://2022.igem.wiki/hkust/wetlab-circuit-design" class="button" target="_blank">Circuit Design Experiment</a>
+                    </div>
+                    <p></p>
+                    <br>
+                    <p>Another method to increase the concentration of rDAO is to change our product to a <span style="color:#678BD6;font-weight:bold">cell free system</span>. In CFS, rDAO can be pre-deposited in a certain amount by transforming it into BL21 cells, which serve as the source of cell lysates, and harvesting them in the log phase to ensure their active production of rDAO. Moreover, this also substantially reduces the variability of live cell productivity which would cause the ambiguity of k1. Based on these observations, the idea of increasing the concentration of rDAO was also shared with the chassis team to increase the further functionality of our biosensor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="container mx-auto mt-5 w-75" id="summary">
+    <h1 class="pt-5 mx-auto text-center">
+        Summary and Discussions
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>If we were asked to increase our GFP or positive control output while maintaining our RFP output (in other words, increasing only m3 as seen in Figure 2.4.1), this raises the color mixing issue again. Therefore, the dry lab team proposed another system in addition to our TEV degradation system, which is the post-translational inactivation system. The system that the dry lab team suggests is a transcriptional level deactivation system could be introduced in the future, such as the tetracycline-controlled Tet-Off-Tet-On gene expression systems.</p>
+                  <p>Based on these results, mathematical modeling provides the optimal language for describing complex systems, but it only operates with the information fed into it. The assumptions and parameters are favored to meet the modeling expectations we initially envisioned. We hope that modeling provides a better understanding of the mechanism of our biosensor and that it provides a guideline for the experiments.</p>
+                  <h5><strong>Supplementary Data and Codes</strong></h5>
+                  <p>The supplementary data and codes can be found on the <a href="https://github.com/commashy/2022_iGEM_HKUST">Github page</a> of HKUST iGEM 2022.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>[1] Ingalls, B. P. (2022). 7.1.2 Regulated gene expression. In Mathematical Modeling in Systems Biology: An introduction (pp. 192–193). essay, The MIT Press.</p>
+                  <p>[2] Zhang, L., Gurskaya, N. G., Merzlyak, E. M., Staroverov, D. B., Mudrik, N. N., Samarkina, O. N., Vinokurov, L. M., Lukyanov, S., &amp; Lukyanov, K. A. (2018). Method for real-time monitoring of protein degradation at the single cell level. BioTechniques, 42(4), 446–450. https://doi.org/10.2144/000112453</p>
+                  <p>[3] Physics simulation: RGB color addition. The Physics Classroom. (n.d.). Retrieved September 26, 2022, from https://www.physicsclassroom.com/Physics-Interactives/Light-and-Color/RGB-Color-Addition/RGB-Color-Addition-Interactive</p>
+                  <p>[4] Ratushny AV, Ramsey SA, Aitchison JD. Mathematical modeling of biomolecular network dynamics. Methods Mol Biol. 2011;781:415-33. doi: 10.1007/978-1-61779-276-2_21. PMID: 21877294; PMCID: PMC4482237.</p>
+                  <p>[5] Vazquez-Cruz, M. A., Guzman-Cruz, R., Lopez-Cruz, I. L., Cornejo-Perez, O., Torres-Pacheco, I., & Guevara-Gonzalez, R. G. (2014). Global sensitivity analysis by means of EFAST and Sobol’ methods and calibration of reduced state-variable TOMGRO model using genetic algorithms. Computers and Electronics in Agriculture, 100, 1–12. https://doi.org/https://doi.org/10.1016/j.compag.2013.10.006</p>
+                  <p>[6] Zhang, X. Y., Trame, M. N., Lesko, L. J., & Schmidt, S. (2015). Sobol Sensitivity Analysis: A Tool to Guide the Development and Evaluation of Systems Pharmacology Models. CPT: pharmacometrics & systems pharmacology, 4(2), 69–79. https://doi.org/10.1002/psp4.6</p>
+                  <p>[7] Naila, A., Flint, S., Fletcher, G., Bremer, P., Meerdink, G., & Morton, R. (2012). Prediction of the amount and rate of histamine degradation by diamine oxidase (DAO). Food Chemistry, 135(4), 2650-2660. https://doi.org/10.1016/j.foodchem.2012.07.022</p>
+                  <p>[8] Pedre, B., Young, D., Charlier, D., Mourenza, A., Rosado, L., Marcos-Pascual, L., Wahni, K., Martens, E., Rubia A., Belousov, V., Mateos, L. (2018). Structural snapshots of OxyR reveal the peroxidatic mechanism of H2O2 sensing. Proceedings of the National Academy of Sciences. https://doi.org/10.1073/pnas.180795411</p>
+                  <p>[9] Breithaupt, J. (2007). Summary Review of Available Literature for Hydrogen Peroxide and Peroxyacetic Acid for New Use to Treat Wastewater. United States Environmental Protection Agency. https://www3.epa.gov/pesticides/chem_search/cleared_reviews/csr_PC-000595_12-Jul-07_a.pdf</p>
+                  <p>[10] Bernstein, J., Khodursky, A., Lin, P., Lin-Chao, S., Cohen, S. (2002). Global analysis of mRNA decay and abundance in Escherichia coli at single-gene resolution using two-color fluorescent DNA microarrays. PNAS. https://doi.org/10.1073/pnas.112318199</p>
+                  <p>[11] Halter, M., Tona, A., Bhadriraju, K., Plant, A. L., & Elliott, J. T. (2007). Automated live cell imaging of green fluorescent protein degradation in individual fibroblasts. Cytometry. Part A : the journal of the International Society for Analytical Cytology, 71(10), 827–834. https://doi.org/10.1002/cyto.a.20461</p>
+                  <p>[12] He, L., Binari, R., Huang, J., Falo-Sanjuan, J., & Perrimon, N. (2019). In vivo study of gene expression with an enhanced dual-color fluorescent transcriptional timer. eLife, 8, e46181. https://doi.org/10.7554/eLife.46181</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#cycle0" class="bnav__link bnav__link--full-width">Cycle 0</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#cycle1" class="bnav__link bnav__link--full-width">Cycle 1</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#constant" class="bnav__link bnav__link--full-width">Constant chart</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#summary" class="bnav__link bnav__link--full-width">Summary</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

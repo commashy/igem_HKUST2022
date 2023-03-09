@@ -1,0 +1,418 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Prototype{% endblock %}
+{% block lead %}Fisherly, a cheap and convenient biosensor{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+      Fisherly aims to provide small seafood businesses and the public with a cheap and easy-to-use detection kit to ensure food safety. Our prototype, inspired by the COVID-19 rapid antigen test (RAT) kits, allows a simple on-site assessment of seafood quality. To maximise user-friendliness, we modified and improved upon the conventional RAT kit design to better suit the characteristics of our biosensor, which uses a cell-free system to produce colourimetric outputs to indicate the quality.</p>
+  <h1 class="pt-5 mx-auto text-center" id="design">
+      Prototype Design
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+      Fisherly’s prototype is composed of three major components, a sample collection swab, a sample processing container, and a cell-free biosensor, provided with the sample collection card.</p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" id="prototype design">
+              <div class="col" id="sample-collection-swab">
+                <p style="text-align:center"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/prototype-design-updated.png" width=80%/><br><small><b>Figure 1</b></small></p>
+                <p>Although not shown in the diagram, our kit also contains a biohazard bag so that the biosensor can be discarded appropriately. More detailed safety measures can be found in the <a href="https://2022.igem.wiki/hkust/safety">safety</a> page.</p>
+                <h5><strong>Sample Collection Swab</strong></h5>
+                <p style="text-align:center"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/prototype-sample-collection-swab.png" width=80%/><br><small><b>Figure 2</b></small></p>
+                <p>The sample collection swab is made out of a flocked nylon tip with a plastic stem, covered with a polyethylene layer. The plastic stem is designed to hold a small amount of liquid, referred to as the soaking buffer. As explained in our product manual, snapping the upper part of the plastic stem will release 50 μL of the soaking buffer and moisten the swab tip. The polyethylene layer covers the plastic stem to prevent any leakage.</p>
+
+                <button class="collapsible">Development Process</button>
+                <div class="content">
+                  <h5 class="mt-2 mb-2"><b>Swab Materials</b></h5>
+                  <p>Before choosing flocked nylon as the best material for Fisherly’s prototype, we referred to several research papers that discuss the characteristics of swab materials and their advantages.</p>
+                  <p>According to research by Brujins et al., the differences in the morphology between flocked nylon, cotton and rayon swabs result in a significant difference in their retrieval and release performance<sup><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/1556-4029.13837" target="_blank">[1]</a></sup>. Flocked nylon swabs have short nylon fibre strands with no internal core attached perpendicularly to the plastic shaft. This trait allows for an increased sample uptake and release<sup><a href="https://www.copanusa.com/sample-collection-transport-processing/floqswabs/" target="_blank">[2]</a></sup>, whereas rayon and cotton swabs, composed of longer fibres tightly wound on the shaft, have a lower retrieval performance<sup><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/1556-4029.13837" target="_blank">[1]</a></sup>.</p>
+                  <p>The efficiency of flocked nylon swabs is supported by a study conducted by Paula Väre, Klaus Hedman and Maija Lappalainen. Flocked nylon swabs showed a great releasing property of 70% to 80%, while cotton swabs released about 18% to 30% of the sample<sup><a href="https://www.copanusa.com/wp-content/uploads/2019/04/341425935054_ESCV_08_Flocked_Herpes_Finland.pdf" target="_blank">[3]</a></sup>. In addition to high releasing efficiency, the short fibre strands make flocked nylon swabs more appealing. In contrast to rayon and cotton swabs, which leave some material and impurities due to their longer fibres, flocked nylon swabs barely leave any residues on the sample after swabbing<sup><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/1556-4029.13837" target="_blank">[1]</a></sup>. With these points in mind, we decided that flocked nylon swabs would be the most suitable to gather biogenic amines from fish samples.</p>
+                  <p></p>
+                  <h5><b>Soaking Buffer</b></h5>
+                  <p>Dr. Peter Luk from the Agriculture, Fisheries, and Conservation Department mentioned that the moisture level of the fish surface differs among fish samples, depending on the type and storage condition. Hence, it is crucial to have a way to limit and standardise the sample collection area. After getting feedback from Dr. Luk, we decided to include a soaking buffer in our kit. This modification would create a more uniform moisture level on the swab during sample collection; having a standardised amount of soaking liquid for the swab will minimise the moisture level difference within samples.</p>
+                      <p>Aspects that we considered when choosing the soaking buffer are food safety and its compatibility with the extraction buffer and the cell-free system. Of the five extraction buffers, MQ and citrate buffer were also candidates for soaking buffer, as they are food safe. However, after our <a href="wetlab-hardware#cfs-eb-experiment">CFS and extraction buffer compatibility experiment</a>, we found that citrate buffer interferes with the performance of the CFS. Moreover, we could not gather enough data to deduce whether or not the mixing of two different buffer chemicals compromises the bioamines collected, hinder the extraction efficiency, or affect the biosensor. Therefore, we decided to use MQ as the soaking solution to minimise this concern.</p>
+                      <p>The specific volume of the soaking volume was based on the maximum volume the swab can hold, which is 220 μL. The details of deriving 220 μL can be found <a href="notebook#week12">in week 12 notebook.</a>. Since we did not want the soaking buffer to be present in excess to leave a lot of moisture on the surface, we decided on using 50 μL, which is around 20%, in our experiments.</p>
+                  </div>
+
+                  <hr>
+                  <h5><strong>Sample Processing Container</strong></h5>
+                  <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/prototype-sample-processing-container.png" width=60% /><br><small><b>Figure 3</b></small></p>
+                  <p>The upper cap, labelled Cap A, is unscrewed to insert the swab after sample collection is done. Sample processing is performed by 0.01M HCl, our extraction buffer, which extracts bioamines from the sample collection swab. The volume and the concentration of the buffer are 700 μL and 0.01M, respectively.</p>
+                  <p>Unscrewing the lower cap, labelled Cap B, reveals the sample outlet, which contains a microfilter to remove bacteria. The outlet is covered by an aluminium foil to prevent leakage during storage and sample processing. The users can simply squeeze the container to release the solution to the Cell-Free Biosensor.</p>                
+                  <button class="collapsible">Development Process</button>
+                  <div class="content">
+                    <h5 class="mt-2 mb-2" id="extractionbuffer"><b>Extraction Buffer</b></h5>
+                    <p>The extraction efficiency of the extraction buffer is one of the important factors in our prototype, as it affects the recovery rate of bioamine samples from the swab during sample processing. Therefore, several candidates were considered. Five were chosen based on research:</p>
+                    <ol>
+                      <li><b>Citrate Buffer</b><br>Citrate buffer was chosen as one of the candidates after reading a paper that used citrate buffer at different pHs to extract bioamines via capillary electrophoresis with pulsed amperometric detection<sup><a href="https://pubmed.ncbi.nlm.nih.gov/12924793/" target="_blank">[4]</a></sup>.</li>
+                      <br>
+                      <li><b>Hydrogen chloride (HCl)</b><br>Several papers that studied the bioamine concentration via the High-Performance Liquid Chromatography (HPLC) method mentioned HCl as a suitable option for bioamine extraction. According to research that worked with bioamines in Lycium barbarum L., HCl was superior to other extraction reagents, such as perchloric acid and trichloroacetic acid<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7922342/" target="_blank">[5]</a></sup>. Another study that used cheese samples used HCl as well, with the reasoning that it is a simple and inexpensive option.</li>
+                      <br>
+                      <li><b>Trichloroacetic acid (TCA)</b><br>Trichloroacetic acid is a popular extraction solution, often used in High-Performance Liquid Chromatography to quantify bioamine levels. According to research, TCA is highly recommended to extract bioamines from fish or meat samples as they show a satisfactory recovery rate<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7199571/" target="_blank">[6]</a></sup>.</li>
+                      <br>
+                      <li><b>Water</b><br>Water, without any additional chemicals or treatments, was used to extract bioamines from fish muscle tissues in a paper that discussed using ion-exchange chromatography coupled with spectrometry detection<sup><a href="https://doi.org/10.3390/foods10081746" target="_blank">[7]</a></sup>. Although they had an additional separation step after bioamine extraction, the sample of interest and the method of sample extraction were the same. Therefore, water was chosen as one of the extraction buffers.</li>
+                      <br>
+                      <li><b>Sodium tetraborate</b><br>A commercialised histamine test kit from the Kikkoman Biochemifa Company used sodium tetraborate as the reagent for sample extraction<sup><a href="https://biochemifa.kikkoman.com/e/products/detail/?id=11160" target="_blank">[8]</a></sup>. Although we failed to get a response to having a meeting to discuss their experience with testing different extraction reagents and seek advice on Fisherly’s current prototype design, this extraction reagent was added as one of the options to test out.</li><br>
+                    </ol>
+                    <p>Before directly comparing the extraction efficiency through the <span style="color:#678BD6;font-weight:bold">swab recovery rate experiment</span>, the <span style="color:#678BD6;font-weight:bold">cell-free system (CFS) and extraction buffer compatibility experiment</span> was performed first to eliminate ones that hinder the cell-free system’s function. Through a series of selection processes, the final extraction buffer was chosen. (A more detailed explanation about the selection of buffers can be found <a href="wetlab-hardware#cfs-eb-experiment-result">here</a>.)</p>
+                    <p>The concentration of the extraction buffer is set as 0.01M so that a minimum 1:1 molar ratio of extraction buffer to bioamines could be achieved at 1000 ppm, which is the upper limit of our biosensor that will give a red output.</p>
+                    <p>Moreover, in order to adjust the activation time of the cell-free system so that it gives accurate colourimetric outputs at desired bioamine concentrations, a basal level of 192 ppm histamine is included in the extraction buffer, so that our biosensor will produce red output after 23 minutes. More details and calculations can be found <a href="https://2022.igem.wiki/hkust/proof-of-concept">here</a>.</p>
+                    <p></p>
+                    <h5><b>Filter</b></h5>
+                    <p>The fish surface is not entirely sterile and contains potential sample contaminants. Therefore, we decided to include a filter in the sample outlet zone to reduce the risk of introducing bacterial contamination to our cell-free system.</p>
+                    <p>We considered the following four criteria when choosing the filter material candidates: mechanical strength, hydrophilicity, protein binding capacity, and leachability.</p>
+                    <ul>
+                      <li>Two major types of filters are available in the market, hydrophobic and hydrophilic. While hydrophobic membrane filters are ideal for air and gas filtration, they are not suitable for filtering aqueous solutions. On the other hand, hydrophilic membrane filters are commonly used for water-based fluids. Since the extraction buffer in our kit is water-based, the hydrophilic ones are more suitable.</li>
+                      <li>The most common pore size used to filter out bacteria is 0.22 μm. Filters with small pores are prone to pore clogging if the material has high reactivity with protein. As bioamines are smaller than protein, we wanted to ensure that bioamines can pass easily through the pores. Therefore, a filter with low protein binding capacity is needed. </li>
+                      <li>Leachability refers to the ability of the compounds in the filters to leach from the filter materials. As our goal of using a microfilter is to get rid of contaminants, it would defeat its purpose if the filter itself contributes to contamination. We compared the three following candidates based on the five mentioned criteria:</li>
+                    </ul>
+                    <ol>
+                      <li><b>Nylon</b><br>Nylon is naturally hydrophilic and has high mechanical strength<sup><a href="https://pubs.rsc.org/en/content/articlehtml/2020/ra/d0ra01077d" target="_blank">[9]</a></sup>. However, after further research, we found that nylon demonstrates extremely high protein adsorption compared to the other candidates<sup><a href="https://www.merckmillipore.com/HK/en/life-science-research/chromatography-sample-preparation/membrane-learning-center/Binding-Properties-of-Filters/596b.qB.Hj0AAAFM5FB88eJw,nav" target="_blank">[10]</a></sup>.</li>
+                      <br>
+                      <li><b>Hydrophilic polyvinylidene difluoride (H-PVDF)</b><br>PVDF is commonly used for liquid microbiological analysis. It has a wide range of chemical compatibility, high bacterial filtration efficiency, good mechanical strength, low leachability, and low protein adsorption<sup><a href="https://www.merckmillipore.com/HK/en/life-science-research/chromatography-sample-preparation/membrane-learning-center/Binding-Properties-of-Filters/596b.qB.Hj0AAAFM5FB88eJw,nav" target="_blank">[10]</a><a href="https://www.merckmillipore.com/HK/en/life-science-research/chromatography-sample-preparation/membrane-learning-center/Chemical-Compatibility/Glqb.qB.awMAAAFM9D588eJs,nav" target="_blank">[11]</a><a href="https://core.ac.uk/download/pdf/37750007.pdf" target="_blank">[12]</a></sup>. Unfortunately, PVDF is naturally hydrophobic, which means it requires a hydrophilicity treatment to be used in our product.</li>
+                      <br>
+                      <li><b>Polyethersulfone (PES)</b><br>PES is compatible with most chemicals, robust, and hydrophilic. PES shares similar qualities with PVDF in terms of bacterial filtration efficiency, protein adsorption and leachability but has a lower price<sup><a href="https://www.merckmillipore.com/HK/en/life-science-research/chromatography-sample-preparation/membrane-learning-center/Chemical-Compatibility/Glqb.qB.awMAAAFM9D588eJs,nav" target="_blank">[11]</a></sup>. Therefore, it is a highly suitable option.</li>
+                    </ol>
+                    <p>After a thorough comparison, we concluded that the PES filter is the most appropriate for our product.</p>
+                  </div>
+
+                  <hr>
+                  <h5><strong>Cell-Free Biosensor</strong></h5>
+                  <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/prototype-cell-free-biosensor.png" width=80% /></p>
+                  <p>Our novel cell-free biosensor is located inside Cap B, in a freeze-dried form. It is rehydrated by the processed sample when it is added by squeezing the container to release 1 drop as mentioned in our <a href="https://static.igem.wiki/teams/4225/wiki/final-fisherly-biosensor-user-manual.pdf">user manual</a>, which is 50 μL. Users will then see two colourimetric outputs, green and red, after 23 minutes.</p>
+                  <p>Our novel cell-free biosensor is located inside Cap B, in a freeze-dried form. It is rehydrated by the processed sample when it is added by squeezing the container to release 3 drops as mentioned in our <a href="https://static.igem.wiki/teams/4225/wiki/inal-fisherly-biosensor-user-manual.pdf">user manual</a>, which adds up to 15 μL. Users will then see two colourimetric outputs, green and red, after 20 minutes.</p>
+                  <p>Any level of bioamine present in the sample lower than the harmful threshold will trigger a green colour, meaning that the fish tested is safe to consume when the output is green. A red colour indicates that the fish is not suitable for consumption as this output is displayed when the bioamine levels surpass our upper limit, which is set to be 1000 ppm.</p>
+                  <p>The green output also serves the role of a positive control. No colour change even after rehydrating the cell-free system with processed samples signifies that the biosensor is malfunctioning. In this case, the defective kit should be discarded and the quality test should be repeated with a new one.</p>
+                  <button class="collapsible">Development Process</button>
+                  <div class="content">
+                      <h5 class="mt-2 mb-2"><b>Rehydration volume</b></h5>
+                      <p>In order to identify the best rehydration method for the freeze-dried cell-free biosensor, we consulted Professor Taishi Tonooka from the faculty of Mechanical Engineering, Kyoto Institute of Technology, who has experience in incorporating cell-free systems into different devices. He suggested using the volume lost during the freeze-drying process to rehydrate the cell-free system. In our case, the volume of our cell-free biosensor is 50 μl, which means that 50 μl of the processed sample would be suitable as the rehydration volume.</p>
+                      <h5 class="mt-2 mb-2"><b>Storage condition and time</b></h5>
+                      <p>In order to determine the storage condition and duration of our product, we looked into various research papers to compare the efficacy of non-lyophilized CFS and lyophilized CFS after rehydration at different temperatures and duration.</p>
+                      <p>According to research that looked into cell-free biosensors for biomedical applications, while non-lyophilised CFS showed rapid degradation in efficacy, freeze-dried ones could be preserved at various temperatures, −80°C, 20°C, 4°C, or 25°C for up to one year, although an 80% decrease in signal was observed after the rehydration of these components<sup><a href="https://www.sciencedirect.com/science/article/pii/S2468451119300248#bib33" target="_blank">[16]</a></sup>.</p>
+                      <p>Moreover, another study by Salehi et al. looked into the lyophilized CFS and non-lyophilized CFS sensor stability when stored at various temperatures, from −80°C to 25°C for up to 1 year. It revealed that non-lyophilized extracts have a rapid decrease in efficacy, especially at higher temperatures, whereas the lyophilized extracts were more stable<sup><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/biot.201500237" target="_blank">[17]</a></sup>. However, the freeze-dried CFS was also affected by temperature, with its viability decreasing more rapidly at higher temperatures. The lyophilized extracts also lost activity after 1 year.</p>
+                      <p>Therefore, to ensure product quality, the suitable storage temperature and viability time were decided to be 4 degrees and 90 days.</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+  </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="method">
+    <h1 class="pt-5 mx-auto text-center">
+        Sample Collection Method
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+      <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4">
+                <div class="col">
+                  <h5><strong>Swab Sampling</strong></h5>
+                  <p>Our final product will contain a sample collection card with specific dimensions to keep the size of the sampling area uniform throughout all tests performed using our biosensor kit. In addition, our <a href="https://static.igem.wiki/teams/4225/wiki/final-fisherly-biosensor-user-manual.pdf" target="_blank">user manual</a> specifies the number and manner of sweeping when collecting the sample to increase reproducibility and repeatability. These standardisation measures will render more objective test results when testing different-sized fish samples.</p>
+                  <button class="collapsible">Development Process</button>
+                  <div class="content">
+                      <h5 class="mt-2 mb-2"><b>Sampling Method</b></h5>
+                      <p>Before settling on the current method for sample collection, three different methods were considered:</p>
+                      <ol>
+                        <li><b>Direct placement of paper-based biosensor</b><br>
+                        This sample collection method is based on one of the earlier paper-based hardware designs containing a cell-free system freeze-dried on paper. However, there were many uncertainties about ensuring the unidirectional flow of the sample through the vertical flow assay pad layers and preventing leakage of the cell-free system’s components. This idea was dismissed due to insufficient data to conclude that this is the ideal design for our project.</li>
+                        <br>
+                        <li><b>Chunk sampling method</b><br>
+                        <p>For hardware design improvement, we consulted Dr. Peter Luk from the Agriculture, Fisheries, and Conservation Department to understand more about the conventional sample preparation procedures for seafood quality control. He explained that a commonly used method for large-scale quality testing is done by grinding 1% or 10% of the fish samples to quantify the histamine levels in a homogenised sample and use the data acquired to represent the entire batch.</p>
+                        <p>To integrate what has been suggested by Dr. Luk into our project while maintaining the goal of maximising user-friendliness, we decided on the chunk sampling method, where a small portion, or “chunk”, of fish is extracted and ground. A paper compared chunk sampling to the homogenising technique when preparing fish samples and found no statistically significant differences between using a small portion of fish and a homogenised fillet<sup><a href="https://link.springer.com/article/10.1007/s00244-021-00872-w" target="_blank">[12]</a></sup>.</p>
+                      <p>However, this was a study of finding alternative sampling methods for comparing heavy metal levels in fish, which means that the results may not apply to bioamines. Moreover, the newly presented chunk sampling method was not highly welcomed by the public, based on the <a href="implementation#manual">consumer survey</a> with more than 300 responses.</p></li>
+                      
+                        <li><b>Swabbing method</b><br>
+                        Another method that we looked into simultaneously with the chunk sampling method was the swabbing method. We based it on COVID-19 rapid antigen test kits, as benchmarking a widely used product will ease the implementation of our product. According to research, the swab sampling method is used during vaginal tests to collect bioamine samples, such as tyramine, cadaverine and putrescine<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4586437/" target="_blank">[13]</a></sup>. Therefore we proceeded to check the public’s preference via a <a href="implementation#manual">consumer survey</a>. With 68.5% of the respondents confirming that they are willing to use a kit based on a swab test, we decided to design our prototype based on the swabbing method.</li>
+                      </ol>
+                      <h5 class="mt-2 mb-2"><b>Sampling area and swabbing manner</b></h5>
+                      <p>A sample collection card of size 7 cm by 5 cm is provided along with the kit to limit the sampling area and standardise the amount of sample collected. Consumers can place the swabbing template at the centre of the fish fillet and sweep the area enclosed by the template to collect the sample. The template size was chosen to ensure the sampling of a significant portion of the fish fillet to extract enough bioamines for the downstream processing and colour output generation.</p>
+                      <p>The manner of swabbing is also regulated to standardise the amount of samples collected. The sampling area defined by the sample collection card should be swept 10 times horizontally and 15 times vertically by gently rubbing the swab to the surface of the fish in a slalom-like pattern<sup><a href="https://www.sciencedirect.com/science/article/pii/S0167701220305893" target="_blank">[14]</a></sup>. While doing so, users are advised to maintain the swabbing angle at 45 degrees and rotate the swab to ensure the collection of samples from all sides. These specific guidelines will allow the covering of the whole area twice while sampling, providing a standardised amount of bioamine samples to produce the correct output.</p>
+                      
+                  </div>
+
+                  <hr>
+                  <h5><strong>Sample Type</strong></h5>
+                  <p>Fisherly’s biosensor kit is designed for fish fillet. The surface of the skin that has been exposed to the outer environment has a higher susceptibility of bacterial proliferation, which makes it an ideal test site. The sample collection card packaged with the biosensor should be placed on the fish surface when collecting the sample. </p>
+                  <button class="collapsible">Development Process</button>
+                  <div class="content">
+                      <h5 class="mt-2 mb-2"><b>Target Sample</b></h5>
+                      <p>Our initial target was different types of unprocessed whole fish. However, while doing more research, we realised that this could introduce variations and inaccuracies in our test results. According to a paper on bioamine and fish spoilage<sup><a href="https://doi.org/https://doi.org/10.3844/ajassp.2010.859.877" target="_blank">[15]</a></sup>, the highest levels of bioamines are found on the guts, gills, and skin. Furthermore, when fish is spoiled, bioamine levels near the gut increase rapidly, which then spreads outward through the muscle tissue as spoilage continues. Uneven accumulation and distribution of bioamines signify that choosing the outer skin as a site of quality assessment may not accurately reflect the overall quality of the fish. Thus, Fisherly switched the target sample from whole fish to fish fillet, which has fewer variations in terms of bioamine concentration distribution.</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="pricing">
+    <h1 class="pt-5 mx-auto text-center">
+        Pricing Fisherly’s Biosensor
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+      <p class="w-80 mx-auto pt-4 pb-4 text-center">In order to achieve Fisherly’s goal of creating a convenient and cost-effective biosensor, we also considered the approximate price of our product, after thorough market analysis.</p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4">
+                <div class="col">
+                  <h5><strong>Market analysis</strong></h5>
+                  <p>The price of our product is estimated using the <span style="color:#678BD6;font-weight:bold">Economic or Exchange Value Model</span>. This pricing strategy helps calculate the maximum price that can be theoretically charged for our product to make it attractive to consumers. Our market analysis provided us with information to estimate the price that is best suited according to the consumer’s utility provided by our product. The table below summarizes the competitors for our product.</p>
+                  <table class="table table-hover" align="center">
+                    <thead>
+                      <tr>
+                        <th scope="col">Competitor Brands</th>
+                        <th scope="col">Price per test</th>
+                        <th scope="col">Storage time</th>
+                        <th scope="col">Target sample</th>
+                        <th scope="col">Inspection time</th>
+                        <th scope="col">Notes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Kikkoman histamine check swab</td>
+                        <td>39.57 HKD</td>
+                        <td>18 months from manufacturing date</td>
+                        <td>Raw fish, bonito flakes, fish sauce</td>
+                        <td>5 minutes</td>
+                        <td>Mincing fish meet required; heating samples suggested</td>
+                      </tr>
+                      <tr>
+                        <td>Kikkoman histamine test kit</td>
+                        <td>55.56 HKD</td>
+                        <td>Unspecified</td>
+                        <td>Unspecified</td>
+                        <td>15 minutes</td>
+                        <td>Requires pipette and spectrophotometer</td>
+                      </tr>
+                      <tr>
+                        <td>QuantiQuik Histamine Quick Test Strips</td>
+                        <td>46.31 HKD</td>
+                        <td>6 months</td>
+                        <td>Seafood, wine, juice, milk and dairy products, etc</td>
+                        <td>5 minutes</td>
+                        <td>Requires centrifugation and pipetting</td>
+                      </tr>
+                      <tr>
+                        <td>EnzyChrom Histamine Assay Kit</td>
+                        <td>32.12 HKD</td>
+                        <td>6 months</td>
+                        <td>Different fish species</td>
+                        <td>Absorbance measured after 30 minutes</td>
+                        <td>Resquires blending, filtration/centrfigation, and spectrophotometer</td>
+                      </tr>
+                      <tr>
+                        <td>Histamine ELISA kit</td>
+                        <td>36.32 HKD</td>
+                        <td>12 months</td>
+                        <td>Canned, frozen, fresh fish</td>
+                        <td>25 minutes</td>
+                        <td>Requires blending and pipetting</td>
+                      </tr>
+                      <tr>
+                        <td>Histamine Assay kit</td>
+                        <td>25.77 HKD</td>
+                        <td>More than 2 years under recommended storage</td>
+                        <td>Fish samples in various forms (e.g. fresh, canned, frozen, etc)</td>
+                        <td>20 minutes</td>
+                        <td>Requires spectrophotometer</td>
+                      </tr>
+                      <tr>
+                        <td>Veratox histamine kit</td>
+                        <td>61.77 HKD</td>
+                        <td>Not specified</td>
+                        <td>Not specified</td>
+                        <td>20 minutes</td>
+                        <td>Requires pipettes and a microwell reader</td>
+                      </tr>
+                      <tr>
+                        <td>Histamine Quantification Assay kit (Sigma-Aldrich)</td>
+                        <td>39.38 HKD</td>
+                        <td>Not specified</td>
+                        <td>Not specified</td>
+                        <td>Not specified</td>
+                        <td>Require storage at -20 degrees, requires spectrophotometer</td>
+                      </tr>
+                      <tr>
+                        <td>Histamine Quick Test strips (Sigma-Aldrich)</td>
+                        <td>62.64 HKD</td>
+                        <td>Not specified</td>
+                        <td>Food and beverage samples</td>
+                        <td>Under 15 minutes</td>
+                        <td>Not specified</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center"><small><b>Figure 4</b> Summary of histamine detection kits in the market, with information on their price, target sample, and detection time</small></p>
+                  <hr>
+                  <h5><strong>Setting price range</strong></h5>
+                  <p>According to our research and calculations, the average price for the histamine test kit is 44.38 HKD, and the prices range from around 25.77 HKD to 62.64 HKD per test. This shows the variety of prices available in the market and the prices that consumers are willing to pay for such detection kits.</p>
+                  <hr>
+                  <h5><strong>Comparing our product with those in market</strong></h5>
+                  <p>Our research has shown that many kits currently available in the market is used to detect the presence of histamine, while our biosensor tests total bioamine levels, which takes into account the synergistic effect of bioamines like cadaverine and putrescine on histamine’s toxicity.</p>
+                  <p>Moreover, many of the other currently available products require heating or centrifuging samples, using pipettes, or measuring absorbance with a spectrophotometer. Our product is a lot more user-friendly in comparison, with no additional steps needed other than snapping the swab and sweeping to collect samples.</p>
+                  <p>On the other hand, our product has a shorter storage time of 3 months, which was set to ensure the viability of the cell-free system. This is shorter by more than half the storage time of the products in the market.</p>
+                  <hr>
+                  <h5><strong>Pricing our biosensor</strong></h5>
+                  <p>With all the advantages and downsides of our product and the commercial kits considered, we estimated the maximum price of our biosensor to be 49.5 HKD per test using the Exchange Value model. This maximum price was calculated based on the price for our closest competitor, Kikkoman histamine check swab, which is also a colourimetric sensor using a swab without any additional process required, other than mincing the fish samples.</p>
+                  <p style="text-align:center"><i>Exchange Value Model = Price of comparable alternative + differential value</i></p>
+                  <p>It is important that the cost of production is lower than the selling price to ensure profitability. The cost of production is calculated considering the direct cost of raw materials and labour, and indirect costs that include rent and utilities among other costs. According to our calculations, our cost for producing one biosensor is estimated to be about 31.99 Hong Kong dollars.</p>
+                  <table class="table" align="center">
+                    <thead>
+                      <tr>
+                        <th scope="col">Cost Type</th>
+                        <th scope="col">Explanation</th>
+                        <th scope="col">Total Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="3">Direct Material</td>
+                        <td>6.5 HKD per unit</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>12,000 HKD IDT ordering</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><b>Total Direct Material Cost</b></td>
+                        <td>386,400</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="14">Direct Labour</td>
+                        <td>60 HKD per hour</td>
+                        <td rowspan="12">259,200</td>
+                      </tr>
+                      <tr>
+                        <td>8 hours per week</td>
+                      </tr>
+                      <tr>
+                        <td>4.5 weeks per month</td>
+                      </tr>
+                      <tr>
+                        <td>6 months</td>
+                      </tr> 
+                      <tr>
+                        <td>20 people</td>
+                      </tr> 
+                      <tr>
+                        <td>Intellectual Labour Cost</td>
+                      </tr>
+                      <tr>
+                        <td>60 HKD per hour</td>
+                      </tr>
+                      <tr>
+                        <td>7 hours per day</td>
+                      </tr>
+                      <tr>
+                        <td>5 days per week</td>
+                      </tr>
+                      <tr>
+                        <td>4.5 weeks per month</td>
+                      </tr>
+                      <tr>
+                        <td>3 months</td>
+                      </tr>
+                      <tr>
+                        <td>20 people</td>
+                      </tr>
+                      <tr>
+                        <td>Manufacturing Labour Cost</td>
+                        <td>567,000</td>
+                      </tr>
+                      <tr>
+                        <td><b>Total Direct Labour Cost</b></td>
+                        <td>826,200</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="3">Manufacturing Overhead</td>
+                        <td>Fixed MOH (e.g. rent)</td>
+                        <td>120,000</td>
+                      </tr>
+                      <tr>
+                        <td>Variable MOH (e.g. utilities and R&D)</td>
+                        <td>510,000</td>
+                      </tr>
+                      <tr>
+                        <td><b>Total MOH Cost</b></td>
+                        <td>630,000</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td><b>Total Cost</b></td>
+                        <td>1,842,600</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td><b>Total Unit Cost</b></td>
+                        <td>31.98958</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center"><small><b>Figure 5</b> Breakdown of Fisherly biosensor’s total unit cost on a basis of 576,000 units</small></p>
+
+                  <p>We aim to price our product slightly higher than our competitors due to our strong competitive advantage of user-friendliness, hence the price will be 45.7 HKD per test. This value is still within the range of prices offered by other competitors, thus ensuring affordability, and offers 30% profit margin and 43% markup on the product, thus confirming profitability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                  
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center" id="references">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+      <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4">
+                <div class="col">
+                  <p>[1] Bruijns, B. B., Tiggelaar, R. M., & Gardeniers, H. (2018). The Extraction and Recovery Efficiency of Pure DNA for Different Types of Swabs. Journal of Forensic Sciences, 5, 1492–1499. https://doi.org/10.1111/1556-4029.13837</p>
+                  <p>[2] FLOQSwabs | COPAN Diagnostics Inc. (n.d.). COPAN Diagnostics Inc.; https://www.facebook.com/CopanUSA/. Retrieved October 5, 2022, from https://www.copanusa.com/sample-collection-transport-processing/floqswabs/</p>
+                  <p>[3] Väre, P., Hedman, K., & Lappalainen, M. (2008). COMPARISON OF NYLON SWABS VERSUS COTTON SWABS FOR THE DIAGNOSIS OF HERPES SIMPLEX VIRUS. https://doi.org/https://www.copanusa.com/wp-content/uploads/2019/04/341425935054_ESCV_08_Flocked_Herpes_Finland.pdf</p>
+                  <p>[4] Sun, X., Yang, X., & Wang, E. (2003). Determination of biogenic amines by capillary electrophoresis with pulsed amperometric detection. Journal of Chromatography A, 1–2, 189–195. https://doi.org/10.1016/s0021-9673(03)00927-0</p>
+                  <p>[5] Ai, Y., Sun, Y. N., Liu, L., Yao, F. Y., Zhang, Y., Guo, F. Y., Zhao, W. J., Liu, J. L., & Zhang, N. (2021). Determination of Biogenic Amines in Different Parts of Lycium barbarum L. by HPLC with Precolumn Dansylation. Molecules, 4, 1046. https://doi.org/10.3390/molecules26041046</p>
+                  <p>[6] Munir, M. A., & Badri, K. H. (2020). The Importance of Derivatizing Reagent in Chromatography Applications for Biogenic Amine Detection in Food and Beverages. Journal of Analytical Methods in Chemistry, 1–14. https://doi.org/10.1155/2020/5814389</p>
+                  <p>[7] Kočar, D., Köse, S., Tufan, B., Ščavničar, A., & Pompe, M. (2021). Determination of Biogenic Amines in Fresh Fish and Processed Fish Products Using IC-MS/MS. Foods, 8, 1746. https://doi.org/10.3390/foods10081746</p>
+                  <p>[8] Histamine Test | Kikkoman Biochemifa. (n.d.). Kikkoman Biochemifa. Retrieved October 5, 2022, from https://biochemifa.kikkoman.com/e/products/detail/?id=11160</p>
+                  <p>[9] Fauzi, A., Hapidin, D. A., Munir, M. M., Iskandar, F., & Khairurrijal, K. (2020). A superhydrophilic bilayer structure of a nylon 6 nanofiber/cellulose membrane and its characterization as potential water filtration media. RSC Advances, 29, 17205–17216. https://doi.org/10.1039/d0ra01077d</p>
+                  <p>[10] Binding Properties of Filters. (n.d.). Merck Millipore. Retrieved October 5, 2022, from https://www.merckmillipore.com/HK/en/life-science-research/chromatography-sample-preparation/membrane-learning-center/Binding-Properties-of-Filters/596b.qB.Hj0AAAFM5FB88eJw,nav</p>
+                  <p>[11] Chemical Compatibility. (n.d.). Merck Millipore. Retrieved October 5, 2022, from https://www.merckmillipore.com/HK/en/life-science-research/chromatography-sample-preparation/membrane-learning-center/Chemical-Compatibility/Glqb.qB.awMAAAFM9D588eJs,nav</p>
+                  <p>[12] Nakasone, S. (2014). Characterization of Polyethersulfone (PES) and Polyvinylidene Difluoride (PVDF) Resistive Membranes under In Vitro Staphylococcus aureus Challenge. Handle Proxy. https://hdl.handle.net/10161/8833</p>
+                  <p>[13] Nelson, T. M., Borgogna, J.-L. C., Brotman, R. M., Ravel, J., Walk, S. T., & Yeoman, C. J. (2015). Vaginal biogenic amines: biomarkers of bacterial vaginosis or precursors to vaginal dysbiosis? Frontiers in Physiology. https://doi.org/10.3389/fphys.2015.00253</p>
+                  <p>[14] Jansson, L., Akel, Y., Eriksson, R., Lavander, M., & Hedman, J. (2020). Impact of swab material on microbial surface sampling. Journal of Microbiological Methods, 106006. https://doi.org/10.1016/j.mimet.2020.106006</p>
+                  <p>[15] Ghaly, A. E., Dave, D., Budge, S., & Brooks, M. S. (2010). Fish Spoilage Mechanisms and Preservation Techniques: Review | American Journal of Applied Sciences | Science Publications. American Journal of Applied Sciences. https://doi.org/https://doi.org/10.3844/ajassp.2010.859.877</p>
+                  <p>[16] Voyvodic, P. L., & Bonnet, J. (2020). Cell-free biosensors for biomedical applications. Current Opinion in Biomedical Engineering, 9–15. https://doi.org/10.1016/j.cobme.2019.08.005</p>
+                  <p>[17] Salehi, A. S. M., Smith, M. T., Bennett, A. M., Williams, J. B., Pitt, W. G., & Bundy, B. C. (2015). Cell-free protein synthesis of a cytotoxic cancer therapeutic: Onconase production and a just-add-water cell-free system. Biotechnology Journal, 2, 274–281. https://doi.org/10.1002/biot.201500237</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#design" class="bnav__link bnav__link--full-width">Prototype design</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#method" class="bnav__link bnav__link--full-width">Sample collection<br> method</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#pricing" class="bnav__link bnav__link--full-width">Pricing biosensor</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

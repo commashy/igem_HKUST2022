@@ -1,0 +1,215 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Design{% endblock %}
+{% block lead %}The genetic circuit driving our biosensor{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75" id="reason">
+    <h1 class="pt-5 mx-auto text-center">
+        Why do we need Fisherly?
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>Non-volatile amines termed "biogenic amines”  are created when amino acids are decarboxylated. Despite the fact that several biogenic amines have been discovered in fish, only histamine, cadaverine, and putrescine have been determined to be significant in determining fish safety and quality. While histamine and scombroid food poisoning are frequently linked, histamine alone is not enough to make food hazardous as it has been suggested that putrescine and cadaverine can increase the toxicity of histamine. On the other hand, when it comes to spoilage, only cadaverine has been shown to be an useful index of the early stages of fish decomposition. Fish products could be made safe by comprehending the connections between biogenic amines and their role in the production of bioamines<sup><a href="https://www.tandfonline.com/doi/abs/10.1080/10408390802067514" target="_blank">[1]</a></sup></p>
+                  <p>Our bioamine sensor is a three-stage processor comprising of:</p>
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p style="text-align:center;"><b><u>Sensing Module</u></b></p>
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-output.png"/></p> 
+                      <p style="text-align:center;">External signals &#8594; Intracellular transcriptional signals</p> 
+                      <p style="text-align:center;"><i>Bioamine &#8594; H<sub>2</sub>O<sub>2</sub></i></p> 
+                    </div>
+                    <div class="col-sm">
+                      <p style="text-align:center;"><b><u>Processing Module</u></b></p>
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-processing.png"/></p> 
+                      <p style="text-align:center;">Modulates transduced sensor signals</p> 
+                      <ol style="text-align:left;">
+                        <li><i>OxyR inducible promoters</i></li>
+                        <li><i>Degradation rescue and induced degradation</i></li>
+                      </ol> 
+                    </div>
+                    <div class="col-sm">
+                      <p style="text-align:center;"><b><u>Output Actuating Module</u></b></p>
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-sensing.png"/></p> 
+                      <p style="text-align:center;">Displays the colorimetric outputs</p> 
+                      <p style="text-align:center;"><i>GFP and RFP</i></p> 
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mx-auto mt-5 w-75" id="keymechanism">
+    <h1 class="pt-5 mx-auto text-center">
+        Key Mechanism
+    </h1>
+    <div class="outerheadingunder mx-auto" id="sensing"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Sensing Module</strong></h5>
+                  <br>
+                  <p>- convert external signals (bioamines) into intracellular transcriptional targets (H<sub>2</sub>O<sub>2</sub>) that our chassis can recognise</p>
+                  <p>Fisherly utilises a H<sub>2</sub>O<sub>2</sub> oxidative stress sensing pathway to detect bioamine concentration and send visual signals to inform consumers about the quality of fish. This pathway is dependent on the activity of diamine oxidase in our cell free system, which oxidises bioamines to generate H<sub>2</sub>O<sub>2</sub><sup><a href="https://www.sciencedirect.com/science/article/pii/S1381117712001865" target="_blank">[2]</a></sup>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-correct-rdao.png"/><br><small><b>Figure 1</b> Reaction of rDAO</small></p>
+                  
+                  <hr id="actuating">
+                  <h5><strong>Processing and Output Actuating Modules</strong></h5>
+                  <br>
+                  <p>- modulate the H<sub>2</sub>O<sub>2</sub> input and display clear colourimetric outputs to inform the users on the quality of fish</p>
+                  <p>The H<sub>2</sub>O<sub>2</sub> subsequently oxidises the Escherichia coli transcription factor OxyR. 
+              When the level of H<sub>2</sub>O<sub>2</sub> in the system corresponds to spoilage, the OxyR inducible promoter katG is turned on, prompting the downstream expression of TEV Protease<sup><a href="https://doi.org/10.1038/ncomms11658" target="_blank">[3]</a><a href="https://pubmed.ncbi.nlm.nih.gov/10339558/" target="_blank">[4]</a></sup>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-2.png"/><br><small><b>Figure 2</b> Mechanism of OxyR</small></p>
+                  <p>TEV Protease has two key functions:</p>
+                    <ol type="1">
+                      <li>Degradation rescue of RFP to amplify output</li>
+                      <li>Induced degradation of GFP to reduce colour mixing</li>
+                    </ol>
+                  <p>Through proteolytically cleaving the TEV protease cut site (ENLYFQ), TEV protease can posttranslationally modify expressed proteins<sup><a href="https://doi.org/10.1016/j.jbiotec.2016.06.012" target="_blank">[5]</a></sup>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-3.jpg" width=60%/><br><small><b>Figure 3</b> TEV Cleavage<sup><a href="https://www.protean.bio/en/article/tev-protease-his6" target="_blank">[6]</a></sup></small></p>
+
+                  <hr id="degradation">
+                  <h5><strong>Degradation rescue of RFP to amplify red output</strong></h5>
+                  <br>
+                  <p>The Degradation rescue system is an effective tool for amplifying the dynamic range of an output. As TEV Proteases have catalytic activity, a single molecule of protease can act upon many molecules of substrate as opposed to a transcription factor that can bind to only one site at a time.</p>
+                  <p>RFP is tagged with a potyvirus SsrA C-terminal degradation tag LVA, which can be recognised and degraded by proteases ClpXP and ClpAP, which are endogenous in E.coli cytoplasm.<sup><a href="https://doi.org/10.1093/nar/gkw537" target="_blank">[7]</a><a href="https://doi.org/10.1038/s41589-019-0244-3" target="_blank">[8]</a></sup></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-4.png"/><br><small><b>Figure 4.1</b> Degradation Rescue of RFP for Amplification</small></p>
+                  <p></p>
+                  <p><u>At low bioamine concentrations:</u></p>
+                  <ol>
+                    <li>TEV protease is not expressed.</li>
+                    <li>LVA Tag remains at the C terminal of the modified RFP.</li>
+                    <li>RFP is continuously degraded.</li>
+                    <li><span style="color:#678BD6;font-weight:bold">No red output.</span></li>
+                  </ol>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-diagram1.png"/><br><small><b>Figure 4.2</b> Degradation of RFP at low bioamine concentration</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-rfp-1.gif"/><br><small><b>Figure 4.3</b> RFP degraded at low bioamine concentration</small></p>
+                  <p></p>
+                  <p><u>At high bioamine concentrations:</u></p>
+                  <ol>
+                    <li>TEV protease is expressed.</li>
+                    <li>LVA tag is cleaved off.</li>
+                    <li>RFP is stabilised.</li>
+                    <li><span style="color:#EE1C1C;font-weight:bold">Red output produced.</span></li>
+                  </ol>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-diagram2.png"/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-rfp-2.gif"/><br><small><b>Figure 4.4</b> Degradation Rescue of RFP at high bioamine concentration</small></p>
+                  
+                  <hr id="induced">
+                  <h5><strong>Induced degradation of GFP to reduce colour mixing</strong></h5>
+                  <br>
+                  <p>As a valid detection kit, a positive control is necessary to prove the functionality of our biosensor or else false negative results could incur. GFP is expressed constitutively to show that the cell free system is working and that proteins can be expressed. However, having a 2 colorimetric output system has posed problems in regards to colour mixing. As a result, we decided to degrade the green output when the red output is expressed.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-5.png"/><br></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-6.png"/><br><small><b>Figure 5.1</b> Induced Degradation of GFP</small></p>
+                  <p>Constitutively Expressed Modified GFP is stable as there is an inhibitory sequence (77 amino acids from mRFP) at its C terminal, shielding the LVA tag, so endogenous E.coli proteases ClpXP and ClpAP cannot recognise and degrade the GFP.</p>
+                  <p></p>
+                  <p><u>At low bioamine concentrations:</u></p>
+                  <ol>
+                    <li>TEV protease is not expressed.</li>
+                    <li>Inhibitory sequence shields the LVA tag, GFP is stable.</li>
+                    <li><span style="color:#26A910;font-weight:bold">Green output produced.</span></li>
+                  </ol>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-diagram3.png"/><br><small><b>Figure 5.2</b> IS shielding of GFP at low bioamine concentration</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-gfp-1-1.gif" width=50%/><br><small><b>Figure 5.3</b> IS shielding of GFP at low bioamine concentration</small></p>
+                  <p><u>At high bioamine concentrations:</u></p>
+                  <ol>
+                    <li>TEV protease is expressed.</li>
+                    <li>Inhibitory sequence is cleaved off.</li>
+                    <li>LVA tag at the C terminal of the modified GFP is exposed and degraded by ClpXP and ClpAP proteases.</li>
+                    <li><span style="color:#678BD6;font-weight:bold">Green output degraded</span></li>
+                  </ol>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/jan-diagram4.png"/><br><small><b>Figure 5.4</b> Induced Degradation of GFP at high bioamine concentration</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-gfp-2.gif"/><br><small><b>Figure 5.5</b> GFP induced to degrade at high bioamine concentration</small></p>
+
+                  <hr id="improved">
+                  <h5><strong>Improved Sensing Module</strong></h5>
+                  <br>
+                  <p><u><b>pelB Translocation Tag Attached to rDAO to Increase the Expression of Functional rDAO</b></u></p>
+                  
+                  <p>From the dry lab, we found that increasing [rDAO] can increase the rate of converting diamine to H2O2, increasing the subsequent RFP output of our system. Thus, we decided to do further research with the idea of increasing rDAO expression.</p>
+                  <p>From the dry lab, we found that increasing [rDAO] can increase the rate of converting diamine to H2O2, increasing the subsequent RFP output of our system. Thus, we decided to do further research with the idea of increasing rDAO expression.</p>
+                  <p>Just like hDAO, rDAO contains a disulfide bond<sup><a href="https://doi.org/10.1093/oxfordjournals.jbchem.a124572" target="_blank">[9]</a></sup>, and we realized that this is a problem. In prokaryotes, the formation of disulfide bonds in cytoplasm is unfavourable due to the bacterial cytoplasmic reducing environment. Instead, the correct formation of disulfide bonds occurs more favourably in the periplasm, which has a more oxidising environment. The formation of disulfide bonds in periplasm is done using 2 systems: DsbA-DsbB and DsbC-DsbD<sup><a href="https://doi.org/10.1089/ars.2012.4864" target="_blank">[10]</a></sup>. The DsbA protein oxidised SH moiety of cysteine, forming the disulfide bond, while DsbB recycles the reduced DsbA back to its oxidised active form. However, DsbA prefers to form disulfide bonds in a vectorial manner, which may lead to an incorrect disulfide bond formation, and thus incorrect protein folding. This is where the DsbC-DsbD system comes in. This system fixes the incorrect disulfide bond by isomerizing the incorrect disulfide bonds. We hypothesized that tagging a translocation tag that can transport rDAO to periplasm of our chassis could increase the concentration of functional rDAO, and hence increase rate constant (k<sub>1</sub>).</p>
+                  <p>We then searched whether the introduction of a translocation tag to rDAO has been done before. We found out that Rosini and her team have connected the pelB translocation tag to rDAO and they successfully expressed functional rDAO<sup><a href="https://doi.org/10.1016/j.molcatb.2012.06.014" target="_blank">[11]</a></sup> in their Origami2(DE3) E. coli strain. Seeing the success of the research paper, we decided to tag pelB (BBa_J32015) to rDAO and transform the composite part into DH5α. For more details on the dry lab and wet lab results, refer to the links below.</p>
+                  <div style="text-align:center"><a href="https://2022.igem.wiki/hkust/drylab-circuit-design" class="button">Modeling</button></a><a href="https://2022.igem.wiki/hkust/wetlab-circuit-design" class="button">Circuit Design Experiment</button></a>
+                  </div>
+
+                  <hr id="full">
+                  <h5><strong>Full Circuit</strong></h5>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/design-7.png"/><br><small><b>Figure 6</b> Full genetic circuit</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>[1] Al Bulushi, I., Poole, S., Deeth, H. C., & Dykes, G. A. (2009). Biogenic amines in fish: roles in intoxication, spoilage, and nitrosamine formation--a review. Critical reviews in food science and nutrition, 49(4), 369–377. <a href="https://doi.org/10.1080/10408390802067514">https://doi.org/10.1080/10408390802067514</a></p>
+                  <p>[2] Elena Rosini, Serena Nossa, Mattia Valentino, Paola D’Arrigo, Stéphane Marinesco, Loredano Pollegioni, Expression of rat diamine oxidase in Escherichia coli, Journal of Molecular Catalysis B: Enzymatic, Volume 82, 2012, Pages 115-120</p>
+                  <p>[3] Rubens, J., Selvaggio, G. & Lu, T. Synthetic mixed-signal computation in living cells. Nat Commun 7, 11658 (2016). <a href="https://doi.org/10.1038/ncomms11658">https://doi.org/10.1038/ncomms11658</a></p>
+                  <p>[4] Åslund, F., Zheng, M., Beckwith, J. & Storz, G. Regulation of the OxyR transcription factor by hydrogen peroxide and the cellular thiol—disulfide status. Proc. Natl Acad. Sci. USA 96, 6161–6165 (1999).</p>
+                  <p>[5] Cesaratto, F., Burrone, O. R., & Petris, G. (2016). Tobacco Etch Virus protease: A shortcut across biotechnologies. Journal of biotechnology, 231, 239–249. <a href="https://doi.org/10.1016/j.jbiotec.2016.06.012">https://doi.org/10.1016/j.jbiotec.2016.06.012</a></p>
+                  <p>[6] TEV Protease His6. Protean. (2022). Retrieved 3 October 2022, from <a href="https://www.protean.bio/en/article/tev-protease-his6">https://www.protean.bio/en/article/tev-protease-his6</a></p>
+                  <p>[7] Fernandez-Rodriguez, J., & Voigt, C. A. (2016). Post-translational control of genetic circuits using Potyvirus proteases. Nucleic acids research, 44(13), 6493–6502. <a href="https://doi.org/10.1093/nar/gkw537">https://doi.org/10.1093/nar/gkw537</a></p>
+                  <p>[8] Wan, X., Volpetti, F., Petrova, E., French, C., Maerkl, S. J., & Wang, B. (2019). Cascaded amplifying circuits enable ultrasensitive cellular sensors for toxic metals. Nature chemical biology, 15(5), 540–548. <a href="https://doi.org/10.1038/s41589-019-0244-3">https://doi.org/10.1038/s41589-019-0244-3</a></p>
+                  <p>[9] Mizuguchi, H., Imamura, I., Takemura, M., & Fukui, H. (1994). Purification and characterization of diamine oxidase (histaminase) from rat small intestine. The Journal of Biochemistry, 116(3), 631–635. <a href="https://doi.org/10.1093/oxfordjournals.jbchem.a124572">https://doi.org/10.1093/oxfordjournals.jbchem.a124572</a></p>
+                  <p>[10] Denoncin, K., & Collet, J.-F. (2013). Disulfide bond formation in the bacterial periplasm: Major achievements and challenges ahead. Antioxidants & Redox Signaling, 19(1), 63–71. <a href="https://doi.org/10.1089/ars.2012.4864">https://doi.org/10.1089/ars.2012.4864</a></p>
+                  <p>[11] Rosini, E., Nossa, S., Valentino, M., D’Arrigo, P., Marinesco, S., &amp; Pollegioni, L. (2012). Expression of rat diamine oxidase in escherichia coli. Journal of Molecular Catalysis B: Enzymatic, 82, 115–120. <a href="https://doi.org/10.1016/j.molcatb.2012.06.014">https://doi.org/10.1016/j.molcatb.2012.06.014</a></p>
+                  <p>[12] Jungbluth, M., Renicke, C. & Taxis, C. Targeted protein depletion in Saccharomyces cerevisiae by activation of a bidirectional degron. BMC Syst Biol 4, 176 (2010). https://doi.org/10.1186/1752-0509-4-176</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#reason" class="bnav__link bnav__link--full-width">Reason</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#sensing" class="bnav__link bnav__link--full-width">Sensing module</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#actuating" class="bnav__link bnav__link--full-width">Actuating module</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#degradation" class="bnav__link bnav__link--full-width">Degradation rescue</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#induced" class="bnav__link bnav__link--full-width">Induced degradation</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#improved" class="bnav__link bnav__link--full-width">Improved sensing <br>module</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#full" class="bnav__link bnav__link--full-width">Full circuit</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+{% endblock %}

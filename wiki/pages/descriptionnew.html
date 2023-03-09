@@ -1,0 +1,81 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Project Description{% endblock %}
+{% block lead %}Fisherly aims to provide small seafood businesses and the public with a cheap and easy-to-use detection kit to ensure food safety.Our prototype, inspired by the COVID-19 rapid antigen test (RAT) kits, allows a simple on-site assessment of seafood quality. To maximise user-friendliness, we modified and improved upon the conventional RAT kit design to better suit the characteristics of our biosensor, which uses a cell-free system to produce colourimetric outputs to indicate the quality.{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Inspiration
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+        short summary here
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" id="inspiraton">
+                <div class="col">
+                    <p>When undergoing a summer internship at Aqua Green (a local hydroponic salad company), one of our team members observed the warehouse staff carrying bags of tuna fillets from the cold rooms and dumping them into large green trash tanks - despite the fact that little to no spoilage odor was developed. The company made this seemingly unreasonable decision to ensure the quality of its final product as hot summers in Hong Kong create inevitable gaps in cold chain management.
+                    </p>
+                    <p>As confirmed by Willem Landman,  the company’s Technical Director, it is difficult for the Quality Control staff to conveniently and accurately determine if the fish is spoiled or safe to consume, especially since most of the inspection is performed manually, which introduces subjectivity and quality variability. This problem is worsened by the fact that some fish fillets were found to be spoiled even before the expiry date due to the aforementioned inconsistent cold chain issue.
+                    </p>
+                    <p>Various discussions with Mr. Landman, who also has years of experience in corporate food quality control, suggest that a <span style="color:#678BD6;font-weight:bold">convenient and affordable testing kit</span> to detect fish spoilage levels would help the business greatly by reducing health risks and the economic costs of discarding fish that might not have been spoiled.
+                    </p>
+                    <p>Inspired by this incident, we decided to investigate this issue locally and globally by performing further research and interacting with the various stakeholders.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Background
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="pt-5 pb-5 text-center">
+        short summary here
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-auto mb-auto">
+            <div class="row mt-4">
+                <div class="col">
+                    <h5><strong>Local Fish Consumption</strong></h5>
+                    <p>As the second largest seafood consumer per capita in Asia and the eighth globally, Hong Kong imported more than 33,000 tons of fish and produced 112,000 tons of fisheries locally in 2021<sup><a href="https://www.afcd.gov.hk/english/fisheries/fish_cap/fish_cap_latest/fish_cap_latest.html" target="_blank">[1]</a></sup>. The Fish and Seafood segment is expected to continue growing by 3.05% in the next five years, generating up to <span style="color:#678BD6;font-weight:bold">5.05 billion USD in revenue</span> in the year 2022 (<a href="https://www.statista.com/outlook/cmo/food/fish-seafood/hong-kong" target="_blank">Statista</a>). Fish is no doubt an essential part of our everyday cuisine, from local wet markets to chain supermarkets to high-end hotel restaurants. 
+                    </p>
+                    <p>In our consumer surveys (with 40% of responses from Hong Kong consumers and the rest distributed among the U.S., Japan, Korea, and mainland China), we learned that more than 85% of respondents consume fish at least once per week, with almost 20% of them consuming more than 4 times per week, and that 30% of them mainly purchase fish from wet markets and almost 60% from the supermarket. These results indicate high consumption volume and <span style="color:#678BD6;font-weight:bold">the need for stricter fish quality control at these handling points.</span> 
+                    </p>
+                    <hr>
+
+                    <h5><strong>Global Fish Consumption</strong></h5>
+                    <p>Looking into the global market, we observe a dramatic increase in global fish consumption from 9.0 kg per capita in 1961 to 20.3 kg in 2017 as international food trading became increasingly convenient (Europêche). Despite a small decrease in the past few years, it is reasonable to assume that fish consumption level will rise back up as more countries are relaxing their Covid restrictions for imports and exports in the year 2022.</p>
+                    <hr>
+                    <h5><strong>Bioamines Level as an Indicator of Fish Quality</strong></h5>
+                    <p>Produced by bacterial decarboxylation of specific amino acids as the seafood’s shelf life reaches its end, bioamines can be considered a <span style="color:#678BD6;font-weight:bold">spoilage level index.</span> This correlation was long established by scientists more than forty years ago in the form of a biogenic amine index, as shown below.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/project-description-photo1.png" /></p>
+                    <p>In recent years, the scientific community continues to apply this correlation to develop devices that detect spoilage levels in different food products, including a team from Flinders University that measures bioamines levels for monitoring salmon spoilage.</p>
+                    <p>Although food safety regulatory bodies in different regions have different upper limits for bioamine concentration, it is observed by many studies that consuming food with a high level of bioamines leads to intoxication like <span style="color:#678BD6;font-weight:bold">Scombrotoxin Fish Poisoning and Tyramine Toxicity</span> (Biogenic amines in seafood: a review), potentially resulting in the following symptoms:</p>
+                    <p>
+                        <ul>
+                            <li>Burning sensation around mouth or throat</li>
+                            <li>Rashes on the upper body</li>
+                            <li>Dizziness</li>
+                            <li>Nausea</li>
+                            <li>Vomiting</li>
+                            <li>Heart palpitation</li>
+                            <li>Respiratory difficulty</li>
+                        </ul>
+                    </p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/project-description-photo2.png"/></p>
+                    <p>With such a <span style="color:#678BD6;font-weight:bold">high fish consumption and bioamines risks</span> involved, its <span style="color:#678BD6;font-weight:bold">quality assurance</span> has become an increasingly significant issue.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

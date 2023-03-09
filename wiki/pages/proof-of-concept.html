@@ -1,0 +1,319 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Proof of Concept{% endblock %}
+{% block lead %}Fisherly as the solution!{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center">
+    Overview
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                    <p>In order to prove our concept and confirm that our project goal can be achieved, each module performed research, conducted experiments, and constructed models for different aspects of our product to validate its capability for implementation.</p>
+                    <p>Both wet and dry lab data support the potential of our project as a real-life biosensor:</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="efficiency">
+  <h1 class="pt-5 mx-auto text-center">
+    1. Efficiency of Sample Recovery
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" ></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col" >
+                    <p>Characterising the efficiency of sample recovery is an important aspect of our project, as it is directly related to the initial amount of bioamines the circuit will be exposed to. The recovery rate needs to be considered to confirm that our biosensor will give an accurate colourimetric output at specific concentrations within a range of inspection time.</p>
+                    <p>Since the bioamines collected are initially diluted with the soaking buffer and then by the extraction buffer, achieving higher sample recovery is important. Taking the design of our prototype into consideration, the recovery efficiency of bioamine depends on the extraction efficiency of the extraction buffer. Therefore, we performed <span style="color:#678BD6;font-weight:bold">sample recovery efficiency experiments</span> to analyse the recovery rate of the bioamine samples.</p>
+                    <p>To imitate the distributed presence of bioamines on fish surfaces, cadaverine of seven different concentrations was spread on parafilm and dried overnight in a biosafety cabinet. Then, we swabbed it with the same dimension as that of our prototype design used to collect dried bioamine samples, after hydration with autoclaved water. In addition to test samples, control samples, designed to have a maximum recovery rate of bioamines, were set up. Then the absorbance value of the test was divided by the value of control samples to acquire the recovery efficiency. The details of the recovery efficiency experiment can be found <a href="https://2022.igem.wiki/hkust/wetlab-hardware" target="_blank">here</a>.</p>
+
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-hardware.png"/></p>
+                    <p style="text-align:center;"><small><b>Figure 1.1</b> Average sample recovery efficiency of TCA and HCl samples; representative of all concentrations tested</small></p>
+                    
+                    <p>After comparing the experiment results of the two extraction buffer candidates, we concluded that HCl yields a more stable recovery efficiency of 96%, which only showed deviation at 2000 ppm, which is two-fold of our upper limit.</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mx-auto mt-5 w-75" id="dilution">
+  <h1 class="pt-5 mx-auto text-center">
+    2. Dilution of Samples
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                    <p>Another factor involved in the sample processing stage is dilution. The sample is initially mixed with 50 μL of soaking buffer and then diluted with 700 μL of extraction buffer. Therefore, we must consider the dilution factor, which was calculated by dividing 50 - the volume used to collect the bioamines - by 750, which is the total volume of the solutions used to dilute the sample. Thus, the dilution factor is 1/15.</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mx-auto mt-5 w-75" id="rdao">
+  <h1 class="pt-5 mx-auto text-center">
+    3. Incorporating the Activity of rDAO
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                    <p>To obtain the rate constant (<img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" />) for the conversion of bioamine to H<sub>2</sub>O<sub>2</sub> by rDAO, we need to convert the absorbance of the wet lab result (Figure 3.1) to the concentration of diamine. We used the fitting result of <img class="img-fluid" src="https://latex.codecogs.com/svg.image?y=0.0628x^{2}-0.2335x&plus;0.2284" />     (Figure 3.2) to convert absorbance to the concentration of diamine. Assuming that the rate of conversion of diamine to hydrogen peroxide is a first order reaction, we can integrate the differential equation to obtain a linear equation.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?ln\left&space;[&space;Diamine&space;\right&space;]=-k_1{}t&plus;c"/></p>
+
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-figure-3-1-rdao-and-absorbance.png"/></p>
+                    <p style="text-align:center;"><small><b>Figure 3.1</b> Wet lab experiment result of pelB-rDAO</small></p>
+
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-fig-3-2.jpeg"/></p>
+                    <p style="text-align:center;"><small><b>Figure 3.2</b> Absorbance vs [Diamine] Fitting Curve</small></p>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Time/hr</th>
+                            <th scope="col">0</th>
+                            <th scope="col">1</th>
+                            <th scope="col">2</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Absorbance (AU)</td>
+                            <td>1.644</td>
+                            <td>1.351</td>
+                            <td>1.262</td>
+                        </tr>
+                        <tr>
+                            <td>Diamine(ppm)</td>
+                            <td>0.0270</td>
+                            <td>0.0251</td>
+                            <td>0.0245</td>
+                        </tr>
+                        <tr>
+                            <td><img class="img-fluid" src="https://latex.codecogs.com/svg.image?ln\left&space;[&space;Diamine&space;\right&space;]"/></td>
+                            <td>-3.611</td>
+                            <td>-3.685</td>
+                            <td>-3.710</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p style="text-align:center;"><small><b>Figure 3.3</b> Table Showing Conversion of Data</small></p>
+                    
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/newnewproof-of-concept-fig-3-4.png"/></p>
+                    <p style="text-align:center;"><small><b>Figure 3.4</b> ln[Diamine] vs Time Graph</small></p>
+                    
+                    <p>Figure 3.3 shows the final numbers obtained after we do our calculation. The ln[Diamine] is then plotted against time to obtain Figure 3.2.</p>
+                    <p>Based on Figure 3.2, then <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}" />, the rate constant of the conversion of H<sub>2</sub>O<sub>2</sub> to diamine, is 0.0491hr<sup>-1</sup>. Thus, by multiplying this rate constant and the efficiency of sample recovery as well as the dilution factor, the rate constant for H<sub>2</sub>O<sub>2</sub> production from the <span style="color:#678BD6;font-weight:bold">bioamine obtained from fish samples</span> is <img class="img-fluid" src="https://latex.codecogs.com/svg.image?0.0491hr^{-1}\times&space;\frac{1}{15}\times&space;0.96=0.00314hr^{-1}"/>.</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="spoilage">
+  <h1 class="pt-5 mx-auto text-center">
+    4. Incorporating Spoilage Level of Bioamine
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                    <p>To obtain the time of activation, we needed a reference for the concentration of bioamine that indicates spoilage. According to studies performed by Taylor S.L., 1000 ppm of total bioamine concentration is considered toxic, which is why we will be using this as the reference for spoilage<sup><a href="https://pubmed.ncbi.nlm.nih.gov/30263683/" target="_blank">[2]</a></sup>. When we convert 1000 ppm of bioamine to molarity, we obtain 8.99 mM. Multiplying this with the rate constant obtained from step 3, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?9.00mM\times&space;0.00314hr^{-1}\times&space;\frac{1\:&space;hr}{60\:&space;min}"/>, we get 0.471 μM of H<sub>2</sub>O<sub>2</sub> per minute.</p>
+                    <p>Based on the wet lab result, the activation threshold of katGp can is in a range of 40μM-200μM. Averaging the minimum and the maximum range, we would obtain a threshold of 120μM. Dividing the value 0.471 μM min<sup>-1</sup> with 120μM, we would obtain the activation time of katGp, which is 254 min, a time that is too unreasonable and far from our goal.</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="cfs">
+  <h1 class="pt-5 mx-auto text-center">
+    5. Decreasing Time of Activation
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                    <p>The advantage of CFS is that it is possible to control the concentration of rDAO inside our cell free system. Based on dry lab derivation, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}=k\left&space;[&space;rDAO&space;\right&space;]"/>. Thus, increasing the concentration of rDAO would increase <img class="img-fluid" src="https://latex.codecogs.com/svg.image?k_1{}"/>, and hence more H<sub>2</sub>O<sub>2</sub> is produced by our system per minute.</p>
+                    <p>Furthermore, we decided to add histamine in our extraction buffer so that the activation time of the katG promoter can be shortened. We hypothesised that this will result in a faster formation of the red output. We were not able to conduct experiments due to provide evidence for this section but built on this idea from our experiment result of the negative control, shown in Figure 3.1, where the decrease of absorbance is statistically insignificant. In addition, a paper on the stability of histamine dihydrochloride showed a maximum storage time of 6 months, which is twice the shelf life of our biosensor<sup><a href="https://pubmed.ncbi.nlm.nih.gov/3189724/" target="_blank">[1]</a></sup>.</p>
+                    <p>Therefore, after several discussions and calculations, we decided to increase the amount of rDAO in our system by 5 times the amount of rDAO in DH5&#593; and have a concentration of diamine to be 192 ppm inside our extraction buffer of the prototype. With this modification, we found that the activation time of katGp is around 16 min.</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="finaltime">
+  <h1 class="pt-5 mx-auto text-center">
+    6. Final Inspection Time of Prototype
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col" >
+                    <p>We can obtain the time of inspection by considering the transcription and translation of TEV protein and the efficiency of this protease to produce an observable signal. However, due to time constraints as well as the sophistication and uniqueness of our circuit, we were not able to obtain the exact values that we need. Therefore, this part was calculated with research-based assumptions.</p>
+                    <p>An article written by Shamir and her team mention that a functional GFP production can be completed within minutes<sup><a href="https://www.cell.com/cell/pdf/S0092-8674(16)30208-2.pdf?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867416302082%3Fshowall%3Dtrue" target="_blank">[3]</a></sup>. However, we will be switching our fluorescence proteins into chromoproteins in our actual product. Since most chromoproteins take longer time than GFP to be transcribed and translated, we decided to add 7 minutes to our previous calculation for katGp activation and obtained a final time of 23 minutes for an output signalling upon detecting high bioamine levels that exceed our upper limit.</p>
+                    <p>The final calculation can be found in our <a href="https://github.com/commashy/2022_iGEM_HKUST" target="_blank">iGEM github page</a>.</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mx-auto mt-5 w-75" id="validresult">
+  <h1 class="pt-5 mx-auto text-center">
+    7. Time of Inspection & Duration of Valid Result
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col" >
+                    <p>Since parameters used in modelling for biological systems are often estimated due to practical reasons, like the inability to observe every single reaction in a system, our own Dry Lab model had the same limitation. However, although we were unable to model the exact reaction mechanisms and interactions among the molecules in our newest Circuit Design, we referred  to existing literature to estimate the values of parameters that are less likely to have high variations among different experiments (e.g. degradation rates and some reaction rate constants). For parameters that do not have a clear reference in the existing literature, we assigned reasonable estimations based on relativity to other known parameters - this is similar to what Team UNSW Australia in 2020 did to justify their parameter estimations.</p>
+                    <p>With these in mind, we ran our modelling with the most updated circuit design, which produced the outputs we desired. Since the estimations for our parameters were either directly or indirectly supported by the existing literature, it is fair to assume that the outputs produced by our modelling reflect the real scenario fairly accurately.</p>
+                    <p>Thus, after confirming that the units throughout the ODEs and final outputs match with each other, we inspected the colourimetric outputs predicted by our model under different bioamine levels.</p>
+                    <p>As seen in the four graphs below, the increase in the initial bioamine level from 0 ppm to 1000 ppm leads to a wider gap between the final RFP and GFP concentrations, indicating a redder output. To determine the appropriate time point for inspection, we considered the 1,000 ppm upper limit of total bioamines level and calculated the time point at which the cell-free biosensor would appear red at 1,000 ppm, yellow around 500 ppm, and green at around 100 ppm; these specific concentrations were referenced from a research paper on total bioamines by Yesim Ozogul as well as in-depth discussions with Professor Michael Lam from the City University of Hong Kong, who had entrepreneurial experience in developing seafood spoilage sensors<sup><a href="https://pubmed.ncbi.nlm.nih.gov/30263683/" target="_blank">[2]</a></sup>.</p>
+                    <p>Upon using an RGB Color Addition simulation provided by the Physics Classroom, we observed that 20 minutes is the most appropriate time for detection in order to produce the intended colourimetric outputs. This finding also agrees with the detection of 23 minutes derived from wet lab data, which boosts our confidence in the validity of these results.</p>
+                    <p>When exposed to a low bioamine level (200 ppm), our sensor generates either a green or yellow output twenty minutes after activation, indicating that the fish is safe to consume. When the bioamine exposure increases to around 600 ppm, the sensor displays an orange colour instead. Finally, when the sensor is exposed to the recommended upper limit for bioamine concentration (1000 ppm), it generates a red output, indicating that the fish is no longer safe to consume and should be discarded.</p>
+                    <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-no-bioamines.png"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 7.1</b> No bioamine (0 ppm) present</small></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-low-bioamines.png"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 7.2</b>  Low bioamine level (200 ppm)</small></p>
+                      </div>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-no-bioamines-color.png"/></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-low-bioamines-color.png"/></p> 
+                      </div>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-middle-bioamines.png"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 7.3</b> Significant bioamine level (600 ppm) present</small></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-high-bioamines.png"/></p> 
+                        <p style="text-align:center;"><small><b>Figure 7.4</b>  High bioamine level (1000 ppm)</small></p>
+                      </div>
+                    </div>
+                    <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-middle-bioamines-color.png"/></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-high-bioamines-color.png"/></p> 
+                      </div>
+                    </div>
+                    <p>As for the duration of valid results, we observe that the difference in GFP and RFP continues to increase after the recommended time of inspection. Therefore, in order to obtain a more accurate result, the time range for the valid results is around 20&#177;2 minutes, or <span style="color:#678BD6;font-weight:bold">18-22 minutes</span>. For example, when exposed to a bioamine level of 500 ppm, the detection time range of 18 to 22 minutes would still provide the correct colourimetric output.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/proof-of-concept-time-of-inspection.png"/></p>
+                    <p style="text-align:center;"><small><b>Figure 7.5</b>  Low bioamine level (200 ppm)</small></p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center">
+    References
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" >
+
+  </p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                    <p>[1] Doeun D, Davaatseren M, Chung MS. Biogenic amines in foods. Food Sci Biotechnol. 2017 Dec 13;26(6):1463-1474. doi: 10.1007/s10068-017-0239-3. PMID: 30263683; PMCID: PMC6049710.</p>
+                    <p>[2] Nielsen, N. H. et al. “Stability of Histamine Dihydrochloride in Solution.” Allergy 6 (1988): 454–457. Crossref. Web. 11 Oct. 2022.</p>
+                    <p>[3] Shamir, M., Bar-On, Y., Phillips, R., & Milo, R. (2016). SnapShot: Timescales in Cell Biology. Cell, 164(6), 1302-1302.e1. https://doi.org/10.1016/j.cell.2016.02.058</p>
+
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#efficiency" class="bnav__link bnav__link--full-width">Efficiency</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#dilution" class="bnav__link bnav__link--full-width">Dilution</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#rdao" class="bnav__link bnav__link--full-width">Activity of rDAO</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#spoilage" class="bnav__link bnav__link--full-width">Spoilage level</a>
+            </li>
+            <li class="bnav__menuitem"> 
+                <a href="#cfs" class="bnav__link bnav__link--full-width">Decreasing time</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#finaltime" class="bnav__link bnav__link--full-width">Final inspection time</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#validresult" class="bnav__link bnav__link--full-width">Time of valid result</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

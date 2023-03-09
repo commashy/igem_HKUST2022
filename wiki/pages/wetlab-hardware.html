@@ -1,0 +1,850 @@
+{% extends "layout2.html" %}
+
+{% block title %}Hardware Experiment{% endblock %}
+{% block lead %}Developing our prototype{% endblock %}
+
+
+{% block page %}
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center">
+      Experiment Overview
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" ></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p><b>Click here to see our experiments:</b></p>
+                  <ol>
+                    <li><a href="#exp1">Cell-Free System (CFS) and Extraction Buffer Compatibility Experiment</a></li>
+                    <li><a href="#exp2">Ninhydrin Optimisation</a></li>
+                      <ol type="i">
+                        <li><a href="#exp2-1">Determining pH Buffer and Sample Volume Ratio</a></li>
+                        <li><a href="#exp2-2">Working pH test for pH buffer selection</a></li>
+                        <li><a href="#exp2-3">Ninhydrin Concentration Optimisation</a></li>
+                        <li><a href="#exp2-4">pH Optimisation</a></li>
+                        <li><a href="#exp2-5">Temperature Optimisation</a></li>
+                        <li><a href="#exp2-6">Heating time optimisation</a></li>
+                        <li><a href="#exp2-7">Determining the wavelength for absorbance measurement</a></li>
+                        <li><a href="#exp2-8">Ninhydrin Assay Summary</a></li>
+                      </ol>
+                    <li><a href="#exp3">Sample recovery efficiency experiment</a></li>
+                  </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center" id="exp1">
+      1. Cell-Free System (CFS)<br>and Extraction Buffer Compatibility Experiment
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    
+  </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <h5><strong>Experiment Overview</strong></h5>
+                <br>
+                <p>Based on the prototype design, bioamine samples are processed in the sample processing container prior to their interaction with the cell-free biosensor. Therefore, we performed the <span style="color:#678BD6;font-weight:bold">Cell-Free System (CFS) and Extraction Buffer Compatibility Experiment</span> to make sure that our final extraction buffer does not compromise the cell-free system’s performance. We studied the impact of the extraction buffers on the performance of the CFS by comparing the fluorescence produced by the CFS containing different extraction buffers.</p>
+                <hr>
+
+                <h5><strong>1.1 Tracking fluorescence production over 7 Hours</strong></h5>
+                <br>
+                <p>To screen for extraction buffers that do not interfere with the cell-free system, we conducted the first compatibility and compared the relative increase or decrease of fluorescence at hour 0 and hour 7.</p>
+                <br>
+
+                <p><u><b>Cell Extract Preparation</b></u></p>
+                <p>The cell extracts needed for this experiment were prepared according to the <a href="https://2022.igem.wiki/hkust/wetlab-cfs">Cell-Free System</a> module’s sonication protocol 1: Harvest E. coli BL21 at the early-log phase and sonicate with 50% amplitude, 45 seconds on and 59 seconds off, for 6 cycles. We checked the protein concentration using the Bradford Assay to confirm the cell extracts were suitable for the experiment.</p><br>
+
+                <p><u><b>Sample Setup</b></u></p>
+                <p>Two sets of samples, one for hour 0 and another for hour 7 were made and their fluorescence was measured at corresponding time points. Each set consisted of 6 samples, one for each extraction buffer, where GFP-PSB1C3 plasmid was used to produce, and negative control, with Milli-Q (MQ) water instead of GFP plasmid and extraction buffer.</p>
+                <p>For extraction buffers, the concentrations mentioned in research papers were used, as summarised in figure 1.1.1. For more details, refer to the <a href="hardware#extractionbuffer">prototype</a> page.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Extraction buffer candidates</th>
+                      <th scope="col">Concentration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>HCl</td>
+                      <td>1M</td>
+                    </tr>
+                    <tr>
+                    <td>TCA</td>
+                    <td>7.5% (v/v)</td>
+                    </tr>
+                    <tr>
+                      <td>Citrate</td>
+                      <td>0.1M</td>
+                    </tr>
+                    <tr>
+                      <td>Sodium tetraborate</td>
+                      <td>0.9% (w/v)</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 1.1.1</b> Summary of extraction buffer types and their concentration</small></p>
+                <br>
+                <p><u><b>Cell-Free System Assembly</b></u></p>
+                <p>The cell-free system samples used in this experiment were assembled based on the <a href="https://2022.igem.wiki/hkust/wetlab-cfs">Cell-Free System team’s</a> guidelines. 15 uL of each extraction buffer was added to the test samples and the corresponding volume of MQ was added to the negative control.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Test</th>
+                      <th scope="col">Negative Control</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>BL21 Cell extracts</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                    <td>Amino acid mix</td>
+                    <td>2</td>
+                    <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>GFP Plasmid</td>
+                      <td>3</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>MQ</td>
+                      <td>0</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>Master Mix</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>Extraction buffer</td>
+                      <td>15</td>
+                      <td>0</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 1.1.2</b> The components of the test and negative control cell-free system samples in μL</small></p>
+                <br>
+
+                <p><b><u>Results</u></b></p>
+                <p>We discovered while analysing our results that our negative setup was not suitable, as the current negative control does not take into consideration the contribution of each buffer to a cell-free system without GFP plasmid. Therefore, the results acquired from this data were used to compare the relative increase or decrease of fluorescence, from hour 0 to hour 7. Fluorescence was normalised using the negative control sample.</p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/hw-exp1-figure-1-1-3.png" width= 80%><br>
+                  <small><b>Figure 1.1.3</b> Fluorescence change observed in different extraction buffer samples</small></p>
+                <p>According to the graph, HCl and TCA yielded the highest fluorescence increase, whereas the rest showed decreasing trend of fluorescence.</p>
+                <hr>
+                
+                <h5><strong>1.2 Tracking fluorescence production over 16 Hours</strong></h5>
+                <br>
+                <p>After discussing our results with our members and advisors, we decided to repeat the compatibility experiment with a negative control for all extraction buffers and additional changes. The volume of the buffer was changed as well, based on Professor Taishi Tonooka’s advice.</p>
+                <br>
+                <p><b><u>Changes made</u></b></p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Compatibility Experiment 1.1</th>
+                      <th scope="col">Compatibility Experiment 1.2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Time of <br>measurement</td>
+                      <td>Hour 0 & Hour 7</td>
+                      <td>Hour 0 & Hour 16</td>
+                    </tr>
+                    <tr>
+                    <td>Method of <br>measurement</td>
+                    <td>At each time point</td>
+                    <td>At one time point</td>
+                    </tr>
+                    <tr>
+                      <td>Buffer volume</td>
+                      <td>1:1 ratio with CFS</td>
+                      <td>1 ul</td>
+                    </tr>
+                    <tr>
+                      <td>Buffer concentration</td>
+                      <td>1M HCl; 7.5% TCA; 0.1M Citrate; <br>0.1M Sodium tetraborate</td>
+                      <td>Final concentration adjusted to 0.01M</td>
+                    </tr>
+                    <tr>
+                      <td>Number of negative<br>control samples</td>
+                      <td>One for all buffers</td>
+                      <td>One for each buffer</td>
+                    </tr>
+                    <tr>
+                      <td>Negative control<br>component</td>
+                      <td>Cell-free system and MQ<br>(instead of plasmid and buffer)</td>
+                      <td>Cell-free system, MQ (instead of plasmid), and each buffer</td>
+                    </tr>
+                    <tr>
+                      <td>CFS assembly <br>method</td>
+                      <td>Individual components added<br>separately</td>
+                      <td>Individual components mixed into a master mix first and then aliquoted</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 1.2.1</b> Summary of changes made, in addition to the composition of negative control</small></p>
+                <br>
+                <p><b><u>Sample Setup</u></b></p>
+                <p>To track the fluorescence produced under the presence of different extraction buffers, we prepared four samples for each extraction buffer: one set of hour 16 and hour 0 samples for the test samples, with GFP-PSB1C3, and another set of hour 16 and hour 0 samples for the negative control samples, with MQ. The hour was increased to 16 hours, as this is the time frame used in the <a href="https://2022.igem.wiki/hkust/wetlab-cfs">cell-free system team’s</a> experiments.</p>
+                <p>When preparing the samples, the hour 16 samples were made a day before the hour 0 samples and stored in the 37°C incubator. Hour 0 samples were prepared 15 hours later, so both sets of samples can be measured simultaneously. We planned the experiment in such a way that the variations and fluctuations of the plate reader itself do not affect the fluorescence measured.</p>
+                <p>The concentrations of the extraction buffers were all unified to 0.01M so that a minimum of 1:1 molar ratio between the extraction buffer and bioamines could be maintained at the upper limit of 1000 ppm.</p>
+                <br>
+                <p><u><b>Cell-Free System Assembly</b></u></p>
+                <p>When assembling the cell, two different master mixes were made to reduce pipette errors: (1) Master mix 1 containing the cell extracts, amino acid mix, and GFP (for test samples) or MQ (for the negative control samples) (2) Master mix 2, containing the cell-free system’s master mix and extraction buffer. Five different master mix 2’s were made, each containing different extraction buffer candidates. Then, 10 μL of master mix 1 and 6 μL of master mix 2 were used to create a 16 μL cell-free system. The following is the summary of the components and their respective volumes used to assemble the cell-free system for this experiment.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Test</th>
+                      <th scope="col">Negative Control</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>BL21 Cell extracts</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                    <td>Amino acid mix</td>
+                    <td>2</td>
+                    <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>GFP Plasmid</td>
+                      <td>3</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>MQ</td>
+                      <td>0</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>Master mix</td>
+                      <td>5</td>
+                      <td>5</td>
+                    </tr>
+                    <tr>
+                      <td>Extraction buffer</td>
+                      <td>1</td>
+                      <td>1</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 1.2.2</b> The components of the test and negative control cell-free system samples in μL</small></p>
+
+                <p>The extraction buffer was directly added to our samples instead of using it to rehydrate freeze-dried CFS due to a lack of access to freeze-drying equipment. We made this compromise based on <span style="color:#678BD6; font-weight:bold">Professor Taishi Tonooka's</span> advice on using the volume lost during the freeze-drying process to rehydrate the freeze-dried cell-free system. Since the volume of the rehydrated cell-free system in our product should be 15 ul, we set the final volume to 16 μL for our experiment. 1μL of more concentrated versions of extraction buffers was added to keep the total volume of the CFS as close to 15 μL while establishing the desired final concentration of extraction buffer.</p>
+                <p>The fluorescence generated in each test sample was divided with the corresponding negative control sample to acquire normalised fluorescence so that the relative fold change of fluorescence can be obtained.</p>
+                <br>
+                <p><u><b>Results</b></u></p>
+                <p>Based on the second CFS and extraction buffer compatibility experiment, we got the following data:</p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/hw-exp2-figure-1-2-3.png" width=80% /><br><small><b>Figure 1.2.3</b> Fluorescence change observed in a 16-hour time span</small></p>
+                <p>The experiment was performed with a single set of samples due to limited stock of cell-free system components and time constraints. However, we deemed that this result is reliable since HCl and TCA were shown to have the highest increase in fluorescence.</p>
+                <p>In both experiments, our result suggests that HCl and TCA are more effective than MQ, citrate, and sodium tetraborate buffers. Therefore, only HCl and TCA, which have no negative effect on the performance of the cell-free system, were considered potential extraction buffers.</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center" id="exp2">
+      2. Ninhydrin Optimisation
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <h5><b>Experiment Overview</b></h5>
+                <br>
+                <p>Ninhydrin is a chemical reagent used to detect amino acids, ammonia, and amines, as it forms a coloured product called Ruhemann’s purple upon reacting with them. Ninhydrin was chosen to quantify the amount of bioamines present in the extraction buffer so we can characterise the <span style="color:#678BD6;font-weight:bold">bioamine sample recovery efficiency</span> of our prototype.</p>
+                <p>However, there isn’t a unified protocol for ninhydrin assay as ninhydrin’s reaction dynamic and ideal working conditions differ depending on the sample. Several parameters that affect its performance, such as ninhydrin concentration, pH, temperature, heating time and sometimes the wavelength for absorbance measurement, are usually optimised before conducting assays. </p>
+                <p id="exp2-1">In our case, we have a specific set of samples, which are two types of bioamines, cadaverine and histamine, mixed with each potential extraction buffer, TCA and HCl. Two additional factors, pH buffer type and amount, involved with adjusting the sample’s pH were studied through two mini-experiments. Then, the first three parameters, out of the previously mentioned five, were optimised to develop a tailored protocol for accurate ninhydrin assay results. The heating time and wavelength were decided based on research.</p>
+
+                <hr><br>
+                <h5><b>2.1 Determining pH Buffer and Sample Volume Ratio</b></h5>
+                <br>
+                <p>We referred to a paper that discussed the potential of sodium acetate (NaOAc) buffer as a replacement for the conventional lithium acetate buffer used in the ninhydrin assay<sup><a href="https://doi.org/10.1016/j.jfca.2005.04.006" target="_blank">[1]</a></sup>. Because the study explains that the highest absorbance was observed at pH 6, we prepared pH 6 NaOAc buffer and tested four different volume ratios of the extraction buffer mixed with bioamine to ninhydrin to pH buffer.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Mix 1: bioamine and<br>extraction buffer (mL)</th>
+                      <th scope="col">Ninhydrin (mL)</th>
+                      <th scope="col">pH buffer (mL)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ratio 1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                    <td>Ratio 2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>Ratio 3</td>
+                      <td>0.5</td>
+                      <td>0.5</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>Ratio 4</td>
+                      <td>0.5</td>
+                      <td>0.5</td>
+                      <td>2</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.1.1</b> Summary of the four volume ratios tested</small></p>
+                <br>
+
+                <p><strong><u>Sodium Acetate Buffer Preparation</u></strong></p>
+                <p>pH 6 NaOAc buffer was prepared by mixing equal volumes of 0.1M sodium acetate (NaAc) and 1.8M acetic acid (HAc), calculated using the Henderson-Hasselbalch equation:</p>
+                <p style="text-align:center"><img src="https://latex.codecogs.com/svg.image?pH&space;=&space;pKa&space;&plus;[A^-]/[HA]\&space;&space;(pKa&space;=4.74)" title="buffer equation" /></p>
+                <br>
+                <p><b><u>Sample Setup</u></b></p>
+                <p>The mixture of bioamine and extraction buffer, which will be subsequently referenced as ‘mix 1’, and ninhydrin were added in equal volumes in all samples. Ninhydrin 10X solution, prepared by adjusting the concentration to 10 times the maximum of cadaverine, was used. (The details regarding the ninhydrin concentration used in our experiments are explained <a href="#nin">here</a>.) 2000 ppm of cadaverine and histamine were used, as they are the maximum concentrations used throughout our experiments. As this experiment was to screen for the ideal ratio, each bioamine was mixed with only one of the two extraction buffer candidates: cadaverine with HCl and histamine with TCA. The final volume was adjusted to 3 mL or more, as 2.4 mL is the minimum volume required for the pH meter equipped in our lab.</p> <br>
+
+                <p><u><b>Results</b></u></p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Cadaverine (2000 ppm) with HCl</th>
+                      <th scope="col">Histamine (2000 ppm) with TCA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ratio 1</td>
+                      <td>6.29</td>
+                      <td>6.05</td>
+                    </tr>
+                    <tr>
+                    <td>Ratio 2</td>
+                    <td>6.40</td>
+                    <td>6.00</td>
+                    </tr>
+                    <tr>
+                      <td>Ratio 3</td>
+                      <td>6.08</td>
+                      <td>6.04</td>
+                    </tr>
+                    <tr>
+                      <td>Ratio 4</td>
+                      <td>6.19</td>
+                      <td>6.04</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.1.2</b> The final pH measured for four different volume ratios</small></p>
+                <p id="exp2-2">As shown in figure 2.2, the results show that the most appropriate ratio is ‘Ratio 3’ of 1:1:6, as it results in the lowest deviation from pH 6. The same volume ratio was used in all subsequent experiments.</p>
+                <hr><br>
+                <h5><b>2.2 Working pH test for pH buffer selection</b></h5>
+                <br>
+                <p>According to our research, the pH range of 4 to 8 is often used with ninhydrin. The reaction conditions differ depending on the sample. Even among the papers involving bioamines, different pHs can be used. For example, among two papers that tested the same bioamines, putrescine and cadaverine, one used pH 8 for fish samples<sup><a href="https://link.springer.com/article/10.1007/s12161-019-01671-9" target="_blank">[2]</a></sup>, while the other used pH 5 for bioamines from oral samples<sup><a href="https://doi.org/10.1111/j.1601-0825.2005.01087.x" target="_blank">[3]</a></sup>. Moreover, many different buffers are used to maintain the desired pH. We concluded that the ideal pH buffer must be selected before optimising the pH.</p>
+                <p>Therefore, a <span style="color:#678BD6;font-weight:bold">working pH test</span> was performed using NaOAc buffer of pH 4, 6, and 8. The aim of this mini-experiment was to test the pH buffer’s effectiveness when mixed with our samples.</p> 
+                <br>
+                <p><u><b>Sodium Acetate Buffer Preparation</b></u></p>
+                <p>pH 4 and pH 8 buffers were also made based on calculations from the same equation:</p>
+                <p style="text-align:center"><img src="https://latex.codecogs.com/svg.image?pH&space;=&space;pKa&space;&plus;[A^-]/[HA]\&space;&space;(pKa&space;=4.74)" title="buffer equation" /></p>
+                <p>The calculation results are summarised in the following table:</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Acetic acid (HAc)</th>
+                      <th scope="col">Sodium acetate (NaOAc)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pH 4</td>
+                      <td>1M</td>
+                      <td>0.18M</td>
+                    </tr>
+                    <tr>
+                    <td>pH 6</td>
+                    <td>0.1M</td>
+                    <td>1.8M</td>
+                    </tr>
+                    <tr>
+                      <td>pH 8</td>
+                      <td>0.001M</td>
+                      <td>1.8M</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.2.1</b> Concentrations of HAc and NaOAc used to make sodium acetate buffer, mixed in equal volumes.</small></p>
+                <br>
+                <p><b><u>Sample Setup</u></b></p>
+                <p>The samples were prepared by mixing the extraction buffers with 2000 ppm of each bioamine, 10X ninhydrin, and NaOAc pH buffers at the ratio of 1:1:6 as explained in the previous mini-experiment. For simplicity, the mixture of bioamines and extraction buffers will be referred to as follows:</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Mix 1CH</th>
+                      <th scope="col">Mix 1CT</th>
+                      <th scope="col">Mix 1HH</th>
+                      <th scope="col">Mix 1HT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Bioamine type</td>
+                      <td>Cadaverine</td>
+                      <td>Cadaverine</td>
+                      <td>Histamine</td>
+                      <td>Histamine</td>
+                    </tr>
+                    <tr>
+                    <td>Extraction buffer</td>
+                    <td>HCl</td>
+                    <td>TCA</td>
+                    <td>HCl</td>
+                    <td>TCA</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.2.2</b> Summary of bioamine and extraction buffer mixtures and corresponding abbreviations</small></p>
+                <p>When referring to mix 1’s with cadaverine only or histamine only, they will be referred to as Mix 1C and Mix 1H, respectively.</p>
+                <p>Two sets of three samples, one containing no bioamine, one with 2000 ppm of Mix 1C, and one with 2000 ppm of Mix 1H, were prepared per pH tested for each extraction buffer.</p>
+                <br>
+                <p><b><u>Working pH Results</u></b></p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Bioamine (BA) 0 ppm</th>
+                      <th scope="col">Mix 1CH: Cadaverine <br>(CAD) 2000 ppm</th>
+                      <th scope="col">Mix 1HH: Histamine <br>(HIS) 2000 ppm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pH 4</td>
+                      <td>4.06</td>
+                      <td>4.03</td>
+                      <td>4.08</td>
+                    </tr>
+                    <tr>
+                    <td>pH 6</td>
+                    <td>6.11</td>
+                    <td>6.05</td>
+                    <td>6.08</td>
+                    </tr>
+                    <tr>
+                    <td>pH 8</td>
+                    <td>7.59</td>
+                    <td>6.66</td>
+                    <td>7.58</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.2.3</b> Working pH measured for HCl samples; sodium acetate buffer</small></p>
+                <p></p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Bioamine (BA) 0 ppm</th>
+                      <th scope="col">Mix 1CT: Cadaverine <br>(CAD) 2000 ppm</th>
+                      <th scope="col">Mix 1HT: Histamine <br>(HIS) 2000 ppm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pH 4</td>
+                      <td>4.05</td>
+                      <td>4.06</td>
+                      <td>4.05</td>
+                    </tr>
+                    <tr>
+                    <td>pH 6</td>
+                    <td>6.13</td>
+                    <td>6.04</td>
+                    <td>6.07</td>
+                    </tr>
+                    <tr>
+                    <td>pH 8</td>
+                    <td>7.30</td>
+                    <td>6.77</td>
+                    <td>7.56</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.2.4</b> Working pH measured for TCA samples; sodium acetate buffer</small></p>
+                <p>The results of pH 8 NaOAc buffer show significant levels of deviation. A probable explanation is that a very low molarity of HAc was used (summarised in figure 2.2.1), which reduced the stability of the buffer. However, we prepared the reagents in this manner as making 18M or 180M of NaOAc to mix with 0.01M or 0.1M HAc, respectively, required a very high amount of sodium acetate. Therefore, we decided to repeat the experiment with another buffer that is easier to prepare, made using potassium dihydrogen phosphate (KDP) and sodium hydroxide (NaOH).</p>
+                <p>The results of the working pH test were better when pH 8 buffer was used:</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Bioamine (BA) 0 ppm</th>
+                      <th scope="col">Mix 1CH: Cadaverine <br>(CAD) 2000 ppm</th>
+                      <th scope="col">Mix 1HH: Histamine <br>(HIS) 2000 ppm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pH 4</td>
+                      <td>4.11</td>
+                      <td>4.14</td>
+                      <td>4.19</td>
+                    </tr>
+                    <tr>
+                    <td>pH 6</td>
+                    <td>6.14</td>
+                    <td>6.11</td>
+                    <td>6.12</td>
+                    </tr>
+                    <tr>
+                    <td>pH 8</td>
+                    <td>8.21</td>
+                    <td>8.12</td>
+                    <td>8.23</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.2.5</b> Working pH measured for HCl samples; potassium dihydrogen phosphate buffer</small></p>
+                <p></p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">Bioamine (BA) 0 ppm</th>
+                      <th scope="col">Mix 1CT: Cadaverine <br>(CAD) 2000 ppm</th>
+                      <th scope="col">Mix 1HT: Histamine <br>(HIS) 2000 ppm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>pH 4</td>
+                      <td>4.09</td>
+                      <td>4.10</td>
+                      <td>4.16</td>
+                    </tr>
+                    <tr>
+                    <td>pH 6</td>
+                    <td>6.10</td>
+                    <td>6.10</td>
+                    <td>6.12</td>
+                    </tr>
+                    <tr>
+                    <td>pH 8</td>
+                    <td>8.23</td>
+                    <td>8.13</td>
+                    <td>8.22</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.2.6</b> Working pH measured for TCA samples; potassium dihydrogen phosphate buffer</small></p>
+                <p id="exp2-3">Although the final pH results were higher than pH 4, 6, and 8, we decided to use KDP buffers because the pH 8 results were more uniform than those of NaOAc buffers. We decided to use the same buffer type in the pH optimisation experiment so that we do not have to consider the contribution of the buffer types to the results.</p>
+
+                <hr><br>
+                <h5><b>2.3 Ninhydrin Concentration Optimisation</b></h5>
+                <br>
+                <p>The first parameter to be optimised was the concentration of ninhydrin. We designed this experiment after reading a research paper that aims to quantify the functionalisation of hydrogel using ninhydrin, which compared the absorbance at varying ninhydrin concentrations<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7484248/" target="_blank">[4]</a></sup>. Their goal was to identify the concentration that gives a wide linear range of absorbance, as shown in the following figure, which is also applicable to our case.</p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-3-1.jpeg" width=80%/><br><small><b>Figure 2.3.1</b> Calibration curves under varied ninhydrin concentrations; reference image</small></p>
+                <p id="nin">The details of the experiments were finalised based on a research paper, which used ninhydrin to visualise putrescine and cadaverine concentrations and recommended a molar ratio of 1:2.5 between bioamine and ninhydrin<sup><a href="https://link.springer.com/article/10.1007/s12161-019-01671-9" target="_blank">[2]</a></sup>. We selected a range of ninhydrin concentrations to thoroughly compare the ideal ninhydrin concentration because the recommended concentration of ninhydrin for histamine samples was not specified. The four concentrations of ninhydrin will be referred to as 10X, 5X, 2.5X, and 1.25X, with each number representing ninhydrin’s molar ratio to cadaverine at the concentration of 2000 ppm. <span style="color:#678BD6;font-weight:bold">Cadaverine was used to calculate the molarity of the ninhydrin solutions, as its molecular weight is lower than that of histamine, meaning the ninhydrin concentration calculated using cadaverine is higher than using histamine.</span> Since 10X ninhydrin solution calculated based on cadaverine and that on histamine is 15.7 mM difference, we deemed that this is a suitable way to simplify our preparation process.</p>
+                <p>Many other parameters were based on the same paper since we had no experimental data yet. The samples were adjusted to pH 8 and heated at 70 degrees Celsius for 20 minutes. The absorbance was measured at 570 nm.</p>
+                <br>
+                <p><b><u>Sample Setup</u></b></p>
+                <p>To construct a graph similar to figure 2.3.1, we prepared cadaverine and histamine of different concentrations mixed with an extraction buffer (HCl or TCA). The four sets of samples, CH, CT, HH, and HT specified in figure 2.3.2, were reacted with ninhydrin of four different concentrations and their absorbance was measured. For each set, six different bioamine concentrations of 0, 400, 800, 1200, 1600, and 2000 ppm were tested.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th scope="col">CH sample</th>
+                      <th scope="col">CT sample</th>
+                      <th scope="col">HH sample</th>
+                      <th scope="col">HT sample</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Bioamine type</td>
+                      <td>Cadaverine</td>
+                      <td>Cadaverine</td>
+                      <td>Histamine</td>
+                      <td>Histamine</td>
+                    </tr>
+                    <tr>
+                    <td>Extraction buffer</td>
+                    <td>HCl</td>
+                    <td>TCA</td>
+                    <td>HCl</td>
+                    <td>TCA</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.3.2</b> Four sets of samples tested to construct a calibration curve under varied ninhydrin concentrations, each set with six different bioamine concentrations</small></p>
+                <p>After heating, the samples can be cooled down before measuring using different methods such as using an ice bath, leaving them at room temperature, and placing them in running tap water<sup><a href="https://www.sciencedirect.com/science/article/abs/pii/S0889157505000736?via%3Dihub" target="_blank">[1]</a><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.931.4202&rep=rep1&type=pdf" target="_blank">[5]</a><a href="https://pubs.rsc.org/en/content/articlepdf/1955/an/an9558000209" target="_blank">[6]</a></sup>. For convenience, the samples were placed in an ice bath for 5 minutes.</p>
+                <br>
+                <p><b><u>Results </u></b></p>
+                <p>The results of ninhydrin concentration optimization are shown in the following figures:</p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-3-3-ct-nin-concent.png" width=80%/><br><small><b>Figure 2.3.3</b> Calibration curve of CT sample using four different ninhydrin concentrations</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-3-4-ch-nin-concent.png" width=80%/><br><small><b>Figure 2.3.4</b> Calibration curve of CH sample using four different ninhydrin concentrations</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-3-5-ht-nin-concent.png" width=80%/><br><small><b>Figure 2.3.5</b> Calibration curve of HT sample using four different ninhydrin concentrations</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-3-6-hh-nin-concent.png" width=80%/><br><small><b>Figure 2.3.6</b> Calibration curve of HH sample using four different ninhydrin concentrations</small></p>
+                <p id="exp2-4">In contrast to the result shown in figure 2.3.1, there is no plateau observed within the bioamine concentration range tested. Therefore, instead of considering the ninhydrin concentration that yielded a wide linear range, we re-defined the desired trend as the higher absorbance value, so we could easily differentiate the concentration of bioamine samples. Based on this new standard, 10X ninhydrin was chosen as the best reagent, and the corresponding concentration was used in all subsequent reactions.</p>
+                <hr>
+                <br>
+                <h5><b>2.4 pH Optimisation</b></h5>
+                <p>As mentioned earlier, pH is another factor that affects the performance of ninhydrin. To identify the best working pH of ninhydrin, we performed the pH Optimisation by testing ninhydrin’s efficiency at pH 4, 6, and 8. </p>
+                <br>
+                <p><u><b>Sample Setup</b></u></p>
+                <p>10X ninhydrin was used, as confirmed by the ninhydrin concentration optimisation experiment. The samples were heated at 70 degrees for 20 minutes to keep the rest of the variables uniform.</p>
+                <p>For bioamines, only 2000 ppm of histamine and cadaverine, as we were interested in checking the pH that yields higher absorbance values for the maximum bioamine concentration samples rather than a trend.</p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-4-1-ph-optimisation-cad.png" width=80%/><br><small><b>Figure 2.4.1</b> Result of pH optimisation using KDP buffer of pH 4, 6, and 8 for cadaverine 2000 ppm samples</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-4-2-ph-optimisation-his.png" width=80%/><br><small><b>Figure 2.4.2</b> Result of pH optimisation using KDP buffer of pH 4, 6, and 8 for histamine 2000 ppm samples</small></p>
+                <p id="exp2-5">The results show that although a high absorbance was produced at pH 6 for histamine, the absorbance values were still similar to those of pH 8 samples. Since pH 8 resulted in more consistent results throughout all the samples, pH 8 KDP buffer was chosen and used in all subsequent experiments.</p>
+                <hr>
+                <br>
+                <h5><b>2.5 Temperature Optimisation</b></h5>
+                <p>Although our initial reference paper uses 70 degrees to heat the samples, some papers testing bioamine samples used temperatures of or over 100°C<sup><a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1745-4557.2002.tb01016.x">[7]</a><a href="https://edepot.wur.nl/201867">[8]</a></sup>. Therefore, for a more comprehensive test, we experimented with three different temperatures, 60°C, 80°C and 100°C.</p>
+                <br>
+                <p><u><b>Sample Setup</b></u></p>
+                <p>Four sets of samples summarised in figure 2.3.2 were prepared in triplicates with each set ranging from 0 to 2000 ppm so that each replicate could be heated at each temperature.</p>
+                <br>
+                <p><u><b>Results</b></u></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-5-1-ct-nin-temp.png" width=80%/><br><small><b>Figure 2.5.1</b> Absorbance of CT samples at 60°C, 80°C and 100°C</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-5-2-ch-nin-temp.png" width=80%/><br><small><b>Figure 2.5.2</b> Absorbance of CH samples at 60°C, 80°C and 100°C</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-5-3-ht-nin-temp.png" width=80%/><br><small><b>Figure 2.5.3</b> Absorbance of HT samples at 60°C, 80°C and 100°C</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-5-4-hh-nin-temp.png" width=80%/><br><small><b>Figure 2.5.4</b> Absorbance of HH samples at 60°C, 80°C and 100°C</small></p>
+                <p>The results show that for the CT, HT, and HH samples, the absorbance values have an increasing trend when the temperature increases from 60°C to 80°C, but the slope plateaus when the temperature is increased from 80°C to 100°C, for higher concentrations.</p>
+                <p id="exp2-6">The absorbance graph for the CH sample does not show similar absorbance values at 80°C and 100°C, but 80°C was used regardless, as using 100°C sometimes resulted in the bursting of Eppendorf tubes while heating, which often led to sample spillage and loss.</p>
+                <hr><br>
+                <h5><b>2.6 Heating time optimisation</b></h5>
+                <p id="exp2-7">Due to time constraints, the heating time optimisation and the wavelength for absorbance measurement were skipped. 20 minutes was used based on the research that tested putrescine and cadaverine, during which the initial heating time was set to 20 minutes before performing the heating time optimisation<sup><a href="https://link.springer.com/article/10.1007/s12161-019-01671-9" target="_blank">[2]</a></sup>.</p>
+                <hr><br>
+                <h5><b>2.7 Determining the wavelength for absorbance measurement</b></h5>
+                <p>We observed that in some research, a ninhydrin assay is performed to determine the absorbance wavelength<a href="https://link.springer.com/article/10.1007/s12161-019-01671-9" target="_blank">[2]</a>.</p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-7-1.png" width=80%/><br><small><b>Figure 2.7.1</b> Absorbance of putrescine sample solution reacted with ninhydrin; increased absorbance observed at 400 nm and 570 nm</small></p>
+                <p style="text-align:center"><img src="https://static.igem.wiki/teams/4225/wiki/figure-2-7-2.png" width=80%/><br><small><b>Figure 2.7.2</b> Absorbance of cadaverine sample solution reacted with ninhydrin; increased absorbance observed at 570 nm</small></p>
+                <p id="exp2-8">Due to limited time, the wavelength for absorbance measurement was based on research. All ninhydrin assays were measured at 570 nm, after literature research<sup><a href="https://www.sciencedirect.com/science/article/pii/S0731708505000051" target="_blank">[9]</a><a href="https://doi.org/10.1111/j.1601-0825.2005.01087.x" target="_blank">[3]</a></sup>.</p>
+                <hr><br>
+                <h5><b>2.8 Ninhydrin Assay Summary</b></h5>
+                <p>The final parameters of the ninhydrin assay, determined based on optimisation tests and research, are summarised in figure 2.7.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Parameters</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ninhydrin to bioamine and extraction buffer mixture</td>
+                      <td>1:1</td>
+                    </tr>
+                    <tr>
+                    <td>pH buffer ratio to bioamine and extraction buffer mixture</td>
+                    <td>6:1</td>
+                    </tr>
+                    <tr>
+                    <td>pH buffer</td>
+                    <td>Potassium dihydrogen phosphate buffer</td>
+                    </tr>
+                    <tr>
+                    <td>Ninhydrin concentration</td>
+                    <td>10X of cadaverine sample; 195.7 mM</td>
+                    </tr>
+                    <tr>
+                    <td>pH</td>
+                    <td>8</td>
+                    </tr>
+                    <tr>
+                    <td>Heating temperature</td>
+                    <td>80°C</td>
+                    </tr>
+                    <tr>
+                    <td>Heating time</td>
+                    <td>20 minutes</td>
+                    </tr>
+                    <tr>
+                    <td>Cooling time</td>
+                    <td>5 minutes</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 2.7</b> Summary of parameters used in all ninhydrin assays</small></p>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center" id="exp3">
+      3. Sample recovery efficiency experiment
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <h5><strong>Experiment Overview</strong></h5>
+                <br>
+                <p>Characterising the efficiency of sample recovery is an important aspect of our project, as it is directly related to the initial amount of bioamines the circuit will be exposed to. The recovery rate needs to be considered to confirm that our biosensor will give an accurate colourimetric output at specific concentrations within a range of inspection time.</p>
+                <p>Taking the design of our prototype into consideration, the recovery efficiency of bioamine depends on the extraction efficiency of the extraction buffer. Therefore, we performed sample recovery efficiency experiments to analyze the recovery rate of the bioamine samples.</p>
+                <hr>
+
+                <p><u><b>Preparation</b></u></p>
+                <p>In order to imitate the distributed presence of bioamines on the fish surface, bioamine of 6 different concentrations of cadaverine, ranging from 400 ppm to 2000 ppm, were spread through parafilm and dried overnight, in the biosafety cabinet to maintain the sterile condition. 1000 ppm was added since it is the upper limit of our biosensor. Referred to as “parafish”, the bioamine samples we prepared were used as an alternative to actual fish samples.</p><br>
+
+                <p><u><b>Sample Setup</b></u></p>
+                <p>The test samples were made by using swabs of the same dimensions as those of our prototype to collect dried cadaverine samples on parafish, after hydration with 50 μL of autoclaved water. More details on the prototype design can be found through the button below. The control samples were set up by pipetting 50 μL of cadaverine directly onto the swab to represent the maximum recovery of cadaverine in the same setting, as it can be seen as equivalent to all 50 μL of cadaverine swabbed. The entire setup to experiment was done in the Biosafety Cabinet to prevent any contamination of the parafilm surface.</p>
+                <div style="text-align:center">
+                  <a href="https://2022.igem.wiki/hkust/hardware" class="button" target="_blank">Prototype Design</a>
+                </div>
+                <p></p>
+                <p><a href="#exp2">Ninhydrin assay</a> was performed with the parameters determined through the ninhydrin optimisation experiment. The absorbance values of both control and test samples were compared to calculate the extraction efficiency.</p>
+                <hr><br>
+                <h5><b>Results</b></h5>
+                <p>The extraction efficiency at each concentration, which reflects each buffer’s sample recovery efficiency, was calculated by dividing the absorbance value of the test samples with that of the control samples.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Extraction efficiency of TCA samples</th>
+                      <th scope="col">Extraction efficiency of HCl samples</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>400 ppm</td>
+                      <td>97.8%</td>
+                      <td>98.9%</td>
+                    </tr>
+                    <tr>
+                    <td>800 ppm</td>
+                    <td>97.9%</td>
+                    <td>97.9%</td>
+                    </tr>
+                    <tr>
+                    <td>1000 ppm</td>
+                    <td>92.5%</td>
+                    <td>95%</td>
+                    </tr>
+                    <tr>
+                    <td>1200 ppm</td>
+                    <td>96.5%</td>
+                    <td>97.2%</td>
+                    </tr>
+                    <tr>
+                    <td>1600 ppm</td>
+                    <td>94.6%</td>
+                    <td>97.5%</td>
+                    </tr>
+                    <tr>
+                    <td>2000 ppm</td>
+                    <td>88.9%</td>
+                    <td>90.3%</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="text-align:center"><small><b>Figure 3.1</b> Average sample recovery efficiency (%) of both TCA and HCl samples at each concentration</small></p>
+                <p></p>
+                <p style="text-align:center"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hardware-figure-3-2-new.png"><br><small><b>Figure 3.2</b> Average sample recovery efficiency of TCA and HCl samples; representative of all concentrations tested</small></p>
+                <p>Our results show that while a decreasing trend can be observed in the sample recovery efficiency of TCA as the bioamine concentration increases, HCl maintains its recovery rate, except for a slight deviation observed at 2000 ppm. Moreover, HCl has a higher average recovery rate of 96% compared to 94.7% of TCA, with a lower standard deviation. Therefore, HCl was chosen as our final extraction buffer.</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center" id="references">
+    References
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <p>[1] Sun, S.W., Lin, Y.C., Weng, Y-M., & Chen, M.J. (2006). Efficiency improvements on ninhydrin method for amino acid quantification. Journal of Food Composition and Analysis, 2–3, 112–117. https://doi.org/10.1016/j.jfca.2005.04.006</p>
+                <p>[2] Sudalaimani, S., Esokkiya, A., Hansda, S., Suresh, C., Tamilarasan, P., & Giribabu, K. (2019). Colorimetric Sensing of Putrescine and Cadaverine Using Ninhydrin as a Food Spoilage Detection Reagent. Food Analytical Methods, 3, 629–636. https://doi.org/10.1007/s12161-019-01671-9</p>
+                <p>[3] Iwanicka-Grzegorek, K., Lipkowska, E., Kepa, J., Michalik, J., & Wierzbicka, M. (2005). Comparison of ninhydrin method of detecting amine compounds with other methods of halitosis detection. Oral Diseases, s1, 37–39. https://doi.org/10.1111/j.1601-0825.2005.01087.x</p>
+                <p>[4] Zatorski, J. M., Montalbine, A. N., Ortiz-Cárdenas, J. E., & Pompano, R. R. (2020). Quantification of fractional and absolute functionalization of gelatin hydrogels by optimized ninhydrin assay and 1H NMR. Analytical and Bioanalytical Chemistry, 24, 6211–6220. https://doi.org/10.1007/s00216-020-02792-5</p>
+                <p>[5] Fisher, L. J., Bunting, S. L., & Rosenberg, L. E. (1963). A Modified Ninhydrin Colorimetric Method for the Determination of Plasma Alpha-Amino Nitrogen. Clinical Chemistry.</p>
+                <p>[6] Yemm, E. W., Cocking, E. C., & Ricketts, R. E. (1955). The determination of amino-acids with ninhydrin. The Analyst, 948, 209. https://doi.org/10.1039/an9558000209</p>
+                <p>[7] VALLS, J. E., BELLO, R. A., & KODAIRA, M. S. (2002). SEMIQUANTITATIVE ANALYSIS BY THIN-LAYER CHROMATOGRAPHY (TLC) OF BIOGENIC AMINES IN DRIED, SALTED AND CANNED FISH PRODUCTS. Journal of Food Quality, 2, 165–176. https://doi.org/10.1111/j.1745-4557.2002.tb01016.x</p>
+                <p>[8] Joosten, H. M. L. J. (1988). Conditions Allowing the Formation of Biogenic Amines in Cheese.</p>
+                <p>[9] Wu, Y., Hussain, M., & Fassihi, R. (2005). Development of a simple analytical methodology for determination of glucosamine release from modified release matrix tablets. Journal of Pharmaceutical and Biomedical Analysis, 2, 263–269. https://doi.org/10.1016/j.jpba.2005.01.001</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+      
+            <li class="bnav__menuitem">
+                <a href="#exp1" class="bnav__link bnav__link--full-width">Compatibility experiment</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2" class="bnav__link bnav__link--full-width">Ninhydrin optimisation</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-1" class="bnav__link bnav__link--full-width"> - Buffer volume</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-2" class="bnav__link bnav__link--full-width"> - Buffer type</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-3" class="bnav__link bnav__link--full-width"> - Concentration</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-4" class="bnav__link bnav__link--full-width"> - pH</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-5" class="bnav__link bnav__link--full-width"> - Temperature</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-6" class="bnav__link bnav__link--full-width"> - Heating time</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-7" class="bnav__link bnav__link--full-width"> - Wavelength</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-8" class="bnav__link bnav__link--full-width"> - Summary</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp3" class="bnav__link bnav__link--full-width">Recovery efficiency experiment</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+{% endblock %}

@@ -1,0 +1,315 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Human Practices{% endblock %}
+{% block lead %}Connecting our project to real life{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75" id="overview">
+    <h1 class="pt-5 mx-auto text-center">
+        Overview
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>As our goal is to improve fish quality inspection protocols in the real world, we needed to fully understand the perspectives of each group of stakeholders in order to develop a product that is both technically feasible and practical. With this in mind, we reached out and communicated with various stakeholders, including local fish businesses, wet markets, government officers, food safety experts, and diagnostic tech experts, through online & face-to-face meetings and on-site investigations. The interactions with these stakeholders taught us more about the different stages that processed fish go through, from production to consumption.</p>
+                  <button class="collapsible">Timeline</button>
+                  <div class="content">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/new-final-ihp-timeline.png"/></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="business">
+    <h1 class="pt-5 mx-auto text-center" >
+        Local Fish Businesses
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      Interviews and on-site investigations with local fish businesses gave us a better picture of the root problem itself and what basic functions our product should provide.
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Meeting with Seafood Friday (May 3rd)</strong></h5>
+                  <br>
+                  <p>In our discussion with Martin Dijk from Seafood Friday, a Hong Kong business that directly ships top-quality seafood from Holland to its distributing center in Hong Kong, we learned more about their regular operations and quality inspection procedures as well as their opinions toward our general project idea.</p>
+                  <p>Mr. Dijk explained that the ordered seafood is vacuum-packed in a foam box with a firm cover and ice packs inside, minimizing the chance of spoilage. In their distribution center in Hong Kong, the staff would check the fish quality by <span style="color:#678BD6;font-weight:bold">performing sensory evaluation manually</span> (including checking the color, smell, and eye condition) and would discard the item once found to be spoiled.</p>
+                  <p>In contrast to some traditional local seafood distributing businesses, every delivery that Seafood Friday sends out is based on a preorder system, meaning that most of the delivery time lengths are fixed and the spoilage problem rarely happens. In the rare case that a quality issue was discovered, the responsible manager would inspect the traceability document and track it back to the point of inspection in Holland, the country of origin in order to rectify the problem.</p>
+                  <p>Acknowledging that the <span style="color:#678BD6;font-weight:bold">Hong Kong government imposes relatively fewer regulations on assuring seafood quality</span> compared to European countries like Holland, Mr. Dijk saw potential in our project idea and believed that it could lead to an all-win situation.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp1.png"/></p>
+                  <hr>
+
+                  <h5><strong>Meeting with Morgan Cousin, Managing Director and Co-founder at M&C Asia (May 6th)</strong></h5>
+                  <br>
+                  <p>As a major stakeholder in the importation and distribution of Premium Sustainable Seafood in Hong Kong and Macau, M&C serves as a supplier for major dining venues like restaurants, hotels, and casinos. The interview with this experienced industrial leader provided us with clearer directions in terms of refining our target audience and hardware design.</p>
+                  <p>After hearing about our project proposal, Mr. Cousin acknowledged that <span style="color:#678BD6;font-weight:bold">food contamination and spoilage primarily come from improper maintenance in the logistic supply chain</span>, which is an urgent issue to tackle – especially considering that <span style="color:#678BD6;font-weight:bold">there currently aren’t any convenient biosensors for detecting seafood spoilage level in the market</span></p>
+                  <p>Similar to Seafood Friday, M&C purchases local seafood in Europe, specifically France, and exports them to Hong Kong in foam boxes with ice. Upon inspection by the transporters in Paris, it normally takes about two to three days to arrive in Hong Kong, meaning that spoilage cases are infrequent given proper cold chain management. Mr. Cousin described that <span style="color:#678BD6;font-weight:bold">majority of the inspection procedures performed are manual sensory analysis, involving visual and tactile assessment</span> (ex. fish softness, color, and eyes’ translucence); this implies that our project can potentially provide an alternative with lower variability and less labor required for quality assessment. Intrigued with the goal that our project aims to achieve, Mr. Cousin also invited us to send over our prototype to test in the real market once we have one.</p>
+                  <p>When discussing seafood regulations in Hong Kong, he mentioned that they primarily focus on traceability documentation and specific lab testing requirements for oysters. This again presents a gap to ensure general fish quality, which can be resolved by our biosensor.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp2.png"/></p>
+                  <hr>
+
+                  <h5><strong>Wet Market Business</strong></h5>
+                  <br>
+                  <p>Since our main method of obtaining professional opinions from the industry is through arranged interviews, there aren’t many conclusions gained from the business-targeted survey - although some are still insightful.</p>
+                  <p>80% of the businesses surveyed indicate that they place the leftover unsold fish back in the freezer while 20% attempt to sell them quickly at a lower price. Although freezing the fish could slow down or even stop bioamines formation, it doesn’t eliminate the bioamines previously formed, reflecting a <span style="color:#678BD6;font-weight:bold">health risk</span> involved with this business practice.</p>
+                  <p>All of the respondents indicate that the daily fish intake amounts are entirely based on seasonal forecasts and consumer preference, meaning there exists a quantity variability, thus leading to a higher chance of having leftover fish unsold. On the other hand, <span style="color:#678BD6;font-weight:bold">quality variability is amplified by the fact that quality inspection is solely performed manually without a clear standard.</span></p>
+                  <p>More than half of the businesses claim that they are not responsible for storing nor delivering the fish products, which could suggest <span style="color:#678BD6;font-weight:bold">possible bacterial contamination and cold chain mismanagement during the transition points.</span></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/wetmarket3.jpg"/></p>
+                  <hr>
+
+                  <h5><strong>On-Site Investigation in Thailand (August 11th)</strong></h5>
+                  <br>
+                  <p>In addition to our online research of the current problems in global fish markets, we decided to perform on-site investigations in wet markets outside of Hong Kong. In this specific investigation, we looked into the spoilage problem in wet markets and supermarkets in Chaiyaphum, a northeastern city in Thailand. </p>
+                  <p>By observing and interacting with the fish sellers at the wet market, we learned that the increasingly hot summer has led to accelerated deterioration and spoiling of the fish; in response, the sellers usually either dispose of them or re-process them into fermented fish dishes. Their only method of differentiating spoiled fish from normal fish is <span style="color:#678BD6;font-weight:bold">manual inspection, which is based entirely on experience and could involve human errors</span> - not to mention that the reprocessed fermented fish can still contain an excessive amount of bioamines, posing health threats. It is also observed that most of the fish were simply placed on the table for sale and very few of them were contained in a basket with ice underneath, suggesting the absence of a method to ensure the fish’s quality and freshness.</p>
+                  <p>As for the supermarkets, while all the fish were placed in ice cabinets to prolong their shelf life, supermarket managers should be reminded of the <span style="color:#678BD6;font-weight:bold">possible temperature inconsistency during transportation, which could lead to irreversible bioamines formation</span>, especially during the summers in Thailand.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/thai1.jpg" width=290px/> <img src="https://static.igem.wiki/teams/4225/wiki/thai2.jpg" width=290px/> <img src="https://static.igem.wiki/teams/4225/wiki/thai3.jpg" width=290px> <img src="https://static.igem.wiki/teams/4225/wiki/thai4.jpg" width=290px/></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="government">
+    <h1 class="pt-5 mx-auto text-center" >
+        Hong Kong Government Regulatory Bodies
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      Upon a preliminary understanding of the issue at hand through the aforementioned interactions, we began to learn more about the local regulations on bioamines and the corresponding measures for quality control. However, we realize that the existing regulations are very limited and not easily accessible; thus, we reached out to the Hong Kong Fish Marketing Organization (FMO), which oversees the operation of wholesale fish markets, and the Agriculture, Fisheries and Conservation Department (AFCD), which is also responsible for agriculture and fisheries in Hong Kong.
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Meeting with Henry Yip from FMO (June 25th)</strong></h5>
+                  <br>
+                  <p>In addition to reaching out to different local seafood businesses, we also contacted the local regulatory body to gain more insights into the applications of our biosensor. Specifically, we discussed fish quality inspection regulations, or the lack of them, in the current Hong Kong legislative framework with Mr. Henry Yip, a Market Manager from the Hong Kong Fish Marketing Organization.</p>
+                  <p>According to Mr. Yip, the existing regulations regarding quality inspection at the point of transport are <span style="color:#678BD6;font-weight:bold">more of a guideline than a set of compulsory and penalty-based laws.</span> Following these guidelines, some local fish farms present their certificates given by the Hong Kong Agriculture, Fisheries, and Conservation Department (AFCD) to their clients and perform <span style="color:#678BD6;font-weight:bold">quality inspections manually using their eyes and hands</span>, which requires a certain degree of expertise from the inspectors. As for fish products that are imported into Hong Kong, the primary way to ensure quality is the proof-of-origin documentation and random inspections upon entry.</p>
+                  <p>Mr. Yip also explained the water inspection procedures regularly implemented by the Hong Kong Food and Environmental Hygiene Department (FEHD); he described that the FEHD would regularly inspect the quality of the water to ensure that the newly caught fish can live in the water healthily and stay fresh before being sold. If the water quality is tested to be unqualified (i.e. exceeding the heavy metal/bacteria quantity level), the sellers will be warned, asked to replace the water, and be continuously monitored by the FEHD. In other words, there exists a gap for direct fish quality inspection at this handling point, and this is exactly what our biosensor can contribute.</p>
+                  <p>When asked about the practical application of a fish quality detector, the FMO officer emphasized <span style="color:#678BD6;font-weight:bold">how there are no common standards to evaluate fish quality at the good receive stage for catering businesses</span>, especially since the fish inspection is performed manually based on experience; he also suggested us to look into crabs as their meat quality also poses serious health concern to the consumers. Related to quality inspection, seafood storage also seems to be concerning; Mr. Yip described that <span style="color:#678BD6;font-weight:bold">some fish sellers do not have freezers and only keep the products in boxes with ice</span>, which are not a sustainable method to properly store perishable products considering the hot and humid weather in Hong Kong.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp4.png"></p>
+
+                  <h5><strong>Meeting with Dr. Luk from AFCD (July 6th)</strong></h5>
+                  <br>
+                  <p>We have also investigated beyond the logistical management aspect of local fish businesses by reaching out to Dr. Luk, who has technical expertise and experience in the field of fish quality inspection. Specifically, we arranged this meeting to ask for his professional opinions about fish sample collection methods as well as our various hardware designs.</p>
+                  <p>Dr. Luk explained that the current standard protocol for testing fish histamine levels is AOAC 977.13, which involves a homogenized fish sample, meaning that a thorough grinding of the fish is necessary for the sample preparation stage. According to him, this is the most ideal case as it creates a representative sample of the tested fish, but it is contradictory to our end goal of creating a user-friendly and convenient testing kit. Hence, he advised us to <span style="color:#678BD6;font-weight:bold">discuss with other researchers who have experience in developing rapid testing kits for the fish quality</span>, which we indeed did at a later stage.</p>
+                  <p>Since histamine-producing bacteria strive in natural microflora of fish skin, gills, and gut, we also raised the possibility of performing a swab test in these regions as our sample, which has actually been done by another iGEM team to detect certain bacteria in the fish sample. In response to this, although he did not oppose the feasibility of this method, Dr. Luk recommended us to perform prototype testing to truly verify as well as calibrate the sample’s effectiveness in representing the overall fish condition.</p>
+                  <p>As for our future direction, Dr. Luk suggested us to visit restaurants and food factories, specifically their Quality Control departments, <span style="color:#678BD6;font-weight:bold">to understand the actual quality inspection procedures and requirements</span>. This way, we can better adjust our hardware design to fit their needs.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp5.png"/></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="experts">
+    <h1 class="pt-5 mx-auto text-center" >
+        Food Quality Control Experts
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      While we obtained a comprehensive understanding of the problem from those interviews and devised a solution, we still needed help with the actual implementation of our solution. Hence, we contacted local and international food quality control experts for their professional opinions.
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                   <h5><strong>Meeting with Abigail Chiu from PolyU (April 18th)</strong></h5>
+                   <br>
+                   <p>As a molecular science startup founder with experience in the aforementioned FMO, Abigail Chiu has a deep understanding of testing fish quality using rigorous scientific methods.</p>
+                   <p>After introducing to her the general aim of our project, she agreed that fish spoilage does pose a significant threat to Hong Kong consumers. However, she also explained that wholesalers in the more-sanitized wet markets replace the ice stored in the bottom of water tanks relatively frequently in order to sell fresher fish for higher prices, so those sellers will not have a high demand for our sensors.</p>
+                   <p>However, she explained that high-end restaurants, especially those with Michelin qualifications, would be incentivized to test their raw materials’ freshness and prove it to their customers, potential providing them a competitive advantage compared to other restaurants. Similar logic also applies to sushi restaurants that need to ensure consistent high-quality and freshness for their fish. Additionally, Ms. Chiu also suggested that our product has potential to be applied in fish farms, serving as a third-party certification that provides an extra level of quality assurance in addition to the current measures like fish blood extraction and water quality test.</p>
+                   <p>In terms of challenges for achieving food safety in the seafood industry, Ms. Chiu explained that cost would be the largest obstacle, because quality assurance measures like using the airtight technology and below-18-degrees cold chain management could be unaffordable to some smaller businesses.</p>
+                   <hr>
+                  
+                  <h5><strong>Meeting #1 with University of Alaska Fairbanks (April 24th)</strong></h5>
+                  <br>
+                  <p>In our initial meeting with Quentin Fong, a Seafood Marketing Specialist from the Marine Advisory Program at the University of Alaska Fairbanks, we sought his industry expertise and knowledge on fish quality inspections, fish spoilage-related statistics, and the overall seafood supply chain management.</p>
+                  <p>Specifically, we learned that most of the inspection for imported seafood is performed upon leaving the origin country or entering the destination country, meaning that <span style="color:#678BD6;font-weight:bold">regular inspection of the food condition is NOT required for retailers during handling.</span> Although health codes are still required by the government, seafood handling procedures are mostly standardized by guidelines, rather than regulations. This finding agrees with his other comments about the retail part of the supply chain being the most vulnerable to spoilage.</p>
+                  <p>Dr. Fong also emphasized how logistical mismanagements during transportation could result in temperature abuse, which is the primary reason for spoilage, especially during hot summers in Hong Kong. From his thirty years of experience in the industry, he explained that <span style="color:#678BD6;font-weight:bold">seafood processing and distributing businesses, especially the smaller ones</span>, view the costs for cold chain management as a large burden and many think that the industry is overregulated; this implies that they may take a small risk on quality control in exchange for a huge saving on not having to perfect their cold chain.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp6.png"/></p>
+                  <hr>
+
+                  <h5><strong>Meeting #2 with University of Alaska Fairbanks (June 19th)</strong></h5>
+                  <br>
+                  <p>In our second meeting with Quentin, we introduced our finalized product idea and sought for his industrial insights regarding our proposal of marketing our product as a third-party quality certification tool.</p>
+                  <p>After explaining to him the general mechanism of our biosensor, he advised us to reach out to the <span style="color:#678BD6;font-weight:bold">Quality Assurance and Quality Control departments of the local seafood businesses</span> to obtain real market opinions. He also pointed out that considering the low-profit margin in fish retail businesses, it is necessary for us to not only make our biosensor low-cost but also design it for in-house quality control uses – this would affect how our hardware team designs the final product.</p>
+                  <p>Familiar with the business flow in this industry, Dr. Fong advised us to investigate the process flow of the business's regular operations and to <span style="color:#678BD6;font-weight:bold">identify the key handling points</span> so that our biosensor can be used more effectively by being used at the appropriate time points.</p>
+                  <p>Towards the end of this meeting, Dr. Fong suggested that we could test our actual design at his university’s testing lab once we finished developing a prototype. This level of interest in our product from an industry expert made us more confident in our project idea.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp7.jpg" /></p>
+                  <hr>
+
+                  <h5><strong>Meeting #3 with University of Alaska Fairbanks (June 25th)</strong></h5>
+                  <br>
+                  <p>For our third meeting with the University of Alaska Fairbanks, we engaged in a Zoom discussion with Dr. Fong’s colleague, Mr. Chris Sannito, who is a seafood technology specialist and has 30+ years of experience in seafood processing and environmental compliance.</p>
+                  <p>Despite only having a 30-minute meeting due to schedule conflicts and time differences, we had a fruitful and engaging discussion with this food tech expert. Recognizing the detection of histamine production in fish as an urgent issue to tackle, Mr. Sannito was impressed by our circuit design and expressed that its application along with our hardware design is <span style="color:#678BD6;font-weight:bold">very practical and has a lot of potential</span> because most products with similar functions are also in developing stages and have yet to be introduced into the market.</p>
+                  <p>Similar to Dr. Fong, he also believes that our product would help both suppliers and consumers immensely by assuring fish quality and again encouraged us to test our prototypes in their more well-equipped testing laboratories.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/prof-sannito.png"/></p>
+                  <hr>
+
+                  <h5><strong>Meeting with Willem Landman (June 29th)</strong></h5>
+                  <br>
+                  <p>Recognizing the upward trend of HACCP implementation in the global food industry, we contacted Willem Landman from Landman Consulting Limited, who has years of experience in multiple local food companies and is an expert in managing food safety systems at the corporate level.</p>
+                  <p>From his experience in the perishable food industry, Mr. Landman <span style="color:#678BD6;font-weight:bold">emphasized not only the importance of cold chain management but also the necessity of its consistency.</span> With his expertise in the HACCP and ISO frameworks, he described that a business must monitor every Critical Control Point in the supply chain because mishandling at an early stage could lead to irreversible impacts on the products; apart from temperature control, maintaining a high standard of hygienes is also of utmost importance.</p>
+                  <p>Mr. Landman also listed the advantages of including a convenient sensor like ours in a business’s in-house testing protocol, including <span style="color:#678BD6;font-weight:bold">reductions in monetary, time, human resources, and logistical costs.</span> Reflecting on the market research we have done on the local seafood industry, he agreed that there is a lack of proper regulations when it comes to assessing food quality at the retailer handling points and that the businesses that follow the protocols strictly are primarily motivated by branding factors. According to him, customer guarantee is one of the biggest factors that distinguish bigger food businesses from smaller ones, considering that <span style="color:#678BD6;font-weight:bold">the latter group is not financially capable of satisfying the various requirements needed to obtain prestigious certificates like HACCP.</span></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hpqc-willem-landman.png"/></p>
+                  <hr>
+
+                  <h5><strong>Meeting with Mark Van Asten from Diagnostic Technology (July 20th)</strong></h5>
+                  <br>
+                  <p>As we continued to develop our hardware design and became more confident in its usability, we approached Mark Van Asten, the Managing Director of Diagnostic Technology. With more than thirty years of experience in the medical diagnostics and life science industry, Mr. Van Asten is an expert in ‘strategic planning and introduction of new technology’. Combined with his in-depth knowledge of the Australian oyster market and inspection procedures, his experience and advice helped us to better refine our project direction.</p>
+                  <p>After hearing about our project and potential hardware design, Mr. Van Asten expressed that the colorimetric aspect is very user-friendly and is definitely an aspect that we should keep and further optimize at later stages. He also warned us to calibrate the sensitivity carefully and suggested us to increase the detection threshold so as to ‘avoid picking up early spoilage’.</p>
+                  <p>Unsure about the common practices of sample collection for testing seafood, we asked him for some methods that would work best with our hardware design. Although he was unsure about the specific fish species that we will be targeting, he listed an example for oyster sampling, where fishermen would randomly select twelve from a batch and send them to testing centers; he explained that this method allows for a statistically representative analysis of the whole batch. He also recommended us to try selecting samples from a whole fish at three to four strategic spots and test them with our prototype (once we have one) to evaluate its sensitivity and accuracy.</p>
+                  <p>Lastly, we also inquired him about the different regulatory limits for histamine concentration and how our biosensor can cope with this inconsistency. Using regulations for alcohol levels when driving as an example, Mr. Van Asten explained that our biosensor would have to be flexible to accommodate different standards.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/hp8.png"/></p>
+                  <hr>
+
+                  <h5><strong>Meeting with Professor Michael Lam from the City University of Hong Kong (September 9th)</strong></h5>
+                  <br>
+                  <p>While most companies that develop and commercialize rapid histamine testing kits have no incentive and do not want to discuss the development of our project, we managed to get in contact with a research team that is developing a quick histamine and formaldehyde sensor at the City University of Hong Kong. Through the CityU iGEM team, we arranged a Zoom meeting with Professor Lam to discuss the details of our respective projects.</p>
+                  <p>From the discussions, we learned that the need for “smart food quality testing kits” like ours is even larger than we originally thought as Professor Lam explained that the regulatory bodies in China are craving quick food spoilage detection methods, which is a good sign for our project considering the huge potential market. He also mentioned that an easily visualizable kit like ours is simple like a Rapid Testing Kit for Covid and will likely interest many businesses, especially since temperature probes in cold chain management can be easily tampered with and compromise quality control.</p>
+                  <p>However, Professor Lam also reminded us that a major obstacle we need to resolve is justifying the advantage of measuring total bioamines levels over measuring histamine. With his own project, he has tried to convince investors and businesses of the scientific backing of needing to measure total bioamines level; however, the businesses seemed to be only interested in fulfilling the requirements dictated by the regulatory bodies, which have not yet included an official upper limit for bioamines level.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/prof-michael-lam.png"/></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="consumer">
+    <h1 class="pt-5 mx-auto text-center" >
+        Fish Consumers
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      As one of the most direct beneficiary groups, local fish consumers and their opinions are no doubt also something we need to incorporate into our engineering cycles. As our project’s aim is to provide a convenient and affordable bioamines testing kit for fish sellers and consumers, it is natural that we perform surveys to gather public opinions on our project’s direction and usability. For consumers, we specifically target the fish buyers in wet markets, who usually buy whole fish or larger amounts of fish fillets for their families. For sellers, we target the ones in wet markets as we have already performed in-depth interviews with the businesses that operate online or in supermarkets.<br>
+      
+      With over 300 responses in total, below are the insights we have gained from the statistics.
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>First Round</strong></h5>
+                  <br>
+                  <p>With 40% of responses coming from Hong Kong consumers and the rest distributed among the US, Japan, Korea, and mainland China, the results match our project profile and provide the information that we sought. We learned that more than 85% of respondents consume fish at least once per week, with almost 20% of them consuming more than 4 times per week, and that 30% of them purchase from wet markets and almost 60% from supermarket. These indicate <span style="color:#678BD6;font-weight:bold">the need for stricter fish quality control at these handling points</span>, especially considering the high consumption volume.</p>
+                  <p>When asked about to what extent is seafood spoilage a serious concern in their local regions, the respondents provided an average score of 5.25 out of 10, indicating that it is a moderately urgent issue that shouldn’t be simply neglected. The responses also suggest that not everyone is well informed about the causative agents responsible for seafood spoilage (an average score of 6.86 out of 10, with 10 being very well-informed).</p>
+                  <p>Over 95% of the respondents indicated that they dispose fish that shows any sign of spoilage after purchasing, either because they were stored for too long or bought on the verge of spoilage. This demonstrates the huge economic loss resulted from unclear spoilage level upon fish purchase. About 58% of the respondents indicate that they would pay more than 10% of the fish original price for guaranteeing its quality and absence of spoilage. Out of these, 38.7% of them are willing to pay 20% or more to do so, demonstrating their <span style="color:#678BD6;font-weight:bold">priority for food safety over price.</span></p>
+                  <p>Another significant finding is that almost 60% of respondents responded that they have experienced some kind of physical sicknesses after consuming fish or fish products, including but not limited to nausea, vomit, diarrhea, itching, headache, and rash, demonstrating <span style="color:#678BD6;font-weight:bold">how common spoilage poisoning is</span> - despite the limited official statistics available.</p>
+                  <hr>
+
+                  <h5><strong>Second Round</strong></h5>
+                  <br>
+                  <p>In an additional survey that we sent out as our project progressed, we learned that among factors like overpricing, chemical-containing, and microplastics, spoilage is the biggest concern for consumers in terms of purchasing seafood at retailer stores. In another question evaluating the importance of fish product’s freshness in comparison with price and apperance, an average score of 4.63 out of 5 was received, indicating <span style="color:#678BD6;font-weight:bold">the consumers’ priority of safety over other factors.</span> This conclusion is further confirmed by a mean of 2.13 out of 5 when asked about the willingness to purchase a fish that may be spoiled at a discounted price (5 being willing to).</p>
+                  <p>Since our project’s implementation involves the HACCP system, we also investigated the public’s knowledge in this area. Over 70% of respondents indicate that they either haven’t or barely know of any internation regulatory standard pertaining to seafood safety; similarly, over 60% of them know very little about existing regulations or protocols to ensure seafood freshness in their local areas. However, more than 50% strongly believe that a set of standards for seafood quality inspection needs to be established. These results are significant as they indicate that <span style="color:#678BD6;font-weight:bold">while consumers put a strong emphasis on seafood freshness and safety, very few of them know about the relevant existing measures or regulations - or the lack of them in some regions.</span></p>
+                  <p>Around 34% and 32% of respondents believe that the most important control points in the seafood supply chain are seafood processing factories and transportation facilities, respectively. <span style="color:#678BD6;font-weight:bold">Considering that 68.5% of the respondents prefer swab test as a mean of sample collection for the testing kit, we aim to develop an affordable swab-based testing kit that is convenient to implement at seafood processing factories and transportation facilities.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="symposium">
+    <h1 class="pt-5 mx-auto text-center">
+        Symposium
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      Apart from communicating with these stakeholders, another channel we used to connect our project with the outer world is by hosting a face-to-face symposium with various local iGEM teams, which has been a very rewarding experience.
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>On August 13th, we hosted the iGEM HKUST Symposium in an auditorium on our campus and invited five other local teams to come and share their projects - with the aim to not only share our respective projects but also the insights that we gained throughout the journey so far. With the efforts of our team members and the university’s security and facilities teams, this event was able to proceed successfully despite the worsening of Covid in Hong Kong at the time.</p>
+                  <p>We were honored to have Dr. Jessica Tang from the HKUST Life Science department deliver the Welcoming Address; we also invited Professor Yong Lai and Professor Fei Sun (both from the Department of Chemical and Biological Engineering) to serve as our guest speakers and offer their thoughts on the development and future of synthetic biology’s impacts to the academic and social world.</p>
+                  <p>With the social distancing restriction in mind, we invited five other local teams to join our symposium; however, a member from one of the high school teams got tested positive for Covid just a few days before the event, resulting in four teams physically joining us on the day, including team HKU, team CUHK, team CityU, and team HK_CPU-WYY.</a>
+                  <p>To simulate the presentation style at the Jamboree, each team presented their project along with its challenges and goals within twenty minutes, which is then followed by a twenty-minute Q&A session. Not only was each team able to hear and learn from other teams’ projects, everyone received feedback about their own projects and discovered new ways to improve and collaborate - which is the exact purpose of this symposium.</p>
+                  <p>After all the presentations, we held a photo-taking session as well as a mingling session to allow further discussions about specific collaborations to be made. As a token of appreciation, we also gave gift bags to the guest speakers and individual gifts for the participants, some of which were supplied by the Sustainability Office at HKUST upon hearing about our iGEM symposium.</p>
+                  <p>All in all, it was a day filled with fruitful discussions and meeting people with similar passions, no matter which age group they are, which school they attend, or which major they study. Having learned more deeply about other teams’ projects, we plan to arrange further collaboration meetings and hopefully meet each other at the Jamboree in Paris again!</p>
+                  <div class="row text-center">
+                      <div class="col text-center">
+                        <img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/symposium1.jpg"/>
+                      </div>
+                      <div class="col text-center">
+                        <img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/symposium2.jpg"/>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="sdg">
+    <h1 class="pt-5 mx-auto text-center">
+        Sustainable Development Goals
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>SDG#3: Good Health and Well-being</strong></h5>
+                  <br>
+                  <p>By allowing users to conveniently determine fish spoilage levels, <span style="color:#678BD6;font-weight:bold">our testing kit assures fish quality prior to consumption</span>, greatly reducing the chance of unknowingly consuming spoiled fish and suffering from bioamines poisonings like the Scombroid Fish Poisoning and Tyramine Toxicity. This way, we promote Good Health and Well-being for both local and international fish consumers.</p>
+                  <p>Extensive research of regulatory practices on the international level shows that a strict and structured Quality Control system like HACCP is essential for ensuring food safety at multiple handling points. It is especially critical to introduce a testing kit like ours in the local market, where a comprehensive framework for standardizing fish quality inspection has not been established yet. Upon further commercialization, our product would serve to be an important tool for implementing such Quality Control systems.</p>
+                  <hr>
+
+                  <h5><strong>SDG#8: Decent Work and Economic Growth</strong></h5>
+                  <br>
+                  <p>As we investigated the different critical points of the local seafood supply chain, we learned that the current Hong Kong legislative framework does not include strict inspection procedures at the seafood retailer handling point. Considering the global trend of increasing awareness and implementation of food certification, our testing kit will help reduce the existing legislative gap and support the Hong Kong seafood market in reaching the global food certification standards; this will no doubt further <span style="color:#678BD6;font-weight:bold">boost the economic growth of the local seafood sector.</span></p>
+                  <p>Apart from the regulatory perspective, our product will also improve the overall efficiency of the supply chain by providing a more convenient method for sample inspections. In the past, processed seafood businesses are required to send samples to testing laboratories and wait for days before receiving the results. Our bioamine detector will speed up this process and improve the overall productivity of the seafood sector.</p>
+                  <hr>
+
+                  <h5><strong>SDG#12: Responsible Consumption and Production</strong></h5>
+                  <br>
+                  <p>According to Professor Yonghua Jiang from Jimei University, “spoilage accounts for at least 10 percent of all seafood production”; discarding seafood resulting from spoilage can occur anywhere in the supply chain, from transportation trucks to retail shops to consumers’ kitchens. Having a device that indicates the fish spoilage level <span style="color:#678BD6;font-weight:bold">allows users to take appropriate actions before it is too late, which would reduce food waste</span> and help facilitate responsible consumption and production.</p>
+                  <p>Not only will stakeholders be more responsible when they can monitor the relative spoilage level, but they will also be able to <<span style="color:#678BD6;font-weight:bold">implement preemptive measures to reduce the spoilage rate.</p> For example, if a fish processing business realizes that the spoilage detector consistently detects fish spoilage in their products, then they should consider investigating their cold chain management to rectify the problem.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#overview" class="bnav__link bnav__link--full-width">Overview</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#business" class="bnav__link bnav__link--full-width">Local fish</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#government" class="bnav__link bnav__link--full-width">HK Government</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#experts" class="bnav__link bnav__link--full-width">Food quality</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#consumer" class="bnav__link bnav__link--full-width">Fish Consumers</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#symposium" class="bnav__link bnav__link--full-width">Symposium</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#sdg" class="bnav__link bnav__link--full-width">SDGs</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

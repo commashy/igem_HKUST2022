@@ -1,0 +1,97 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Improvement of an Existing Part{% endblock %}
+{% block lead %}A key ingredient to our success{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Summary
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      Improvement of existing part rDAO(BBa_K3684002) by attaching a pelB translocation tag(BBa_J32015) to increase the expression of functional rDAO (BBa_K4225022)
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col" id="overview">
+                  <p>Based on the ninhydrin experiment, we proved that the construct with pelB-rDAO(BBa_K4225022)  is more efficient in converting diamine to H<sub>2</sub>O<sub>2</sub> than construct with rDAO (BBa_K3684002).</p>
+
+                  <h5><strong>Overview</strong></h5>
+                  <br>
+                  <p>From the dry lab, we found that increasing [rDAO] can increase the rate of converting diamine to H<sub>2</sub>O<sub>2</sub>, increasing the subsequent RFP output of our system. Sobol analysis was performed with the ODEs set for cycle 1 to provide insights not only on the improvement of cycle 1, but also on the future direction that the circuit design team can hold in order to further improve our circuit. The corresponding sensitivity analysis results are shown as follows.</p>
+                  
+
+                  <div class="row mt-4">
+                    <div class="col-sm">
+                      <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/improve-figure-1a-left.png"/></p>  
+                    </div>
+                    <div class="col-sm">
+                      <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/improve-figure-1b-right.png"/></p> 
+                    </div>
+                  </div>
+                  <p style="text-align:center;"><small><b>Figure 1.1 and Figure 1.2</b> Sobol Analysis of Cycle 1 on GFP and RFP respectively</small></p>
+                  <p>*is defined as SA values that are negative.</p>
+
+                  <p>More information on the interpretation of sobol analysis can be seen in the <a href="https://www.tandfonline.com/doi/abs/10.1080/10408390802067514" target="_blank">dry lab</a>. However, for this wiki page, we will focus on the rate constant that are related to pelB-rDAO, which is k1 (Figure 2).</p>
+
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/improve-fig2.png" width=80%/></p>
+                  <p style="text-align:center;"><small><b>Figure 2</b> Modeling of RFP with varying k1 Parameter Values</small></p>
+                  <p>From the dry lab, the parameter under observation, k1 is the rate constant for the reaction of the conversion of diamine to H<sub>2</sub>O<sub>2</sub>, with k1 = k[rDAO], where k is a constant. Thus, by increasing the rDAO concentration, we could increase k1, hence increase the RFP output. Thus, we decided to do further research with the idea of increasing rDAO expression.</p>
+                  <p>Just like hDAO, rDAO contains a disulfide bond [1], and we realized that this is a problem. In prokaryotes, the formation of disulfide bonds in cytoplasm is unfavourable due to the bacterial cytoplasmic reducing environment. Instead, the correct formation of disulfide bonds occurs more favourably in the periplasm, which has a more oxidising environment. The formation of disulfide bonds in periplasm is done using 2 systems: DsbA-DsbB and DsbC-DsbD. [2]. The DsbA protein oxidised SH moiety of cysteine, forming the disulfide bond, while DsbB recycles the reduced DsbA back to its oxidised active form. However, DsbA prefers to form disulfide bonds in a vectorial manner, which may lead to an incorrect disulfide bond formation, and thus incorrect protein folding. This is where the DsbC-DsbD system comes in. This system fixes the incorrect disulfide bond by isomerizing the incorrect disulfide bonds. We hypothesized that tagging a translocation tag that can transport rDAO to periplasm of our chassis could increase the concentration of functional rDAO, and hence increase rate constant (k1).</p>
+
+                  <p>We then searched whether the introduction of a translocation tag to rDAO has been done before. We found out that Rosini and her team have connected the pelB translocation tag to rDAO and they successfully expressed functional rDAO [3] in their Origami2(DE3) E.coli strain. Seeing the success of the research paper, we decided to tag pelB (BBa_J32015) to rDAO and transform the composite part into DH5α.</p>
+                  <hr>
+
+                  <h5><strong>Build</strong></h5>
+                  <br>
+                  <ol>
+                    <li>Pc-pelB-rDAO(BBa_K4225007), consist of pelB-rDAO(BBa_K4225022)</li>
+                    <li>Pc-rDAO(BBa_K4225021), consists of rDAO (BBa_K3684002)</li>
+                    <li><u>Negative control</u>: pSB1C3</li>
+                  </ol>
+                  
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-1.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 3.</b> Pc-pelB-rDAO and Pc-rDAO construct</small></p>
+
+                  <p>To compare the pelB-rDAO (BBa_K4225022) and rDAO(BBa_K3684002), the same constitutive promoter, RBS and double terminator is added to both parts, resulting in the formation of the composite parts, Pc-pelB-rDAO (BBa_K4225007) and Pc-rDAO (BBa_K4225021).</p>
+                  
+                  <p>3 constructs (Pc-pelB-rDAO, Pc-rDAO and negative control (pSB1C3)) were cloned into our chassis in preparation for the Test phase. The comparison between rDAO with and without pelB translocation tag is used to prove the functionality of the pelB translocation tag and the improvement of rDAO function. For the negative control, we obtained an empty pSB1C3 vector by linearizing a DNA that has a pSB1C3 vector with XbaI and SpeI, and re-ligating the vector back. Digestion check is done to make sure the re-ligated pSB1C3 vector is correct.</p>
+                  <hr>
+
+                  <h5><strong>Test</strong></h5>
+                  <br>
+                  <p>We then proceeded to characterize rDAO using Ninhydrin and Histamine Assay.</p>
+                  <p>The aim of this experiment is to characterize rDAO activity in catalysing the reaction of diamine to produce hydrogen peroxide. Ninhydrin is used for this experiment as it reacts with diamine to produce a colour change that can be measured at 570 nm. More importantly, the absorbance measured at 570 nm correlates with the concentration of diamine. Taking advantage of this property, this experiment will measure the decrease of absorbance over time which corresponds to the decrease in diamine concentration, the functionality of rDAO.</p>
+
+                  <p>Before the experiment, the overnight inoculated cultures are back-dilute to 1.0 OD600 and washed 3 times with PBS solution to remove LB used for inoculation. Afterwards, histamine is added to the washed bacteria to obtain a final histamine concentration of 600 ppm. They are then placed into the shaking incubator for 1 hour at 37oC and 300 RPM settings.</p>
+                  <p>After an hour, they are taken and spin down to pellet the bacteria. The supernatant is then taken to be studied using ninhydrin. The experimental protocols using ninhydrin are similar to the protocol made by the Hardware team. For more details on the experiment, refer to the links.</p>
+
+                  <div style="text-align:center">
+                    <a href="https://2022.igem.wiki/hkust/wetlab-hardware" class="button" target="_blank">Hardware</a>
+                    <a href="https://static.igem.wiki/teams/4225/wiki/experiment-protocol-new-cd.pdf" class="button" target="_blank">Wet Lab Circuit Design Experiment</a>
+                  </div>
+                  <hr>
+
+                  <h5><strong>Result</strong></h5>
+                  <br>
+                  <p>To improve the reliability and accuracy of the data, we took triplicate measurement and calculated the standard deviation of the data. Moreover, we did t-test to show the significance of the decrease of the absorbance.</p>
+
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/newnew-absorbance-vs-rdao-new.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 4.</b> Absorbance at 570 nm v/s pelB-rDAO and rDAO</small></p>
+
+                  <p><span style="color:#678BD6;font-weight:bold">Statistically significant decrease (p &#60; 0.01, p &#60; 0.03 and p &#60; 0.01) of absorbances can be seen with pelB-rDAO from 0 to 1 hr, 1 to 2 hr and 0 to 2 hr respectively.</span>  On the other hand, no statistically significant decrease can be seen for the rDAO construct for every hour, and <span style="color:#678BD6;font-weight:bold">only a statistically decrease (p &#60; 0.03) can be seen for 0 to 2 hr result.</span> Moreover, for our -ve construct, no significant decrease or increase can be seen. Thus, the evaporation of histamine and the effect of bacterial culture towards the result of our experiment could be ignored. Therefore, we can state that the <span style="color:#678BD6;font-weight:bold">decrease of absorbance, which is related to the concentration of diamine, in pelB-rDAO and rDAO construct is due to the rDAO enzyme.</span> Knowing that the function of rDAO is to catalyze the conversion of diamine to H<sub>2</sub>O<sub>2</sub>, then this result indirectly proves that H<sub>2</sub>O<sub>2</sub> is also produced due to the rDAO enzyme.</p>
+
+                  <p>The decrease of the percentage of absorbance for pelB-rDAO construct are: -17.8% for 0 hr to 1 hr, -6.59% for 1 to 2 hr, and -23.2% for 0 hr to 2 hr, while for rDAO construct are: -6.59% for 0 hr to 1 hr, -7.19% for 1 hr to 2 hr and -10.8% for 0 hr to 2 hr. Comparing just the time point with the statistically significant result, which is 0 to 2 hr, then the pelB-rDAO construct has a larger decrease of percentage of absorbance compared to the rDAO construct ( -23.2% v/s -10.8%). <span style="color:#678BD6;font-weight:bold">This demonstrates that there is a higher activity of rDAO in the bacteria with pelB-rDAO compared to the latter, proving that the pelB tag functions like we hypothesised, improving the efficiency of the conversion of diamine to H<sub>2</sub>O<sub>2</sub> in construct with pelB-rDAO(BBa_K4225022)</span></p>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends "layout2.html" %}
+
+{% block title %}Optimization{% endblock %}
+{% block lead %}Designing the most optimal condition for the cell-free system{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75" id="intro">
+    <h1 class="pt-5 mx-auto text-center">
+        Introduction to Optimization
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>The Cell-free System or CFS is an in vitro system consisting of cellular abstractions extracted from lysed cells and other elements necessary for the target protein synthesis<sup><a href="https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/enb2.12004" target="_blank">[1]</a></sup>. Even though CFS is well known for its reduced time for protein expression, small reaction volume, and relatively lower cost, many laboratories have been optimizing their CFS to achieve even more efficient and robust lab-made cell-free systems<sup><a href="https://pubmed.ncbi.nlm.nih.gov/21520017/" target="_blank">[2]</a></sup>. Our detection kit must be quick, robust, and affordable. Thus, we have decided to optimize our CFS with our own hands.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="design">
+    <h1 class="pt-5 mx-auto text-center">
+        Experimental Design
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>Our CFS is a set of five different components: Master Mix, Amino Acids, Cell Extract, Plasmid Construct, and Extra Components (RNA Inhibitor and Maltose). The objective of the optimization process was to identify the optimal concentration combination of four essential reagents of the Master Mix, including ATP, Mg-Acetate, 3-PGA, and PEG.</p>
+                  <p>The first phase was the optimization of a single reagent. The GFP expression levels were measured at five different concentration points of a single reagent while keeping the concentrations of other reagents constant. Followings are the sets of reagent concentrations used in our experiments.</p>
+                  <br>
+
+                  <h5><strong>Concentration levels</strong></h5>
+                  
+                  <p>The optimization experiments were conducted according to the following procedure.</p>
+                  <ol type="1">
+                    <li>The volume of reagents to make Master Mix that is enough for four reactions (two experimental samples, one negative control, and one extra reaction) were calculated for each reagent concentration combination.</li>
+                    <li>Master Mixes were prepared according to pre-determined amount. Master Mixes could be stored in -80&#176;C refrigerator for at most one week without loss of function.</li>
+                    <li>At cell assembly, 10µL of amino acid mixture and 20µL cell extracts were added to each master mix and mixed thoroughly. Then, Each master mix was divided into three separate eppendorf tubes with a volume of 12µL, where 3µL of plasmid was added to experimental samples and 3µL of water was added to the negative control.</li>
+                    <li>After 16 hours of incubation, the fluorescence level (Ex. 488nm, Em. 530nm) of each sample was measured. Given R+,1 and R+,2 are the fluorescence level of two experimental samples and R- is the fluorescence level of the negative control. The fold-change of GFP expression level of specific combination was calculated as below:
+                      <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{R_{&plus;,1}{}&plus;R_{&plus;,2}{}}{2}\times&space;\frac{1}{R_-{}}"/></p></li>
+                  </ol>
+                  <p>Here are the results for a single reagent optimization experiment.</p>
+                  <div class="row mt-4">
+                      <div class="col-sm">
+                          <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dowon1.jpeg"/></p>
+                          <p style="text-align:center;"><small><b>Figure 1</b> Single reagent optimization: ATP</small></p>
+                      </div>
+                      <div class="col-sm">
+                          <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dowon2.jpeg"/></p>
+                          <p style="text-align:center;"><small><b>Figure 2</b> Single reagent optimization: Mg</small></p>
+                      </div>
+                  </div>
+
+                  <div class="row mt-4">
+                      <div class="col-sm">
+                          <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dowon3.jpeg"/></p>
+                          <p style="text-align:center;"><small><b>Figure 3</b> Single reagent optimization: 3-PGA</small></p>
+                      </div>
+                      <div class="col-sm">
+                          <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dowon4.jpeg"/></p>
+                          <p style="text-align:center;"><small><b>Figure 4</b> Single reagent optimization: PEG</small></p>
+                      </div>
+                  </div>
+
+                  <p>The next phase of optimization was to investigate the non-linearity in our CFPS. This was executed by the employment of the deep learning model entitled Recurrent Neural Network or RNN. A recurrent neural network (RNN) is a class of artificial neural networks where connections between nodes can create a cycle, allowing output from some nodes to affect subsequent input to the same nodes. This allows it to exhibit temporal dynamic behavior. Derived from feedforward neural networks, RNNs can use their internal state (memory) to process variable length sequences of inputs. This makes them applicable to tasks such as unsegmented, connected handwriting recognition or speech recognition. Recurrent neural networks are theoretically Turing complete and can run arbitrary programs to process arbitrary sequences of inputs.</p>
+                  <p>Retaining accurate and abundant datasets are the keys to the development of a reliable deep learning model. Since it is impossible to find an open source dataset that is specific enough for our CFPS, we decided to generate an in-house dataset. Following is how we planned to prepare our dataset.</p>
+                  <p>Given that <img class="img-fluid" src="https://latex.codecogs.com/svg.image?C_{opt}{}"/> is the optimal concentration of a particular reagent obtained in the Phase 1, </p>
+                  <ol type="1">
+                    <li>Three different concentration points <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\left&space;(&space;&space;C_{lower}{}=C_{opt}{}\times&space;0.95,&space;\:&space;C_{opt}{},\;&space;&space;C_{upper}{}=C_{opt}{}\times&space;1.05\right&space;)"/> were assigned to each of the four reagents. This gives us total <img class="https://latex.codecogs.com/svg.image?3^{4}"/> or 81 possible combinations of reagent concentrations.</li>
+                    <li>Three data points were generated for each combination, resulting in a total of 243 data points. </li>
+                  </ol>
+                  <p>Every possible combination and their corresponding reagent concentrations were calculated using the python program.</p>
+                  <p>Unfortunately, we were not able to obtain the dataset due to limited time and resources. Yet, the design of model structure and model training method will be explained in the following section. Dummy data was created to replace the experimental data. Arbitrary optimal concentration set was decided:</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?ATP&space;=&space;2.25%"/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?Mg&space;=&space;20\mu&space;M"/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?PGA&space;=&space;22\mu&space;M"/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?PEG&space;=&space;3.5%"/></p>
+                  <p>For the generation of each datapoint, random concentration value was assigned to each reagent using the randint function. Then, the expression level of GFP for a particular set of concentrations was assigned according to the set’s distance, d, and the number of near optimal concentration reagent, n. The d and n of each set was defined as below:</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?d=\frac{\left|&space;ATP^{*}-ATP\right|}{ATP^{*}}&plus;\frac{\left|&space;MG^{*}-Mg\right|}{Mg^{*}}&plus;\frac{\left|&space;PGA^{*}-PGA\right|}{PGA^{*}}&plus;\frac{\left|&space;PEG^{*}-PEG\right|}{PEG^{*}}"/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?If\;&space;\left|&space;\left&space;[&space;Reagent^{*}&space;\right&space;]-\left&space;[&space;Reagent&space;\right&space;]\right|\leq&space;0.005,\;&space;\left&space;[&space;Reagent&space;\right&space;]\;&space;'is\;&space;near\;&space;optimal'."/></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?n=the\;&space;number\;&space;of\;&space;&space;near\;&space;optimal\;&space;\left&space;[&space;Reagent&space;\right&space;]"/></p>
+                  <p>where <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\left&space;[Reagent&space;^{*}&space;\right&space;]"/> and <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\left&space;[&space;Reagent&space;\right&space;]"/> are the optimal concentration and current concentration of each reagent. Dummy dataset containing total 10,000 data points were created and fed into the training model. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="dataset">
+    <h1 class="pt-5 mx-auto text-center">
+        Dataset and Results
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>The structure and detailed information about our dataset are provided in this section.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dowon5.jpeg"/></p>
+                  <p style="text-align:center;"><small><b>Figure 5</b> Dataset Overview</small></p>
+
+                  <p>Unfortunately, the desired trend between the reagent concentration set and the GFP expression level were not observed in our dummy dataset. As a result, the loss value of the model was not decreasing in a meaningful way.</p>
+                  
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dowon6.jpeg"/></p>
+                  <p style="text-align:center;"><small><b>Figure 6</b> Loss value after each training</small></p>
+
+                  <p>Despite the unforeseen results from our dummy dataset, past research <sup><a href="https://pubmed.ncbi.nlm.nih.gov/21520017/" target="_blank">[2]</a></sup> that implemented deep-learning algorithm to muti-reagent optimization was able to increase the CFS protein expression level by more than three times. Currently, there are more accurate and efficient data processing and machine/deep-learning algorithms. With the state-of-the-art algorithms and real experimental dataset, we expect a similar result could have been drawn for our CFS optimization process. Furthermore, the true value of machine/deep learning-adapted optimization lies in that it allows to not just capture the hidden mathematical trend in the CFS, but it also to predict the results for un-experimented region based on the mathematical trend. Although we were not able to complete the multi-reagent optimization in this project, our effort here may suggest new inspiration or a basepoint for the future iGEM teams. Future projects that involve CFS with wider spectrum of reagent concentrations may especially benefit from our work. Such projects will be restrained to explore a small portion of their possible domain of input. Yet, they will be able to obtain better insight about the general trend of their entire CFS from significantly reduced amount of time and resources that must be placed in to obtain an experimental dataset. In addition, they will be able to conduct more detailed analysis and draw more precise conclusion about their CFS optimization in a more efficient way.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>[1] Batista, A. C., Soudier, P., Kushwaha, M., & Faulon, J.-L. (2021, February 21). Optimising protein synthesis in cell‐free systems, a Review. The Institute of Engineering and Technology. Retrieved October 8, 2022, from https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/enb2.12004</p>
+                  <p>[2] Caschera, F., Bedau, M. A., Buchanan, A., Cawse, J., Nucrezia, D. de, Gazzola, G., Hanczyc, M. M., & Packard, N. H. (2011, April 21). Coping with complexity: Machine learning optimization of cell‐free ... Wiley Online Library. Retrieved October 8, 2022, from https://onlinelibrary.wiley.com/doi/10.1002/bit.23178</p>
+                  <p>[3] Zhang, L., Lin, X., Wang, T., Guo, W., & Lu, Y. (2021, July 6). Development and comparison of cell-free protein synthesis systems derived from typical bacterial chassis - bioresources and Bioprocessing. SpringerOpen. Retrieved October 8, 2022, from https://bioresourcesbioprocessing.springeropen.com/articles/10.1186/s40643-021-00413-2</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#intro" class="bnav__link bnav__link--full-width">Introduction</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#design" class="bnav__link bnav__link--full-width">Experimental design</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#dataset" class="bnav__link bnav__link--full-width">Dataset and results</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

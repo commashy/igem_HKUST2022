@@ -1,0 +1,173 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white-t fixed-top headerlead">
+    <div class="container">
+
+        <!---- TEAM NAME ---->
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+            <svg width="70" height="40" viewBox="0 0 70 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="34.2494" cy="19.5085" r="19.5085" fill="#D5E3FB" />
+                <path d="M1.70226 21.6445C15.0775 9.51172 32.4443 0.5445 57.1213 16.7203" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M1.79705 21.6808C4.70958 23.977 9.78945 26.4182 12.2255 26.4184" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M7.66403 25.0662C8.70119 24.2892 10.2043 23.5104 10.9714 21.6331" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M14.9735 27.1397C16.0103 25.9988 16.7361 23.0439 17.1444 20.9749" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M54.114 27.9704C54.0105 26.88 54.0106 20.5056 53.8032 18.4829" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M67.5935 10.9151C65.053 17.8584 57.0172 33.1972 57.7432 19.9848" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M67.7475 10.9135C69.0964 42.4851 66.5043 30.3532 61.9428 27.8597" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M32.0043 29.0036C32.6516 27.6057 33.0663 23.0438 32.8589 21.0222" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M35.9988 29.988C37.4158 26.505 34.3055 21.7315 32.08 28.8502" stroke="#0C2C54" stroke-width="2"
+                    stroke-linecap="round" />
+                <path d="M46.6799 28.9507C46.68 27.6056 46.8869 25.6349 46.6796 23.6132" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M51.1589 24.392C50.0183 23.9768 47.4263 24.392 46.7548 28.7992" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M44.4199 28.2803C41.3606 31.8051 38.7252 28.9167 39.1399 26.4278" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path d="M39.2358 27.708C44.6842 28.7929 41.8964 22.1121 39.2358 26.154" stroke="#0C2C54"
+                    stroke-width="2" stroke-linecap="round" />
+                <path
+                    d="M18.5504 27.3978C27.9537 30.4048 32.4439 24.91 24.7202 24.2864C16.9966 23.6628 23.6315 12.3626 27.9537 15.5761"
+                    stroke="#0C2C54" stroke-width="2" stroke-linecap="round" />
+                <circle cx="16.995" cy="16.4081" r="1.76261" fill="#0C2C54" />
+            </svg>
+        </a>
+
+        <!---- SMALL SCREEN MENU ICON ---->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto left-aligned">
+
+                <!---- HOME ---->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+
+                <!---- PROJECT ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Project
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='description') }}">Description</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='design') }}">Design</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='engineering') }}">Engineering</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='proof-of-concept') }}">Proof of
+                                Concept</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='hardware') }}">Prototype</a></li>
+                        <li><a class="dropdown-item"
+                                href="{{ url_for('pages', page='implementation') }}">Implementation</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='contribution') }}">Contribution</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!--Wetlab-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Experiments
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='wetlab-circuit-design') }}">Circuit
+                                Design</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='wetlab-cfs') }}">Cell Free
+                                System</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='wetlab-hardware') }}">Hardware</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='notebook') }}">Notebook</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='safety') }}">Safety</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!--Drylab-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Modeling
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='model') }}">Bacterial Growth</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='drylab-circuit-design') }}">Circuit
+                                Design</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='drylab-optimization') }}">Optimization</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='drylab-meetings') }}">Meetings</a></li>
+                    </ul>
+                </li>
+
+                <!---- PARTS ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Parts
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='part-collection') }}">Part
+                                Collection</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='parts') }}">Parts</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='improve') }}">Improve</a></li>
+                    </ul>
+                </li>
+
+                <!---- HUMAN PRACTICES ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Reach
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='human-practices') }}">Human
+                                Practices</a></li>
+                        <li><a class="dropdown-item"
+                                href="{{ url_for('pages', page='collaborations') }}">Collaboration</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='communication') }}">Communication &
+                                Education</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='sustainable') }}">Sustainable</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='future-reach') }}">Future Reach</a>
+                        </li>
+                        <!-- <li><a class="dropdown-item" href="{{ url_for('pages', page='education') }}">Education</a>
+                        </li> -->
+                    </ul>
+                </li>
+
+                <!---- TEAM ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Team
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='team') }}">Members</a></li>
+                        <li><a class="dropdown-item"
+                                href="{{ url_for('pages', page='inclusivity') }}">Inclusivity</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('pages', page='attributions') }}">Attributions</a></li>
+                    </ul>
+                </li>
+
+                <!---- Awards ---->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="{{ url_for('pages', page='award') }}">
+                        Awards
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

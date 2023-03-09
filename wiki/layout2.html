@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+  <!-- jquery -->
+  <script src="{{ url_for('static', filename = 'jquery.js') }}"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
+
+  <script defer src="{{ url_for('static', filename = 'app.js') }}"></script>
+
+  <title>{% block title %}{% endblock %} | HKUST - iGEM 2022</title>
+
+</head>
+<body>
+  <!-- Navigation -->
+  {% include 'menu.html' %}
+
+  <!--header starts-->
+  <div class="header">
+  <!--Content before waves-->
+    <div class="inner-header flex-header">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-lg-12 text-center">
+            <h1 class="headertitle display-4 text-white mt-5 mb-2 s3">{{ self.title() }}</h1>
+            <p class="headerlead lead mx-auto mt-5 mb-5 text-white-50 w-80">{% block lead %}{% endblock %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Waves Container-->
+    <div>
+      <svg class="wavesh" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>  
+    <!--Waves end-->
+  </div>
+  <!--Header ends-->
+  
+  <!-- Page Content -->
+  <div class="mp-content">{% block page %}{% endblock %}</div>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  {% include 'footer.html' %}
+
+  <!-- Wiki Tools: Teams are allowed to remove it -->
+  {% include 'wiki-tools.html' %}
+
+  <div class="preloader-wrapper">
+    <img class="img-fluid loader" src="https://static.igem.wiki/teams/4225/wiki/loader.gif">
+  </div>
+
+  <script>
+    $(window).on('load', function(){
+      $(".preloader-wrapper").fadeOut("slow");
+    });
+  </script>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="{{ url_for('static', filename = 'bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+{% extends "layout2.html" %}
+
+{% block title %}Circuit Design Experiment{% endblock %}
+{% block lead %}Characterising genetic components{% endblock %}
+
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center">
+      Experiment Overview
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" ></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>Our research examines the genetic circuit and possible interactions between its various components. We tended to characterise individual components first due to time restrictions and the fact that the error rate rises with circuit complexity. So, before including the entire circuit in the cell-free system, we wanted to investigate the gene interaction. In summary, our 4 experiments aim to characterise rDAO,  2 OxyR inducible promoters, the degradation rescue and induced degradation mechanisms.</p>
+                  <div style="text-align:center">
+                  <p><b>DISCLAIMER: More repeats are required to further validate our results.</b></p>
+                  <p><a href="https://static.igem.wiki/teams/4225/wiki/generallabprotocols.pdf" class="button" target="_blank">General Lab Protocols</a><a href="https://static.igem.wiki/teams/4225/wiki/cloning-strategy.pdf" class="button" target="_blank">Cloning Strategy</a><a href="https://static.igem.wiki/teams/4225/wiki/experiment-protocol-new-cd.pdf" class="button" target="_blank">Experiment Protocols</a></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp1">
+  <h1 class="pt-5 mx-auto text-center">
+    1. Characterization of rDAO using<br>Ninhydrin and Histamine Assay
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" ></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col" id="sample-collection-swab">
+                <h5><strong>Aim</strong></h5>
+                <br>
+                <p>The aim of this experiment is to characterise pelB-rDAO and rDAO activity in catalysing the reaction of diamine to produce hydrogen peroxide. Ninhydrin is used for this experiment as it reacts with diamine to produce a colour change that can be measured at 570 nm. More importantly, the absorbance measured at 570 nm correlates with the concentration of diamine. Taken advantage of this property, this experiment will measure the decrease of absorbance over time which correspond to the decrease in diamine concentration, the functionality of rDAO.</p>
+                <hr>
+                <h5><strong>Experimental Design</strong></h5>
+                <br>
+                <p><b><u>Constructs needed:</u></b></p>
+                <ul>
+                  <li>rDAO with PelB leader sequence</li>
+                  <li>rDAO</li>
+                  <li><u>Negative control</u>: pSB1C3</li>
+                </ul>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-1.png"/><br><small><b>Figure 1.1</b></small></p>
+                <p>3 constructs  are required for the experiment: rDAO with translocation tag, rDAO and negative control (pSB1C3). The comparison between rDAO with and without translocation tag is used to prove the functionality of the translocation tag. For the negative control, we obtained an empty pSB1C3 vector by linearizing a DNA that has a pSB1C3 vector with XbaI and SpeI, and re-ligating the vector back.</p>
+                <p>Before the experiment, the overnight inoculated cultures are back-dilute to 1.0 OD<sub>600</sub> and washed 3 times with PBS solution to remove LB used for inoculation. Afterwards, cadaverine is added to the washed bacteria to obtain a final cadaverine concentration of 600 ppm. They are then placed into the shaking incubator for 1 hour at 37&#8451; and 300 RPM settings.</p>
+                <p>After an hour, they are taken and spin down to pellet the bacteria. The supernatant is then taken to be studied using ninhydrin. The experimental protocols using ninhydrin are similar to the protocol made by the Hardware team. For more details on the experiment and protocol, refer to the link.</p>
+                <div style="text-align:center">
+                  <a href="https://2022.igem.wiki/hkust/wetlab-hardware" class="button" target="_blank">Hardware Experiment Page</a></div>
+                <hr>
+                <h5><strong>Results</strong></h5>
+                <br>
+                <p>To improve the reliability and accuracy of the data, we took triplicate measurement and calculated the standard deviation of the data. Moreover, we did t-test to show the significance of the decrease or increase of the absorbance. </p>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/absorbance-vs-rdao-new.png" width=80%/><br><small><b>Figure 1.2</b> Absorbance at 570 nm v/s pelB-rDAO and rDAO</small></p>
+                <p><span style="color:#678BD6;font-weight:bold">Statistically significant decrease (p &#60; 0.01, p &#60; 0.03 and p &#60; 0.01) of absorbances can be seen with pelB-rDAO from 0 to 1 hr, 1 to 2 hr and 0 to 2 hr respectively.</span> On the other hand, no statistically significant decrease can be seen for the rDAO construct for every hour, and <span style="color:#678BD6;font-weight:bold">only a statistically decrease (p &#60; 0.03) can be seen for 0 to 2 hr result.</span> Moreover, for our -ve construct, no significant decrease or increase can be seen. Thus, the evaporation of histamine and the effect of bacterial culture towards the result of our experiment could be ignored. Therefore, we can state that the <span style="color:#678BD6;font-weight:bold">decrease of absorbance, which is related to the concentration of diamine, in pelB-rDAO and rDAO construct is due to the rDAO enzyme.</span> Knowing that the function of rDAO is to catalyze the conversion of diamine to H<sub>2</sub>O<sub>2</sub>, then this result indirectly proves that H<sub>2</sub>O<sub>2</sub> is also produced due to the rDAO enzyme.</p>
+
+                <p>The decrease of the percentage of absorbance for pelB-rDAO construct are: -17.8% for 0 hr to 1 hr, -6.59% for 1 to 2 hr, and -23.2% for 0 hr to 2 hr, while for rDAO construct are: -6.59% for 0 hr to 1 hr, -7.19% for 1 hr to 2 hr and -10.8% for 0 hr to 2 hr. Comparing just the time point with the statistically significant result, which is 0 to 2 hr, then the pelB-rDAO construct has a larger decrease of percentage of absorbance compared to the rDAO construct ( -23.2% v/s -10.8%). <span style="color:#678BD6;font-weight:bold">This demonstrates that there is a higher activity of rDAO in the bacteria with pelB-rDAO compared to the latter, proving that the pelB tag functions like we hypothesised.</span></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp2">
+  <h1 class="pt-5 mx-auto text-center">
+    2. Characterization of OxyR inducible promoters<br>OxySp and KatGp using Fluorescent assay
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <h5><strong>Aim</strong></h5>
+                <br>
+                <p>The aim of this experiment is to characterise the concentration of H<sub>2</sub>O<sub>2</sub> required to activate OxyS and KatG promoters. Combined with a constitutively expressed oxyR gene, these peroxide inducible promoters are designed upstream of GFP and RFP respectively. Subsequent fluorescence of these reporter proteins were measured individually to distinguish the activation threshold of both promoters. Due to the sensitivity of fluorescence measurements, the testing of OxyS and KatG promoters are done simultaneously to minimise external influence on the results.</p>
+                <hr>
+                <h5><strong>Experimental Design</strong></h5>
+                <p><b><u>Constructs needed:</u></b></p>
+                <br>
+                <ul>
+                  <li>oxySp-GFP-Pc-OxyR(BBa_K4225003) and katGp-RFP-Pc-OxyR(BBa_K4225006)</li>
+                  <li><u>Positive Controls</u>: Pc-OxyR(BBa_K4225000), oxysp-GFP(BBa_K4225002), and katGp-RFP(BBa_K4225005)</li>
+                  <li><u>Negative control</u>: pSB1C3</li>
+                </ul>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-2.png"><br><small><b>Figure 2.1</b></small></p>
+
+                <br>
+                <p><b><u>Preparation of cultures</u></b></p>
+                
+                <p>Positive controls are present to prove that both promoter and transcription factor must be present to produce a significant increase in fluorescence. Take into account all of the constructs needed, 6 cultures are required for the experiment.</p>
+                <p>On the day of measurement, the overnight-inoculated cultures are sub-cultured and grown until it is reached, indicated by 0.7 - 1.0 OD<sub>600</sub> (log phase period) to synchronize the growth period of each culture.  These active cultures are then back-diluted to 0.2 OD<sub>600</sub>. While measuring OD<sub>600</sub>, preparation of H<sub>2</sub>O<sub>2</sub> can be done simultaneously.</p>
+
+                <br>
+                <p><b><u>Preparation of H<sub>2</sub>O<sub>2</sub> solution</u></b></p>
+                
+                <p>During our research, we noticed that the activation threshold of OxyS and KatG promoters varied between different experimental conditions and circuit design. For example, a paper published by Rubens and his colleagues shows that the activation threshold of OxyS and KatG can be controlled with different ribosomal binding sites (RBS)<a href="https://doi.org/10.1038/ncomms11658" target="_blank">[1]</a>. Moreover, another paper published by Åslund shows a slightly different concentration of OxyS activity compared to paper mention before<a href="https://doi.org/10.1073/pnas.96.11.6161" target="_blank">[2]</a>.Thus, we decided to do a five fold serial dilution to produce five different 100x concentrations, which upon adding to the culture will generate a range from 0μM - 5000μM.</p>
+
+                <br>
+                <p><b><u>Experiment Measurement</u></b></p>
+                
+                <p>After adding different concentrations of H<sub>2</sub>O<sub>2</sub> into the culture, the bacterial cultures are grown in a shaking incubator for 3 hours. Afterwards, cultures are excited with 488 nm and 561 nm for GFP and RFP respectively in plate reader and the emission at 530 nm for GFP and 610 nm for RFP are measured using plate reader. For more details on the protocol, refer to the protocol on top of the page.</p>
+                <hr>
+
+                <h5><strong>Results</strong></h5>
+                
+                <p>Duplicate measurements are done for the experiment and standard deviation of each point is shown as an error bar in the graph. In addition, fluorescence of each data is divided by the fluorescence of the blank, which is chloramphenicol LB, in order to obtain a normalised fluorescence. These values are then divided by OD600, and therefore allowed us to compare the data of different constructs fairly.</p>
+                <div style="text-align:center;">
+                  <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-oxysp-plot.png" width=80%/><br><small><b>Figure 2.1.1</b> Normalized Fluorescence/OD600 of GFP v/s H<sub>2</sub>O<sub>2</sub></small></p>
+                  <p><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-katgp-plot.png" width=80%/><br> <small><b>Figure 2.1.2</b> Normalized Fluorescence/OD600 of RFP v/s H<sub>2</sub>O<sub>2</sub></small></p>
+                </div>
+                <p><span style="color:#678BD6;font-weight:bold">A gradual increase in the fluorescence for both construct oxySp-GFP-Pc-OxyR and katGp-RFP-Pc-OxyR could be seen in Figure 2.1.1 and 2.1.2.</span> Moreover, we observed a trend that our main constructs (oxySp-GFP-Pc-OxyR and katGp-RFP-Pc-OxyR) have fluorescences higher than their respective positive control and negative control. With low standard deviation for most data, <span style="color:#678BD6;font-weight:bold"> these 2 reasons suggested that our constructs function well.</span> Note that higher concentration of hydrogen peroxide is not used as it significantly reduces the growth rate of bacteria and is lethal.</p>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-fold-change-graph.png" width=80%/><br><small><b>Figure 2.2</b> Fold Change of Normalized Fluorescence/OD<sub>600</sub> vs. [H<sub>2</sub>O<sub>2</sub>]</small></p>
+                <p>To accurately compare the fluorescence of GFP and RFP, we decided to further divide the normalised fluorescence/OD<sub>600</sub> of each point with the value of the 0 μM of [H<sub>2</sub>O<sub>2</sub>] data. From figure 3, we observed that the maximum fold change of OxySp-OxyR is higher than that of KatGp-OxyR. This data persuades us that <span style="color:#678BD6;font-weight:bold">amplification is required</span> to produce an intense red colour that signals the user of ‘danger’. In addition, from the magnified figure in figure 3, we observed that the fluorescence of GFP is produced at a lower concentration of H<sub>2</sub>O<sub>2</sub>. This agrees with the research paper that we read that <span style="color:#678BD6;font-weight:bold">OxySp has a lower [H<sub>2</sub>O<sub>2</sub>] threshold compared to KatGp</span><a href="https://doi.org/10.1038/s41589-019-0244-3" target="_blank">[3]</a>. Finally, at higher concentration of [H<sub>2</sub>O<sub>2</sub>], we observed that both GFP and RFP will be both produced. This indicates that when the fish is spoiled, instead of a red, yellow colour will be seen by our users, which is not what we desire. <span style="color:#678BD6;font-weight:bold">Thus, we need a solution to respond to this colour mixing issue.</span></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp3">
+  <h1 class="pt-5 mx-auto text-center">
+    3. Characterization of degradation rescue<br>mechanism using fluorescent assay
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" ></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <h5><strong>Aim</strong></h5>
+                <br>
+                <p>The aim of this experiment is to characterise the interaction between the expression TEV protease and the subsequent cleavage of the LVA degradation tag. RFP with a LVA tag placed at its C- terminal can be recognised and continuously degraded from E. coli endogenous proteases ClpXP and ClpAP. When TEV protease is expressed, the LVA tag is cleaved off, stabilising the RFP. This is done to amplify the dynamic range of the red output.</p>
+                <hr>
+                <h5><strong>Experimental design</strong></h5>
+                <p><b><u>Constructs needed:</u></b></p>
+                <br>
+                <ul>
+                  <li>pTac - TEV - Pc - RFP - LVA</li>
+                  <li>P Tac - TEV - Pc - RFP - LVA</li>
+                  <li><u>Positive Control</u>: pTac - TEV - Pc - RFP</li>
+                  <li><u>Negative Control</u>: pSB1C3</li>
+                </ul>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-4-1.png"/> <br><small><b>Figure 4.1</b></small></p>
+                <p>All constructs were successfully cloned, digestion checked and sequenced. For the negative control, we obtained an empty pSB1C3 vector by linearizing a DNA that has a pSB1C3 vector with XbaI and SpeI, and re-ligating the vector back. Digestion check is done to make sure the re-ligated pSB1C3 vector is correct.</p>
+                <p>Cells carrying the constructs were inoculated overnight and back diluted to a target 0.5 OD<sub>600</sub> (log phase period). The cultures were grown at different concentrations of IPTG for 6 h and the fluorescence tracked by a plate reader at excitation wavelength of 561.0nm and emission filter of 610.0nm, absorbance is also measured. Measurements are taken at 0 and 6 hours. For more information on protocol of the experiment, refer to the “Experiment Protocol” on top of the page. </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp4">
+  <h1 class="pt-5 mx-auto text-center">
+    4. Characterization of induced degradation<br>mechanism using fluorescent assay
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center" ></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <h5><strong>Aim</strong></h5>
+                <br>
+                <p>The aim of this experiment is to characterise the interaction between the expression TEV protease and the subsequent cleavage of the inhibitory sequence. The inhibitory sequence is 77 amino acids from the C terminal of mRFP, placed downstream of the LVA tag sequence to shield it from being recognised and degraded from E. coli endogenous proteases ClpXP and ClpAP. Thereby creating a stable GFP that can be degraded when induced.</p>
+                <hr>
+                <h5><strong>Experimental design</strong></h5>
+                <p><b><u>Constructs needed:</u></b></p>
+                <br>
+                <ul>
+                  <li>pTac - TEV - Pc - GFP - LVA - CS</li>
+                  <li>pTac - TEV - Pc - GFP - LVA - CS -IS</li>
+                  <li><u>Positive Control</u>: pTac - TEV - Pc - GFP</li>
+                  <li><u>Negative Control</u>: pSB1C3</li>
+                </ul>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-5-1.png"><br><small><b>Figure 5.1</b></small></p>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-5-2.png"><br><small><b>Figure 5.2</b></small></p>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cd-exp-6.png"><br><small><b>Figure 5.3</b></small></p>
+                <p>All constructs were successfully cloned, digestion checked and sequenced. For the negative control, we obtained an empty pSB1C3 vector by linearizing a DNA that has a pSB1C3 vector with XbaI and SpeI, and re-ligating the vector back. Digestion check is done to make sure the re-ligated pSB1C3 vector is correct.</p>
+                <p>Cells carrying the constructs were inoculated overnight and back diluted to a target 0.5 OD<sub>600</sub> (log phase period). The cultures were grown at different concentrations of IPTG for 5 h The fluorescence tracked by a plate reader at excitation wavelength of 561.0nm and emission filter of 610.0nm, absorbance is also measured. Measurements are taken at 0 and 5 hours.</p>
+                
+                <hr>
+                <h5><strong>Results</strong></h5>
+                <br>
+                <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/figure5-4-cd.png"><br><small><b>Figure 5.4</b> Normalized Fluorescence of GFP v/s [IPTG]</small></p> 
+                <p><span style="color:#678BD6;font-weight:bold">As shown in figure 5.4, the last two concentration points, a decrease in fluorescence of the pTac - TEV - Pc - GFP - LVA - CS - IS construct can be observed. Which suggests that the expression of TEV can remove the shielding effect of the inhibitory sequence, thereby inducing the degradation of GFP.</span> Moreover, the construct pTac - TEV - Pc - GFP - LVA - CS remains at a low fluorescence level, indicating that the lack of an inhibitory sequence causes the construct to be continuously degraded. <span style="color:#678BD6;font-weight:bold">These 2 observations indicate that our constructs function well.</span></p>
+                <p>At low concentrations of IPTG, the fluorescence level of the test construct (pTac - TEV - Pc - GFP - LVA - CS - IS) is lower than that of the positive control (pTac - TEV - Pc - GFP).</p>
+                <p><span style="color:#678BD6;font-weight:bold">This might be due to several reasons: </span></p>
+                <ol>
+                  <li><p><u>The inhibitory sequence did not fully shield GFP from degradation</u></p>
+                    <p><i>The shielding effect of the IS is dependent on the length of the amino acid sequence and its configuration. To increase shielding effect, more amino acids can be added to the IS or a completely different IS from other proteins can be used. A comparative assay with a similar setup can be conducted to test the functionality of different IS.</i></p>
+                  </li>
+                  <li><p><u>The addition of an inhibitory sequence interfered with the folding of GFP</u></p>
+                    <p>As the IS is sourced from 77 amino acids from the C terminal of mRFP [3] and ligated directly to the back of the pTac - TEV - Pc - GFP - LVA - CS, the secondary and tertiary protein folding of the IS may cause steric interference/ collision to GFP, decreasing its fluorescent output. Therefore, we suggest that a longer spacer sequence can be inserted between the LVA tag and IS to aid in proper protein folding.</p>
+                  </li>
+                </ol>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>  
+
+<div class="container mx-auto mt-5 w-75">
+  <h1 class="pt-5 mx-auto text-center" id="references">
+    References
+  </h1>
+  <div class="outerheadingunder mx-auto"></div>
+  <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded-lg">
+      <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+          <div class="row mt-4" style="text-align:justify">
+              <div class="col">
+                <p>[1] Rubens, J., Selvaggio, G., & Lu, T. (2016). Synthetic mixed-signal computation in living cells. Nature Communications, 7(1). <a href="https://doi.org/10.1038/ncomms11658">https://doi.org/10.1038/ncomms11658</a></p>
+                <p>[2] Åslund, F., Zheng, M., Beckwith, J., & Storz, G. (1999). Regulation of the OxyR transcription factor by hydrogen peroxide and the cellular thiol—disulfide status. Proceedings Of The National Academy Of Sciences, 96(11), 6161-6165. <a href="https://doi.org/10.1073/pnas.96.11.6161/">https://doi.org/10.1073/pnas.96.11.6161/</a></p>
+                <p>[3] Jungbluth, M., Renicke, C. & Taxis, C. Targeted protein depletion in Saccharomyces cerevisiae by activation of a bidirectional degron. BMC Syst Biol 4, 176 (2010). https://doi.org/10.1186/1752-0509-4-176</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#exp1" class="bnav__link bnav__link--full-width">Nin & His Assay</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2" class="bnav__link bnav__link--full-width">OxySp & KatGp FA</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp3" class="bnav__link bnav__link--full-width">Degradation rescue<br>mechanism</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp4" class="bnav__link bnav__link--full-width">Induced degradation<Br>mechanism</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endblock %}

@@ -1,0 +1,197 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Part Collection{% endblock %}
+{% block lead %}Parts used in experimental designs{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        A versatile H<sub>2</sub>O<sub>2</sub> sensor
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>During the initial period of our iGEM journey, we have successfully created 2 modularizable H<sub>2</sub>O<sub>2</sub> sensors: oxySp-GFP-Pc-OxyR (BBa_K4225003) and katGp-RFP-Pc-OxyR (BBa_K4225006). These composite parts are made up of different composite parts which are made by the basic parts that we found in both research papers and biobricks.</p>
+                  <p>Our circuit can be modified to accommodate various inputs aside from bioamines simply by replacing the transducer enzyme with other enzymes that feature the production of hydrogen peroxide from the target molecules. H<sub>2</sub>O<sub>2</sub>  is regarded as a suitable candidate to act as an intermediate signal for several reasons. First, H<sub>2</sub>O<sub>2</sub> is a pivotal metabolite and byproduct of a significant amount of enzymatic reactions, which allow the linkages between H<sub>2</sub>O<sub>2</sub>-responsive circuits and many metabolites. Characterized by Peroxihub, 1788 enzymatic reactions to date exhibit good specificity and applicability of them as metabolic transducers, including sarcosine oxidase, choline oxidase, and l-lactate oxidase whose substrates have been identified as effective disease biomarkers and also of great interest in other fields [1]. Moreover, in contrast to other metabolites like amino acids or cofactors like NAD and Coenzyme A, H<sub>2</sub>O<sub>2</sub> is not involved in the reservoir of cell-free synthesis, namely the buffer supplements, which possess limited interference with the biosensor. Last but not least, H<sub>2</sub>O<sub>2</sub>-responsive transcription factors and corresponding promoters have been identified, providing considerable space for exploring and optimizing an H<sub>2</sub>O<sub>2</sub>- response system.</p>
+                  <p>However, this diversified corresponding promoter library has yet a long way to go in order to achieve a ready-to-use toolbox for biosensing. Thus, to enrich this promoter library and enhance its utility, we investigated a transcription factor named OxyR, the master regulator of oxidative stress in E. coli, and set out to research different OxyR-inducible promoters, with oxySp and katGp promoters chosen as the two main candidates in our project. As indicated by the work of Jacob R. Rubens et.al., oxySp promoter has a significantly lower activation threshold than katGp promoter, which inspired our preliminary design of a distinguishable dual-output biosensor for warning the spoilage of food. Through our extensive experiments and modeling, we successfully characterized and verified the behaviors of these two promoters in a total-fluorescence manner, which possesses more practical meaning than the FACS-driven results in the aforementioned paper since flow cytometer has exceptionally high sensitivity towards light.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="3">1. oxySp-GFP-Pc-OxyR (BBa_K4225003) is made of:</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> </td>
+                        <td colspan="2">oxySp - GFP (BBa_K4225002), which is made of</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td>
+                          <ol>
+                            <li>oxySp (BBa_K4225001)</li>
+                            <li>RBS (BBa_B0034)</li>
+                            <li>GFP(BBa_E0040)</li>
+                            <li>double terminator(BBa_B0015)</li>
+                          </ol>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td colspan="2">Pc-OxyR (BBa_K4225000), which is made of</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td>
+                          <ol>
+                            <li>constitutive promoter (BBa_J23109)</li>
+                            <li>RBS (BBa_B0034)</li>
+                            <li>OxyR (BBa_K1104200)</li>
+                            <li>6xHis (BBa_K1223006)</li>
+                            <li>double terminator(BBa_B0015)</li>
+                          </ol>
+                      </tr>
+                    </tbody>
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="3">2. katGp-RFP-Pc-OxyR (BBa_K4225006) is made of</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> </td>
+                        <td colspan="2">katGp - RFP (BBa_K4225005), which is made of</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td>
+                          <ol>
+                            <li>katGp (BBa_K4225004)</li>
+                            <li>RBS (BBa_B0034)</li>
+                            <li>RFP(BBa_E1010)</li>
+                            <li>double terminator(BBa_B0015)</li>
+                          </ol>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td colspan="2">Pc-OxyR (BBa_K4225000)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <p>We have also added spacers between each of the basic parts. Those spacers are Spacer_5(BBa_K3831012), Spacer_7(BBa_K3831015) and Spacer 02(BBa_K3831026). Moreover, the DNA sequences are codon optimized for DH5α E.Coli.</p>
+                  <p>From our experimental results, we have successfully found that oxySp (BBa_K4225001) and katGp (BBa_K4225004) in our composite parts have a threshold of around 40μM and around 100-200 μM respectively. For more information on our experiment result, refer to the composite part registry page(<a href="http://parts.igem.org/Part:BBa_K4225003" target="_blank">BBa_K4225003</a> and <a href="http://parts.igem.org/Part:BBa_K4225006" target="_blank">BBa_K4225006</a>) or <a href="https://2022.igem.wiki/hkust/wetlab-circuit-design" target="_blank">our circuit design experiment page</a>.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>     
+
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Induced degradation of protein
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>At the later period of our iGEM journey, we used a TEV protease along with the LVA degradation system to reduce the color mixing issue that we have identified. To implement the TEV degradation system, we designed an inhibitory sequence (BBa_K4225013) that can prevent the recognition of the LVA tag residing at the end of our GFP protein. As more of the input signal, bioamine, taken by our prototype, TEV protease will be produced and it will cleave out the inhibitory sequence, allowing the LVA tag to be recognized by two proteases, ClpXP and ClpAP. Thus, we created a composite part called Ptac-TEV -Pc-GFP-LVA-CS-IS (BBa_K4225019) to prove that our idea of using an inhibitory sequence to reduce color mixing issue is successful. For more information about our result, please refer to the composite part registry page(<a href="http://parts.igem.org/Part:BBa_K4225019" target="_blank">BBa_K4225019</a>) or <a href="https://2022.igem.wiki/hkust/wetlab-circuit-design" target="_blank">our circuit design experiment page</a>.</p>
+                  <p>Ptac-TEV-Pc-GFP-LVA-CS-IS (BBa_K4225019) consists of 2 composite parts and many other basic parts.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="4">3. Ptac-TEV-Pc-GFP-LVA-CS-IS (BBa_K4225019) consists of:</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> </td>
+                        <td colspan="3">Ptac-TEV (BBa_K4225008), which made of</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">PTac (BBa_K3254014)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">RBS (B0034)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">TEV protease(BBa_K4225009)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">cMyc-tag (BBa_K823036)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">Double Terminator (B0015)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td colspan="3">Constitutive promoter (J23106)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td colspan="3">RBS (B0034)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td colspan="3">GFP-LVA-CS-IS (BBa_K4225017)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">GFP (BBa_E0040)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td colspan="2">LVA-CS-IS (BBa_K4225014)</td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td>
+                          <ol>
+                            <li>LVA tag (BBa_K880004)</li>
+                            <li>TEV protease cleavage site (BBa_K1319016)</li>
+                            <li>Inhibitory Sequence (BBa_K4225013)</li>
+                          </ol>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td> </td>
+                        <td colspan="3">Double terminator (B0015)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

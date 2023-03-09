@@ -1,0 +1,169 @@
+{% extends "layout2.html" %}
+  
+{% block title %}Modeling{% endblock %}
+{% block lead %}The mathematical modeling behind Fisherly's biosensor{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        Introduction to Dry Lab
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>Mathematical and computational tools are useful for interpreting and integrating biological data. Modeling of dry lab can be categorized into three parts:</p>
+                  <ol>
+                    <li><a href="#bacteria">Visualization of bacterial proliferation and histamine outbreaks</a> (Current page)</li>
+                    <li><a href="https://2022.igem.wiki/hkust/drylab-circuit-design">Expected Fluorescent protein concentrations of the biosensor</a></li>
+                    <li><a href="https://2022.igem.wiki/hkust/drylab-optimization">Mathematical optimization modeling of the cell-free system</a></li>
+                  </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="bacteria">
+    <h1 class="pt-5 mx-auto text-center">
+        Bacterial Growth
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Introduction</strong></h5>
+                  <br>
+                  <p>Bacterial growth and its population distribution on the fish skin surface is simulated to better understand how histamine spreads. This information is crucial in determining the surface area to be swabbed in order to guarantee a consistent output. The bacteria species we are focusing on is the Citrobacter freundii, which is commonly found in the ocean and has a major contribution to histamine in fish<sup><a href="https://pubmed.ncbi.nlm.nih.gov/25710155/" target="_blank">[1]</a></sup><sup><a href="https://www.mdpi.com/2076-2607/10/6/1197" target="_blank">[2]</a></sup>. The bacterial species is represented in green color in our simulation. The bacteria represented as a red color represents other species that can be found on the fish.</p>
+                  <p>In the simulation, various sizes of clusters are formed, and we acknowledge the free roaming bacteria on the surface. Since histamine is produced by bacteria, we assume histamine distribution will be similar to that of the distribution of bacteria. This implies that the major focus would be placed on the histamine at “clusters” because that is the region where the most histamine is concentrated.</p>
+                  <hr>
+                  
+                  
+                  <h5><strong>Assumptions</strong></h5>
+                  <br>
+                  <ol type = "1">
+                    <li>In the model, nutrients are assumed to be infinite, implying that it is not a limiting factor to the cells’ proliferation.</li>
+                    <li>All bacteria are motile, and are not fixed to their location origin.</li>
+                    <li>The distribution of the bacteria is simulated to a 2 dimensional plane, implying they only have very slight movement on the z-axis.</li>
+                    <li>The cell dies when its radius is smaller than the critical threshold but will maintain to survive as long as the radius is above the threshold.</li>
+                    <li>During cell growth, the width of the rod-shaped cell is assumed to be the same as the increased values are insignificant in comparison with the increased length.</li>
+                  </ol>
+                  <hr>
+                  
+                  
+                  <h5><strong>Constants</strong></h5>
+                  <br>
+                  <p>Newton’s Law is used to describe cell collisions. According to Newton’s Law, force is defined as the change in momentum with respect to time, and momentum is defined as a product of velocity and mass.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i{(t)}=\frac{dp_i{(t)}}{dt}=m_i{}\frac{dv_i{(t)}}{dt}" title="https://latex.codecogs.com/svg.image?F_i{(t)}=\frac{dp_i{(t)}}{dt}=m_i{}\frac{dv_i{(t)}}{dt}" /></p>
+                  <p>where <em>F<sub>i</sub>(t)</em> stands for the force experienced by a cell due to another cell. Hence, by summing them together, we obtain the total force experienced by a cell, <em>F<sub>i</sub><sup>T</sup></em>, with <em>i</em> ranging from 1 to <em>N(t)</em>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i{}^{T}=\sum_{j=1}^{M_i{}}(F_i_j{}^{C}&plus;F_i_j{}^{S}&plus;F_i_j{}^{E})&plus;F_i_j{}^{R}&plus;F_i_j{}^{F}&plus;F_i_j{}^{G}&plus;..." title="https://latex.codecogs.com/svg.image?F_i{}^{T}=\sum_{j=1}^{M_i{}}(F_i_j{}^{C}+F_i_j{}^{S}+F_i_j{}^{E})+F_i_j{}^{R}+F_i_j{}^{F}+F_i_j{}^{G}+..." /></p>
+                  <p>Each expression is defined as follows.</p>
+                  <p><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i_j{}^{C}" title="https://latex.codecogs.com/svg.image?F_i_j{}^{C}" /><em>&#61; Force occurring from cell &#8722; cell collisions</em></p>
+                  <p><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i_j{}^{S}" title="https://latex.codecogs.com/svg.image?F_i_j{}^{S}" /><em>&#61; Force occurring from specific adhesin receptor interactions</em></p>
+                  <p><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i_j{}^{E}" title="https://latex.codecogs.com/svg.image?F_i_j{}^{E}" /><em>&#61; Force occurring from nonspecific electrostatic interactions</em></p>
+                  <p><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i_j{}^{R}" title="https://latex.codecogs.com/svg.image?F_i_j{}^{R}" /><em>&#61; Translational diffusion force</em></p>
+                  <p><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i_j{}^{F}" title="https://latex.codecogs.com/svg.image?F_i_j{}^{F}" /><em>&#61; Viscous drag force on the cell</em></p>
+                  <p><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i_j{}^{G}" title="https://latex.codecogs.com/svg.image?F_i_j{}^{G}" /><em>&#61; Force of gravity</em></p>
+                  <p>In this section, we will go through each constant and how each of them are calculated.</p>
+                  <ol type = "a">
+                    <li><p>Growth rate is set to be <em>1 μm/cs</em> to clearly comprehend the relationship between histamine levels and the bacteria population. We refer to the 2D modeling for the time using the corresponding number of bacteria.</p>
+                    <p>To describe cell growth rate <em>µ<sub>i</sub></em>, we focus on the change in mass. The change in mass is defined to be based on the growth rate as follows.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{dm_i{}}{dt}=\mu_i{(S_i{})}" title="https://latex.codecogs.com/svg.image?\frac{dm_i{}}{dt}=\mu_i{(S_i{})}" /></p>
+                    <em>S<sub>i</sub></em> is the dependent nutrient concentration, which is treated as a constant due to our assumptions. This contradicts the reality where each cell’s growth rate varies, and thus randomness is implemented to represent this variability. In order to do that, we introduce a uniformly distributed random variable <em>G<sub>r</sub></em>, with mean <em>G<sub>r</sub></em> and variation <em>G<sub>v</sub></em>.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\mu_i{}=G_r{}\pm&space;G_v{}" title="https://latex.codecogs.com/svg.image?\mu_i{}=G_r{}\pm G_v{}" /></p>
+                    <p>For rod-shaped cells, the length along the cell is increased. Let the center of mass position of the parent cell be <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\vec{p_i{}}" title="https://latex.codecogs.com/svg.image?\vec{p_i{}}" /> with orientation , and let <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\hat{\Psi&space;}" title="https://latex.codecogs.com/svg.image?\hat{\Psi }" /> center of mass position of daughter cells be  <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\vec{p_j{}}" title="https://latex.codecogs.com/svg.image?\vec{p_j{}}" /> and  <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\vec{p_k{}}" title="https://latex.codecogs.com/svg.image?\vec{p_k{}}" /> respectively. Then the position of daughter cells after division is defined to be as follows.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\vec{p_j{}}=\vec{p_i{}}&plus;(0.5l_i{}&plus;r_i{})\hat{\Psi&space;}" title="https://latex.codecogs.com/svg.image?\vec{p_j{}}=\vec{p_i{}}+(0.5l_i{}+r_i{})\hat{\Psi }" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\vec{p_k{}}=\vec{p_i{}}-(0.5l_i{}-r_i{})\hat{\Psi&space;}" title="https://latex.codecogs.com/svg.image?\vec{p_k{}}=\vec{p_i{}}-(0.5l_i{}-r_i{})\hat{\Psi }" /></p>
+                    <em>*l &#61; the length of the cell.</em></li>
+                    <li><p>As the directional movement of bacteria is not significantly influenced by gravity, the force of gravity is set to be a smaller value of 0.4 units to decrease the computation costs<sup><a href="https://pubmed.ncbi.nlm.nih.gov/21518884/" target="_blank">[3]</a></sup><sup><a href="https://pubmed.ncbi.nlm.nih.gov/33154740/" target="_blank">[4]</a></sup>. As seen below, a constant force is used to represent gravity.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i{}^{G}=K_G{m_i{}\hat{\gamma&space;}}" title="https://latex.codecogs.com/svg.image?F_i{}^{G}=K_G{m_i{}\hat{\gamma }}" /></p>
+                    <p><em>K<sub>G</sub></em> is the gravitational acceleration constant, <em>m<sub>i</sub></em> is the mass of the cell, <img class="img-fluid" src="https://latex.codecogs.com/svg.image?\hat{\gamma&space;}" title="https://latex.codecogs.com/svg.image?\hat{\gamma }" /> is the direction to which the direction of gravity points.</p></li>
+                    <li><p>The size of bacteria is set to be 2.5 μm in length, taking into account of the fact that a typical size is between 1-5 μm in average<sup><a href="https://pubmed.ncbi.nlm.nih.gov/11269372/" target="_blank">[5]</a></sup>.</p></li>
+                    <li><p> The Brownian constant, a spring constant, and friction is set to be the default value of the model because the default values are already set to be similar to reality<sup><a href="https://europepmc.org/article/med/28475309" target="_blank">[8]</a></sup>. Additionally, we can represent friction by using drag force <em>F<sup>F</sup></em> which is proportional to the friction coefficient <em>K<sub>f</sub></em> and the velocity of the cell <em>v<sub>i</sub></em>.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i{}^{F}=-K_f{}v_i{}" title="https://latex.codecogs.com/svg.image?F_i{}^{F}=-K_f{}v_i{}" /></p></li>
+                    <li><p>The mitosis inheritance probability is set to be 1 to represent binary fission. The cell divides when it reaches twice of its original mass and each daughter cell carries half of the parent cell’s mass.</p></li>
+                    <li><p>The random walk constant is set to be 1 to simulate constant random movement of bacteria<sup><a href="https://www.nature.com/articles/s41467-019-10455-y" target="_blank">[6]</a></sup>.</p></li>
+                    <li><p> The probability of terminating a run and ending tumble is set to be 0.25 and 0.35 respectively to represent the movement pattern of a bacteria swimming in sparse suspension.</p></li>
+                    <li><p>Initial bacterial populations of target and random bacteria are both set to be 25 to emphasize how little bacteria can lead an exponential boost in histamine in a short period of time.</p></li>
+                    <li><p>Cell collisions are considered. For collisions between rod-shaped cells, we can calculate the force exerted due to collision by calculating the force distribution onto the end’s point by the following equations.</p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i{}^{Ca}=-(1-P_i{})F_i{}^{C}" title="https://latex.codecogs.com/svg.image?F_i{}^{Ca}=-(1-P_i{})F_i{}^{C}" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_i{}^{Cb}=-P_i{}F_i{}^{C}" title="https://latex.codecogs.com/svg.image?F_i{}^{Cb}=-P_i{}F_i{}^{C}" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_j{}^{Ca}=-(1-P_j{})F_j{}^{C}" title="https://latex.codecogs.com/svg.image?F_j{}^{Ca}=-(1-P_j{})F_j{}^{C}" /></p>
+                    <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?F_j{}^{Cb}=-P_j{}F_j{}^{C}" title="https://latex.codecogs.com/svg.image?F_j{}^{Cb}=-P_j{}F_j{}^{C}" /></p>
+                    <p><em>F<sup>Ca</sup></em> is defined to be the force applied to point <em>P<sub>a</sub></em> and <em>F<sup>Cb</sup></em> is the force applied to two points: <em>P<sub>b</sub></em> and <em>P<sub>i</sub></em> . Accordingly, <em>P<sub>j</sub></em> indicated the two points along the cell. </p></li>
+                  </ol>
+                  <hr>
+                  
+                  
+                  <h5><strong>Model and Analysis</strong></h5>
+                  <br>
+                  <p>First, using the data from the work by Grace Margareta et.al<sup><a href="https://www.researchgate.net/publication/339162028_Growth_Rate_and_Histamine_Production_of_Citrobacter_freundii_CK01_in_Various_Incubation_Temperatures" target="_blank">[7]</a></sup>, we are able to model the equation using Generalized Logistic Growth Function.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://latex.codecogs.com/svg.image?\frac{dN}{dt}=rN^{\alpha}\left&space;(&space;1-\left&space;(&space;\frac{N}{K}&space;\right&space;)^{\beta&space;}&space;\right&space;)^{\gamma&space;}" title="https://latex.codecogs.com/svg.image?\frac{dN}{dt}=rN^{\alpha}\left ( 1-\left ( \frac{N}{K} \right )^{\beta } \right )^{\gamma }" /></p>
+                  <p>α, β and γ are arbitrary constants, N is the number of bacteria, K is the carrying capacity and r is the growth rate. With this equation, we obtain the following graph.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/drylab-pic-77.png"/></p>
+                  <p></p>
+                  <p style="text-align:center;">5&#176;C: <img class="img-fluid" src="https://latex.codecogs.com/svg.image?N(t)=\frac{20.9}{(3.23\times10^{12}&plus;(2.70\times10^{15})e^{-0.21t})^{\frac{1}{21.2}}}" title="https://latex.codecogs.com/svg.image?N(t)=\frac{20.9}{(3.23\times10^{12}+(2.70\times10^{15})e^{-0.21t})^{\frac{1}{21.2}}}" /></p>
+                  <p style="text-align:center;">15&#176;C: <img class="img-fluid" src="https://latex.codecogs.com/svg.image?N(t)=\frac{34.03}{(2.76\times10^{4}&plus;(4.32\times10^{6})e^{-0.13t})^{\frac{1}{7.22}}}" title="https://latex.codecogs.com/svg.image?N(t)=\frac{34.03}{(2.76\times10^{4}+(4.32\times10^{6})e^{-0.13t})^{\frac{1}{7.22}}}" /></p>
+                  <p style="text-align:center;">30&#176;C: <img class="img-fluid" src="https://latex.codecogs.com/svg.image?N(t)=\frac{33}{(1.57\times10^{4}&plus;(2.42\times10^{6})e^{-0.38t})^{\frac{1}{6.97}}}" title="https://latex.codecogs.com/svg.image?N(t)=\frac{33}{(1.57\times10^{4}+(2.42\times10^{6})e^{-0.38t})^{\frac{1}{6.97}}}" /></p>
+                  <p style="text-align:center;">40&#176;C: <img class="img-fluid" src="https://latex.codecogs.com/svg.image?N(t)=\frac{35.505}{(2.77\times10^{6}&plus;(7.01\times10^{8})e^{-0.52t})^{\frac{1}{9.86}}}" title="https://latex.codecogs.com/svg.image?N(t)=\frac{35.505}{(2.77\times10^{6}+(7.01\times10^{8})e^{-0.52t})^{\frac{1}{9.86}}}" /></p>
+                  <p><em>*Remarks: the unit for N(t) is [logCFU/mL]</em></p>
+                  <p>This is the corresponding logistic growth model of Citrobacter freundii. The blue, red, black and purple function corresponds to 5&#176;C, 15&#176;C, 30&#176;C and 40&#176;C. This result shows the rate of growth of the bacteria is highest between 15֯&#176;C and 30֯&#176;C. By comparing the number of bacteria in our simulation and the modeling, this allows us to establish our simulation with a real life model.</p>
+                  <p>Second, we used Simbiotics to simulate the bacteria growth<sup><a href="https://europepmc.org/article/med/28475309" target="_blank">[8]</a></sup>, and a lot of conditions are considered such as gravity and interaction between cells. The result for bacteria distribution using Simbiotics is as follows.</p>
+                  <div class="row mt-4">
+                      <div class="col-sm">
+                        <p style="text-align:center;"><em>Initial (T=0)</em></p>
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-15.png" width=80%/></p> 
+                      </div>
+                      <div class="col-sm">
+                        <p style="text-align:center;"><em>Final (T=1200)</em></p>
+                        <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-16.png" width=80%/></p>
+                      </div>
+                  </div>
+                  
+                  <p>The corresponding graph of population versus time is as following.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-13.png" width=60%/></p>
+                  <p>The simulation is terminated once the distribution of bacteria reaches a stable state. The area of simulation is around <em>6000μm<sup>2</sup></em>. Here, we can see that numerous of clusters are formed, which is about <em>0.004μm<sup>2</sup></em>. This means that by swabbing <em>1cm<sup>2</sup></em> , we are able to collect histamine produced from around 400,000 clusters. Then, by relating the result from our simulation and the graph, which is modeled using real life data, we are able to get the following result.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/dry-lab-pic-14.png" width=60%/></p>
+                  <p>This refers to the histamine concentration in a <em>6000mμ<sup>2</sup></em> area. We can see that the concentration level can increase up to about 150 times within 100 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"> 
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>[1] Hu JW;Cao MJ;Guo SC;Zhang LJ;Su WJ;Liu GM; (n.d.). Identification and inhibition of histamine-forming bacteria in blue scad (decapterus maruadsi) and chub mackerel (scomber japonicus). Journal of food protection. Retrieved September 14, 2022, from https://pubmed.ncbi.nlm.nih.gov/25710155/</p>
+                  <p>[2] Oktariani, A. F., Ramona, Y., Sudaryatma, P. E., Dewi, I. A. M. M., &amp; Shetty, K. (2022, June 11). Role of marine bacterial contaminants in histamine formation in seafood products: A Review. MDPI. Retrieved September 14, 2022, from https://www.mdpi.com/2076-2607/10/6/1197</p>
+                  <p>[3] Deguchi S;Shimoshige H;Tsudome M;Mukai SA;Corkery RW;Ito S;Horikoshi K; (n.d.). Microbial growth at hyperaccelerations up to 403,627 X G. Proceedings of the National Academy of Sciences of the United States of America. Retrieved September 14, 2022, from https://pubmed.ncbi.nlm.nih.gov/21518884/</p>
+                  <p>[4] Santomartino R;Waajen AC;de Wit W;Nicholson N;Parmitano L;Loudon CM;Moeller R;Rettberg P;Fuchs FM;Van Houdt R;Finster K;Coninx I;Krause J;Koehler A;Caplin N;Zuijderduijn L;Zolesi V;Balsamo M;Mariani A;Pellari SS;Carubia F;Luciani G;Leys N;Doswald-Winkler . (n.d.). No effect of microgravity and simulated Mars gravity on final bacterial cell concentrations on the International Space Station: Applications to Space Bioproduction. Frontiers in microbiology. Retrieved September 14, 2022, from https://pubmed.ncbi.nlm.nih.gov/33154740/</p>
+                  <p>[5] Wang JT,Chang SC, Chen YC, Luh KT. “Comparison of antimicrobial susceptibility of Citrobacter freundii isolates in two different time periods.” The Journal of Microbiology, Immunology and Infection. 2000 Dec; 33(4): 258-62.</p>
+                  <p>[6] Frangipane, G., Vizsnyiczai, G., Maggi, C., Savo, R., Sciortino, A., Gigan, S., &amp; Di Leonardo, R. (2019, June 4). Invariance properties of bacterial random walks in complex structures. Nature News. Retrieved September 18, 2022, from https://www.nature.com/articles/s41467-019-10455-y</p>
+                  <p>[7] Growth rate and histamine production of Citrobacter freundii CK01 in ... (n.d.). Retrieved September 18, 2022, from https://www.researchgate.net/publication/339162028_Growth_Rate_and_Histamine_Production_of_Citrobacter_freundii_CK01_in_Various_Incubation_Temperatures</p>
+                  <p>[8] J. Naylor, H. Fellermann, Y. Ding, W.K. Mohammed, N.S. Jakubovics, J. Mukherjee, C.A. Biggs, P.C. Wright, N. Krasnogor 
+              Simbiotics: A Multiscale Integrative Platform for 3D Modeling of Bacterial Populations
+              in ACS Synthetic Biology, 6(7):1194-1210, July 2017</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

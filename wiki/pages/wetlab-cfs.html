@@ -1,0 +1,994 @@
+{% extends "layout2.html" %}
+
+{% block title %}Cell Free System{% endblock %}
+{% block lead %} Optimising Cell Free System{% endblock %}
+
+{% block page %}
+
+<div class="container mx-auto mt-5 w-75" id="overview">
+    <h1 class="pt-5 mx-auto text-center">
+        Experiment Overview
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+      Overview of Cell Free System(CFS)
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                    <p>Cell-free system (CFS) has been widely used in biological research due to its effectiveness in preliminary testing of circuits and various protein expressions. Besides, cell extracts can be optimized for specific protein products without concern for cell survival and growth. The lack of a cell wall makes it possible to actively monitor, quickly sample, and directly manipulate the protein production process in a flexible and open environment<sup><a href="https://www.sciencedirect.com/science/article/pii/S0734975011001819?via%3Dihub" target="_blank">[1]</a></sup>.  After collective consideration of safety concerns, circuit efficiency, and capability in real-life implementation, we further determined that a cell-free system would be a more suitable stage to actualize our circuit.</p>
+                    <p>Essentially, the major player in CFS, cell extracts, include necessary transcription-translation machinery which synthesizes proteins from template DNA. However, crude extract preparation procedures are usually labor-intensive and time-sensitive. Thanks to constructive advice from Prof. Michael Jewett, a prestigious specialist in the CFS area, we identified and manipulated several vital factors and performed corresponding experiments to accelerate the experimental process and optimize the quality of our cell extracts. For instance, different cell strains show notably different capacities in CFS, with BL21 strain commonly employed due to its better performance in protein production.  In our experiments, we made DH5α and BL21 cell extracts, which were then exploited to produce GFP using other standardized components. See <a href="#exp1-cfs">Optimization of E. coli Cell Extract Preparation</a> for more optimization details and results.</p>
+                    <p>Furthermore, we investigated the effects of several crucial components in the master mix, which serve as a supplement reservoir in CFS. Notably, The interview with Prof.Taishi Tonoka from Kyoto Institute of Technology raised our attention toward Mg concentration to which cell-free reactions have been observed to be generally sensitive. Thus, we conducted optimization experiments for Mg concentration and acquired 15 mM as the optimal one specific for the cell extracts obtained from our protocols (for more details, please click <a href="#exp2-cfs">Mg ion Optimization</a>). By his suggestions, we also investigated the effects of PEG, a crowding agent mimicking the cytoplasmic environment, through similar experimental settings. Through corresponding modifications in our CFS formula, we got to ameliorate the overall yields in GFP production by a considerable increase. Moreover, we also tweaked the concentrations of ATP, 3-PGA, and glycine, the indispensable ingredients, to see their influences on our CFS. All in all, we developed the most effective master mix formula for our standardized cell extracts. Most importantly, through the close cooperation of wet lab and dry lab members, we constructed a master mix optimization model for future iGEM teams to develop their optimal formula and employ CFS more effectively. Click our <a href="https://2022.igem.wiki/hkust/model" target="_blank">Dry Lab page</a> for more details about our modeling and check out how one can utilize this model to simplify wet lab workflows and get the utmost out of the reagents in hand.</p>
+                    <p>Although less frequently mentioned in CFS-related literature, the reaction conditions such as reaction container and temperature also exert nonnegligible impacts on CFS efficiency, which signify variable oxygen availability and protein activity respectively. Attributing to the consultation with Dr. Zheng Bo, who emphasized the significance of cell-free reaction temperature, we realized the potential hurdle of implementing our cell-free system into real life. To investigate the actual effects of the given temperature (25℃/37℃), we conducted experiments accordingly and obtained negative results therein. And this led us to project future improvements in our hardware design and CFS composition. Additionally, we also pinpointed 1.5 mL microfuge tubes as a more suitable container than 0.2 mL PCR tubes, which also partly validated the relevance of oxygen availability to the CFS performance.</p>
+
+                    <div style="text-align:center">
+                      <a href="https://static.igem.wiki/teams/4225/wiki/cell-free-system-protocols.pdf" class="button" target="_blank">CFS Experiement Protocol</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp1-cfs">
+    <h1 class="pt-5 mx-auto text-center">
+        1. Optimization of <em>E. coli</em> cell extract preparation
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Buffer preparation</strong></h5>
+                  <br>
+                    <p>Almost all of the stages involved in the manufacture of a crude cell extract use buffers. Among the most crucial elements are the following:</p>
+                    <ol type="1">
+                      <li>Buffer A containing Tris-acetate (pH 8.2), magnesium acetate, and potassium glutamate is used for cell elution.</li>
+                      <li>HEPES 2-[4-(2-Hydroxyethyl)-1-piperazinyl]-ethanesulfonic acid was chosen because it protects against pH variations regardless of changes in carbon dioxide levels.</li>
+                    </ol>
+                    <p>All the buffers can be kept at 4°C.</p>
+                  <p></p>
+                  <hr>
+
+                  <h5><strong>Energy source</strong></h5>
+                  <br>
+                    <p>The addition of the elements (tRNA, amino acids, NTPs, 3-PGA), which are in charge of translation, energy production, and transformation, as well as the salts, acids, and buffers, are required for the reactions that would occur. Adenosine triphosphate (ATP) and glutathione (GTP), which are precursors to nucleic acids and energy metabolites, are important supplementary components. ATP is directly supplemented to the driven translation and transcription of the desired proteins including rDAO, OxyR, and fluorescence proteins as signals. 3-phosphoglycerate (3-PGA) is an energy regenerating source for cell-free systems.</p>
+                  <p></p>
+                  <hr>
+
+                  <h5><strong>Sonication rough outline</strong></h5>
+                  <br>
+                    <p>The following protocol is edited based on the reference research paper on the cell-free system<sup><a href="https://www.jove.com/t/58882/escherichia-coli-based-cell-free-protein-synthesis-protocols-for" target="_blank">[2]</a></sup>. The starting culture (LB medium and <em>E. coli</em>) is first inoculated, and the overnight incubation for the next day follows. After pre-warming 250 mL of 2x YTPG medium, the overnight culture is introduced. As soon as the OD<sub>600</sub> enters the early-log phase, IPTG may be added. Due to a Lac operon controlling its transcription, this component will produce the desired proteins.</p>
+                    <p>The cells are then harvested and sonicated to lyse them. After the undesirable debris has been removed, the final lysate product is kept at -80°C after flash freezing and is ready for use right away. In essence, <em>E. coli</em> lysates are used as an ensemble of enzymes and regulators for transcription, translation, and protein folding that are extracted from crude lysates of cells.</p>
+                  <hr>
+
+                  <h5><strong>Measurement:</strong></h5>
+                  <br>
+                  <p>The quality of the cell lysate was assessed by contrasting the level of expressed green fluorescence protein (GFP) with a constitutive promoter in the cell-free system. Cell disruption efficiency can be evaluated by the protein concentration of the supernatant. Using the plate reader, the fluorescence outputs were measured with 384 well-plate. Normalized fluorescence and relative fluorescence intensity both mean the measured fluorescence intensity of the sample divided by that of negative control (without plasmids).</p>
+                  <hr>
+                  
+                  <h5><strong>1. Cell strains</strong></h5>
+                  <br>
+                  <p>We examined DH5α suitability to serve as the strain for cell-free systems as it functioned as the chassis for our circuit's initial design.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-1-fig-1.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.1</b> Optical density absorbance of DH5α inoculated in 2X YTPG medium taken every hour.</small></p>
+                  <p>In contrast to the absorbance value specified in the reference procedure<sup><a href="https://www.jove.com/t/58882/escherichia-coli-based-cell-free-protein-synthesis-protocols-for" target="_blank">[2]</a></sup>, the cell enters a stationary phase of OD<sub>600</sub> at 1.4. We discovered that BL21 (DE3) functioned better as a cell-free system after seeking the counsel of Dr. Michael C. Jewett, Director of the Center for Synthetic Biology at Northwestern University. This led to a performance evaluation of the cell strains, including DH5α and BL21 (DE3).</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-1-fig-2.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.2</b> Optical density absorbance of BL21 (DE3) inoculated in 2X YTPG medium taken every hour.</small></p>
+                  <p>The growth curves of the two strains do not differ much from one another. Cell assembly was carried out to determine which strain could provide the highest fluorescence output utilizing the GFP plasmids with constitutive promoters in order to further examine the feasibility of being the chassis of a cell-free system.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-1-fig-3.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.3</b> Relative fluorescence intensity (A.U.) of homogenized BL21 (DE3) and DH5α. The data points are repeated 3 times and compared with the negative control.</small></p>
+                  <p>According to the above data, BL21 (DE3) outperforms DH5α significantly. The <em>E. coli</em> BL21 (DE3) host is more beneficial for cell-free protein synthesis because it naturally lacks OmpT endoprotease and Lon protease and conveniently produces T7 RNA polymerase prior to cell lysis. The mutation rnaE131 in <em>E. coli</em> BL21 (DE3) exhibits enhanced levels of expression in cloned genes that are transcribed in cells from strong T7 phage promoters<sup><a href="https://www.mdpi.com/2673-6284/10/4/24" target="_blank">[3]</a></sup>.</p>
+                  <hr>
+
+                  <h5><strong>2. Sonication optimization</strong></h5>
+                  <br>
+                  <p>We hypothesized that the low protein concentrations were to blame for the poor fluorescence outputs of our cell-free system. Dr. Michael C. Jewett states that based on Bradford, the extracts should include 40–50 mg/mL of <em>E. coli</em> protein. However, the Bradford test yielded a final total protein content of 7.3–7.5 mg/mL, far lower than the professor's recommendation.</p>
+                  <p>To improve the overall protein concentration and, consequently, the fluorescence outputs in the cell-free system, we have adjusted the sonication process' factors.</p>
+                  <br>
+
+                  <p><b><u>Sonication energy</u></b></p>
+                  <p>The sonication energy input has a big impact on extract performance. According to research<sup><a href="https://www.nature.com/articles/srep08663" target="_blank">[4]</a></sup>, if sonication energy is applied insufficiently, not many cells will burst, resulting in crude extracts with lower concentrations of total E. coli protein. We found another total sonication energy input<sup><a href="https://www.future-science.com/doi/10.2144/0000113924" target="_blank">[5]</a></sup>, which is consistent with these design principles and is listed below with the original setup.</p>
+
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"> </th>
+                        <th scope="col">Protocol 1</th>
+                        <th scope="col">Protocol 2</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Amplitudes</td>
+                        <td>50%</td>
+                        <td>50%</td>
+                      </tr>
+                      <tr>
+                        <td>Sonication on/off (seconds)</td>
+                        <td>45s on, 59s off</td>
+                        <td>59s on, 1s off</td>
+                      </tr>
+                      <tr>
+                        <td>Cycles</td>
+                        <td>6</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>Joules(J)</td>
+                        <td>774</td>
+                        <td>1617</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 1.4</b> The details of sonication protocols 1 and 2.</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cfs-fig1-5.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.5</b> Total protein concentrations (mg/mL) of sonication protocols 1 and 2. The data points are repeated 3 times through Bradford assay.</small></p>
+                  <p>From the above data, the protein concentrations of both protocols are not significantly different. The increase in sonication energy did not highly increase the protein concentration, since the catalysts present in the extract are deactivated while the cellular suspension is lysed properly. This is most likely a result of the heat shock that was introduced after several cooling-sonication cycles. Hence, instead of modifying the cycles, amplitude of sonication is adjusted.</p>
+
+                  <br>
+                  <p><u><b>Amplitudes</b></u></p>
+                  
+                  <p>To increase the available proteins in our cell lysates, we tried to adjust the sonication amplitude for lysing the cells more thoroughly. Amplitude represents the distance that the sonicator tip can longitudinally fluctuate. 50% amplitude is a common setting in most research papers. Sonication amplitude and intensity have a direct relationship. If we operate at a low amplitude setting, we will deliver low-intensity sonication. Foaming can also be caused when the amplitude setting is too high. Hence, we tested amplitudes of 50%, 55%, and 60% to compare their differences in increasing the final protein content.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"> </th>
+                        <th scope="col">Protocol 1</th>
+                        <th scope="col">Protocol 2</th>
+                        <th scope="col">Protocol 3</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Amplitudes</th>
+                        <td>50%</td>
+                        <td>55%</td>
+                        <td>60%</td>
+                      </tr>
+                      <tr>
+                        <td>Sonication on/off (seconds)</th>
+                        <td>45s on, 59s off</td>
+                        <td>45s on, 59s off</td>
+                        <td>45s on, 59s off</td>
+                      </tr>
+                      <tr>
+                        <td>Cycles</th>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>6</td>
+                      </tr>
+                      <tr>
+                        <td>Joules(J)</th>
+                        <td>672</td>
+                        <td>646</td>
+                        <td>916</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 1.6</b> The details of sonication protocols with different amplitudes.</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cfs-fig1-7.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.7</b> Total protein concentrations (mg/mL) of sonication protocols with different amplitudes (50%, 55%, and 60%). The data points are repeated 3 times through Bradford assay.</small></p>
+                  <p>From the graph above, a slightly increasing order of total protein concentration is observed.</p> 
+                  <p>Total protein concentration: 60% &#62; 55% &#62; 50%</p>
+                  <p>Thus, we changed to using 60% as our amplitudes in the sonication protocols instead of 50% as a higher total protein concentration is preferred.</p>
+
+                  <br>
+                  <p><u><b>Sonication vs Homogenization</b></u></p>
+                  
+                  <p>Even though there is a slight increase in the total protein concentration after increasing the amplitudes, the value is still far from satisfaction. After discussing the problem with our advisors Dr. King Chow and Dr. Jessica Tang, they suggested homogenization may be a better method to lyse the cells thoroughly.</p>
+                  <p>Below are the descriptions of the two methods<sup><a href="https://www.sciencedirect.com/science/article/pii/S0961953412002760?via%3Dihub" target="_blank">[6]</a></sup>.</p>
+                  <p>Sonication works by sending sonic waves from the probe to the samples in order to cause cell lysis. Sonic wave compression and decompression cycles lead to both transient and sustained cavitation. Transient cavitation occurs when cavitations oscillate unsteadily and eventually collapse. Cavitation implosions of this sort generate very localized shock waves as well as high temperatures; the shock waves and shear give forces substantial enough to disrupt microorganisms.</p>
+                  <p>High-pressure homogenizers (HPH) are commonly employed to disrupt bacteria. A basic HPH comprises one or two positive displacement pumps that propel the cell suspension through an opening to smash against a valve seat at high pressure (typically up to 150 MPa). The cells are then dispersed around the seat surface before colliding on an impact ring.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cfs-fig1-8.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.8</b> Relative fluorescence intensity (A.U.) of homogenized and sonicated BL21 (DE3). The data points are repeated 3 times and compared with the negative control.</small></p>
+                  <p>Sonication and homogenization both produce similar levels of fluorescence. Even though the techniques for homogenization are less complicated than those for sonication, as more foam is formed, the loss percentage of homogenized products increases. Thus, when preparing a crude cell extract, sonication is recommended.</p>
+
+                  <br>
+                  <p><u><b>Run-off vs Non-run-off</b></u></p>
+                  
+                  <p>Although most of the DNA and mRNAs are removed during the centrifugation, some leftovers are present in the supernatant. The endogenous mRNAs and DNA degraded during this incubation step (~0.5-1 hr) are subsequently removed by centrifugation (18000 g, 4 °C, 10 min). The run-off helps to remove endogenous mRNAs and DNA and hence improves the efficiency in producing our desired plasmids in cell-free systems<sup><a href="https://www.nature.com/articles/srep08663" target="_blank">[4]</a></sup>.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cfs-fig1-9.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.9</b> Fluorescence intensity (A.U.) of run-off and non-run-off BL21 (DE3). The data points are repeated 3 times and compared with the negative control. The run-off cell extract has been placed in a 37°C incubator for an hour after sonication.</small></p>
+                  <p>The non-run-off cell extract outperforms the run-off one. We anticipated that the second centrifugation would result in greater protein loss. The loss from second centrifugation outweighs the advantages provided by run-off since our protein concentration (7.3–7.5 mg/mL) is lower than the typical range (40–50 mg/mL).</p>
+
+                  <br>
+                  <p><u><b>Freeze-thaw cycle effects</b></u></p>
+                  
+                  <p>From the research paper<sup><a href="https://www.jove.com/t/58882/escherichia-coli-based-cell-free-protein-synthesis-protocols-for" target="_blank">[2]</a></sup>, at least 5 freeze-thaw cycles can be undergone without detriment to extract productivity. To test the effects of our homemade cell extracts, experiments were conducted.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/cfs-fig1-10.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 1.10</b> Fold Change of fluorescence intensity (A.U.) of cell extracts with different freeze-thaw cycles (1, 2, 3, and 4). The data points are repeated 3 times and compared with the negative control.</small></p>
+                  <p>There is no significant difference between the fluorescence intensity (A.U.) of cell extracts with different freeze-thaw cycles (1, 2, 3, and 4). It indicates there is no significant decrease in the activity of cell-free systems within four freeze-thaw cycles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp2-cfs">
+    <h1 class="pt-5 mx-auto text-center">
+        2. Mg, PEG and ATP optimization
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+        
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Magnesium In CFS</strong></h5>
+                  <br>
+                  <p>Magnesium is a well known essential component in the human body but even more so in the cells. The ions in particular are commonly added in cell free systems since they are crucial in the interaction between nucleic acids and proteins, two very important cogs in the cell systems. In particular, it is useful during the production and repair of purines and pyrimidines, two groups of nucleotides that make up DNA<sup><a href="https://www.mdpi.com/2073-4344/9/2/190/htm" target="_blank">[13]</a></sup>. Also, it affects the structure of these nucleotides as it impacts their interactivity with ligands or even other proteins<sup><a href="https://www.mdpi.com/2073-4344/9/2/190/htm" target="_blank">[13]</a></sup>.</p>
+                  <p>The partner anion for magnesium’s cation is acetate in this cell free assembly and widely present in the cytoplasm of E.coli, the chassis in Fisherly<sup><a href="https://pubmed.ncbi.nlm.nih.gov/2472534/#:~:text=Magnesium" target="_blank">[15]</a></sup>.</p>
+                  <p>To allow for the best possible outcome, the magnesium cation concentrations need to be carefully calculated and adjusted according to the specific system in question.</p>
+                  <hr>
+
+                  <h5><strong>Magnesium Optimization Experiments</strong></h5>
+                  <br>
+                  <p>In the main paper that was referred to, it was explained that the magnesium concentrations must be tuned specifically to the other components and purified plasmid concentration to make sure that protein and nucleic acid function is maximized for the assembly<sup><a href="https://www.researchgate.net/publication/331344442_Escherichia_coli-Based_Cell-Free_Protein_Synthesis_Protocols_for_a_robust_flexible_and_accessible_platform_technology" target="_blank">[11]</a></sup>.</p> 
+                  <p>As mentioned before, magnesium is required for smooth transcription, translation and DNA replication but excess levels can be detrimental to these processes thus bringing up the importance of the concentration tweaking. As a baseline, the paper recommended using 5 µL of cell extract with a total protein concentration of 30 mg/mL along with 10 mM Mg<sup>2+</sup> to get over 1,000 μg/mL of sfGFP. The paper relays that magnesium ion quantity effects the CFS yield along with other common factors such as DNA tenplate quality, size of reaction vessel and the quantity of cell extract used<sup><a href="https://www.researchgate.net/publication/331344442_Escherichia_coli-Based_Cell-Free_Protein_Synthesis_Protocols_for_a_robust_flexible_and_accessible_platform_technology" target="_blank">[11]</a></sup>.</p>
+                  <p>The guidelines found in the paper were then used as a basis for an optimization experiment in order to find the best possible impact that can come from the tweaking of the magnesium concentration. The experiment involved testing out the working concentrations of 5 mM, 10 mM, 15 mM and 20 mM magnesium acetate as seen in Figure 2.1. The cell assemblies were created by using consistent concentrations of the other components with the only variable changing being the magnesium concentration as well as negatives for each of the positives.</p>
+                  <p>After an incubation time of 16 hours, the assembled reaction was transferred into a 384 well plate and was read with a plate reader where the overall highest output was given by the CFS with 15 mM concentration of magnesium.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Working Concentration</th>
+                        <th scope="col">Function</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ATP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (major); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>GTP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (minor); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>UTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>CTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>NAD</td>
+                        <td>0.33 mM</td>
+                        <td>Oxidizing agent</td>
+                      </tr>
+                      <tr>
+                        <td>Amino acids mix solution (Sigma-Aldrich)</td>
+                        <td>2 mM</td>
+                        <td>Substrate of translation</td>
+                      </tr>
+                      <tr>
+                        <td>MRE600 E. coli tRNA (Roche)</td>
+                        <td>0.2 mg/mL</td>
+                        <td>Supply of amino acids</td>
+                      </tr>
+                      <tr>
+                        <td>Folinic acid (Sigma-Aldrich)</td>
+                        <td>0.07 mM</td>
+                        <td>Formation of initiator formyl-methionine</td>
+                      </tr>
+                      <tr>
+                        <td>HEPES 1 M (Sigma)</td>
+                        <td>50 mM</td>
+                        <td>Buffer</td>
+                      </tr>
+                      <tr>
+                        <td>K-Glutamate (Sigma)</td>
+                        <td>70 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>Mg-Glutamate (Sigma)</td>
+                        <td>5/10/15/20 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>PEG</td>
+                        <td>3%</td>
+                        <td>Crowding reagent</td>
+                      </tr>
+                      <tr>
+                        <td>3-PGA</td>
+                        <td>16mM</td>
+                        <td>Energy regeneration</td>
+                      </tr>
+                      <tr>
+                        <td>Cell extract</td>
+                        <td>33%</td>
+                        <td>Containing transcription-translation machinery synthesizes proteins from template DNA</td>
+                      </tr>
+                      <tr>
+                        <td>Plasmid</td>
+                        <td>40 µg/μl</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 2.1</b> Elements included into CFS for magnesium optimization</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-2-fig-2.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 2.2</b> Relative fluorescence intensity of magnesium at different concentrations</small></p>
+                  <p>Through the optimization experiments, the best possible magnesium acetate concentration was found at 15 mM as shown in Figure 2.2. This was the concentration that was able to match the extract and plasmids that were used in Fisherly’s experiments as recommended by the protocol reference paper.</p>
+                  <hr>
+
+                  <h5><strong>Polyethylene Glycol (PEG) In CFS</strong></h5>
+                  <br>
+                  <p>Polyethylene glycol, also known as PEG, is a cofactor, along with magnesium and potassium, that is added to cell free systems to imitate molecular crowding that is common in a regular cell as cell free systems have relatively basic amount of contents<sup><a href="https://www.nature.com/articles/s43586-021-00046-x" target="_blank">[9]</a></sup>. By mimicking the macromoleuclar crowding seen in regular cellular environments, intermolecular associations between compounds in thoroughly supported<sup><a href="https://www.sciencedirect.com/science/article/pii/S2001037021005213" target="_blank">[7]</a></sup>. PEG is just a commonly used compound out of many crowding agents and although adding it is not necessary, it is recommended to try it with individual systems to see if there is a positive correlation with the addition or not. Additionally, optimization is necessary since too high concentrations of this component can have a negative impact on the protein production in cell free systems by slowing the reaction rate<sup><a href="https://www.sciencedirect.com/science/article/pii/S2001037021005213" target="_blank">[7]</a></sup>.</p>
+                  <hr>
+
+                  <h5><strong>Gathering Reference Protocols:</strong></h5>
+                  <br>
+                  <ol>
+                    <li><em>Key reaction components affect the kinetics and performance robustness of cell-free protein synthesis reactions</em> 2% PEG-8000 was used where the concentration was kept above 40 mg/mL. PEG was determined to be one of the factors causing the most beneficial influence on cell free performance<sup><a href="https://www.sciencedirect.com/science/article/pii/S2001037021005213" target="_blank">[7]</a></sup>.</li>
+                    <li><em>Regeneration of Adenosine Triphosphate from Glycolytic Intermediates for Cell-Free Protein Synthesis</em> 2% PEG-8000 used to create a more stable environment for ATP regeneration in CFS<sup><a href="https://onlinelibrary.wiley.com/doi/10.1002/bit.1121" target="_blank">[10]</a></sup>.</li>
+                    <li><em>Cell-Free Systems Based on CHO Cell Lysates: Optimization Strategies, Synthesis of “Difficult-to-Express” Proteins and Future Perspectives</em> Two percentage concentrations of PEG, 1% and 2%, are tested of different molecules types including 3350, 5000, 20000<sup><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163670" target="_blank">[14]</a></sup>. These were tested against a negative control which included the supplementation of standard T7 RNA polymerase instead of PEG<sup><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163670" target="_blank">[14]</a></sup>. The fluorescence signals, shown below in Figure 2.3, dictate that the more effective concentration and molecule is 2% PEG-5000 according to this study.</li>
+                  </ol>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-2-fig-3.png"/><sup><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163670" target="_blank">[14]</a></sup></p>
+                  <p style="text-align:center;"><small><b>Figure 2.3</b> Research done on the various PEG molecules and their concentrations from the paper <em>Cell-Free Systems Based on CHO Cell Lysates: Optimization Strategies, Synthesis of “Difficult-to-Express” Proteins and Future Perspectives</em></small></p>
+                  <hr>
+
+                  <h5><strong>Polyethylene Glycol Optimization Experiments</strong></h5>
+                  <br>
+                  <p>The PEG molecule type that is used in the Fisherly CFS is PEG-8000 to facilitate cheaper and more efficient production since it is widely available compared to other types. In Figure 2.4, it can be seen that with this molecule type, optimization was done using multiple concentration types including 1.5%, 3% and 4.5%. Just like with magnesium, the other components were kept at a constant for all samples with the only differing component being PEG. Copies were made for each of the concentration percentage and negatives for each, making a total of eight samples to be tested.</p>
+                  <p>These samples were then put into a well plate, similar to the previous optimization experiment mentioned, and then put in a plate reader. As shown in the data table below labelled as Figure 2.5, it can be seen that PEG-1.5% actually creates a negative value while PEG-4.5% makes little difference. The most effective concentration percentage proves to be the 3% PEG which induces more than two times the absorbance as the negative sample.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Working Concentration</th>
+                        <th scope="col">Function</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ATP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (major); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>GTP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (minor); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>UTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>CTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>NAD</td>
+                        <td>0.33 mM</td>
+                        <td>Oxidizing agent</td>
+                      </tr>
+                      <tr>
+                        <td>Amino acids mix solution (Sigma-Aldrich)</td>
+                        <td>2 mM</td>
+                        <td>Substrate of translation</td>
+                      </tr>
+                      <tr>
+                        <td>MRE600 E. coli tRNA (Roche)</td>
+                        <td>0 mg/mL</td>
+                        <td>Supply of amino acids</td>
+                      </tr>
+                      <tr>
+                        <td>Folinic acid (Sigma-Aldrich)</td>
+                        <td>0.07 mM</td>
+                        <td>Formation of initiator formyl-methionine</td>
+                      </tr>
+                      <tr>
+                        <td>HEPES 1 M (Sigma)</td>
+                        <td>50 mM</td>
+                        <td>Buffer</td>
+                      </tr>
+                      <tr>
+                        <td>K-Glutamate (Sigma)</td>
+                        <td>70 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>Mg-Glutamate (Sigma)</td>
+                        <td>10 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>PEG</td>
+                        <td>1.5/3/4.5%</td>
+                        <td>Crowding reagent</td>
+                      </tr>
+                      <tr>
+                        <td>3-PGA</td>
+                        <td>16mM</td>
+                        <td>Energy regeneration</td>
+                      </tr>
+                      <tr>
+                        <td>Cell extract</td>
+                        <td>33%</td>
+                        <td>Containing transcription-translation machinery synthesizes proteins from template DNA</td>
+                      </tr>
+                      <tr>
+                        <td>Plasmid</td>
+                        <td>40 µg/μl</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 2.4</b> Elements included into CFS for PEG optimization</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-2-fig-5.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 2.5</b> Relative fluorescence intensity of PEG at different concentrations</small></p>
+                  <p>Through in-house optimization, it was determined that PEG-3% was the most effective for Fisherly’s CFS. This differs from most reference papers that proved that 2% was the best concentration for polyethylene glycol which demonstrates how important it is for every lab to have its own alternate procedure of such synthetically added substances to get the best results.</p>
+                  <hr>
+
+                  <h5><strong>Adenosine Triphosphate in CFS</strong></h5>
+                  <br>
+                  <p>ATP is one of the first terms one comes across when learning about the molecular interactions and cellular pathways in cells. It is a highly unstable molecule that carries energy in its bonds and therefore, releases large amounts of energy when a phosphate group is hydrolyzed, turning it into ADP [8]. On a cellular level, it contributes significantly to active transport, cell signalling and maintaining the structural integrity of the cytoskeleton<sup><a href="https://www.news-medical.net/life-sciences/Adenosine-Triphosphate-(ATP)-Function-in-Cells.aspx" target="_blank">[8]</a></sup>.</p>
+                  <p>It is readily comprehensible as to why ATP is necessary in a cell free system since organelles need energy to produce the intended proteins whether or not they are bound by a cell membrane. However, due to the unstable nature of the molecule, some measures need to be taken to ensure that it will function well in a cell free system including but not limited to adding compounds known for their ATP regenerative properties or supplementing a secondary source of energy that can easily replace or add to the actions of ATP<sup><a href="https://onlinelibrary.wiley.com/doi/10.1002/bit.1121" target="_blank">[10]</a></sup>. These techniques can be quite expensive to put into action which could make the final product too pricey which is why the HKUST iGem advising professor, Dr. Jessica Tang, introduced another possible method which was to add ATP in excess which allows it to be allocated naturally over time in the cell. This method must be researched and tested well to ensure that resources are not wasted or that no unexpected negative effect will be caused.</p>
+                  <hr>
+
+                  <h5><strong>Ideology On Add Excess ATP</strong></h5>
+                  <br>
+                  <p>As this was an idea that was given by an iGem advising professor and not an established practice, the efficacy had to be researched. This decision was made intuitively to produce a product with the lowest possible cost. Through research, it was found that there were some negative impacts of having too much ATP in a system including a depletion of magnesium ions which in turn, disrupts the protein synthesising effects that magnesium provides<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4531837/" target="_blank">[12]</a></sup>. More specifically, when magnesium is starved, an imbalance is caused which then stops translation, greatly decreasing the amount of protein produced<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4531837/" target="_blank">[12]</a></sup>. Although increasing magnesium concentration is a possibility, it would undo the work done before to find the best possible concentration based on the cell extracts made in-house. The only method to find a balance in to adapt the system by tweaking the ATP so homeostasis can be acquired<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4531837/" target="_blank">[12]</a></sup>.</p>
+                  <hr>
+
+                  <h5><strong>Optimization</strong></h5>
+                  <br>
+                  <p>The way a balance was found was by testing out five different concentrations of ATP including 1 mM, 1.5 mM, 2 mM, 2.5 mM and 3 mM as dictated by Figure 2.6. Since this method was a strategy that was come up with within the team, the concentrations are mostly derived from professors’ opinions and general knowledge of the component as existing within a cell.</p>
+                  <p>Like the previous optimization experiments, all the mastermix components were added to the well plates with the only changing component being the ATP concentrations and this was then put into a plate reader after an appropriate incubation time. The outcome is shown in Figure 2.7 where it can be seen that the first four concentration levels are relatively similar with no definite change that can for sure be a benefit to the cell free system. However, the last concentration level, 3 mM, shows an extremely high relative fluorescence which is the concentration at which the relative fluorescence significantly jumps.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Working Concentration</th>
+                        <th scope="col">Function</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ATP (Thermo Fisher)</td>
+                        <td>1/1.5/2/2.5/3 mM</td>
+                        <td>Energy source (major); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>GTP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (minor); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>UTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>CTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>NAD</td>
+                        <td>0 mM</td>
+                        <td>Oxidizing agent</td>
+                      </tr>
+                      <tr>
+                        <td>Amino acids mix solution (Sigma-Aldrich)</td>
+                        <td>2 mM</td>
+                        <td>Substrate of translation</td>
+                      </tr>
+                      <tr>
+                        <td>MRE600 E. coli tRNA (Roche)</td>
+                        <td>0.1 mg/mL</td>
+                        <td>Supply of amino acids</td>
+                      </tr>
+                      <tr>
+                        <td>Folinic acid (Sigma-Aldrich)</td>
+                        <td>0.07 mM</td>
+                        <td>Formation of initiator formyl-methionine</td>
+                      </tr>
+                      <tr>
+                        <td>HEPES 1 M (Sigma)</td>
+                        <td>50 mM</td>
+                        <td>Buffer</td>
+                      </tr>
+                      <tr>
+                        <td>K-Glutamate (Sigma)</td>
+                        <td>70 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>Mg-Glutamate (Sigma)</td>
+                        <td>15 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>PEG</td>
+                        <td>3%</td>
+                        <td>Crowding reagent</td>
+                      </tr>
+                      <tr>
+                        <td>3-PGA</td>
+                        <td>16mM</td>
+                        <td>Energy regeneration</td>
+                      </tr>
+                      <tr>
+                        <td>Cell extract</td>
+                        <td>33%</td>
+                        <td>Containing transcription-translation machinery synthesizes proteins from template DNA</td>
+                      </tr>
+                      <tr>
+                        <td>Plasmid</td>
+                        <td>49/57.6 µg/μl</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 2.6</b> Elements included into CFS for ATP optimization</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-2-fig-7.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 2.7</b> Relative fluorescence intensity of ATP at different concentrations</small></p>
+                  <p>By testing out five different concentrations of ATP, it was established that a 3 mM concentration of ATP provided the most desired effect. An incubation interval was included as well to see if there were any detrimental effects on the cell free components over time which were not seen through the plate reader results. Thus, the best possible ATP concentration was found for the in-house cell extract to maximise efficiency without causing detrimental effects.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp3-cfs">
+    <h1 class="pt-5 mx-auto text-center">
+        3. 3-PGA, Amino Acid, tRNA
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>3-PGA in Cell Free System</strong></h5>
+                  <br>
+                  <p>3-phosphoglycerate (3-PGA) is an energy source for cell free system. It is also the best energy source for cell-free systems to date and is capable of reaching 2.3 mg/ml in E. coli systems<sup><a href="https://pubmed.ncbi.nlm.nih.gov/24326247/" target="_blank">[16]</a></sup>. Historically, acellular systems have complex and expensive molecular mixtures, due to various chemicals and high-energy phosphate compounds that help regenerate energy. Glucose, glutamate, as well as 3-PGA, have all been evaluated for the cell-free system with promising results<sup><a href="http://jewettlab.northwestern.edu/wp-content/uploads/2021/04/89.pdf" target="_blank">[17]</a></sup>. Due to the high energy produced by 3-PGA in a cell free system, we chose to test different concentrations in our master mix, to get the optimal concentration of 3-PGA.</p>
+                  <hr>
+
+                  <h5><strong>3-PGA Optimization Experiments</strong></h5>
+                  <br>
+                  <p>In order to get the optimization of 3-PGA and to gain higher energy sources to supply our master mix, we did the experiments with different concentrations of 3-PGA in the master mix, which are 10mM, 15mM, 20mM, 25mM and 30mM. Cell assemblies were prepared using consistent concentrations of other components. The only change was 3-PGA concentration, where each concentration has two replicates and one negative control without any plasmid. The plasmid we used in the experiments in PSB1C3-GFP. The total samples are 15 in our optimization experiment.</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Working Concentration</th>
+                        <th scope="col">Function</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ATP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (major); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>GTP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (minor); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>UTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>CTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>Amino acids mix solution (Sigma-Aldrich)</td>
+                        <td>2 mM</td>
+                        <td>Substrate of translation</td>
+                      </tr>
+                      <tr>
+                        <td>MRE600 E. coli tRNA (Roche)</td>
+                        <td>0.2 mg/mL</td>
+                        <td>Supply of amino acids</td>
+                      </tr>
+                      <tr>
+                        <td>Folinic acid (Sigma-Aldrich)</td>
+                        <td>0.07 mM</td>
+                        <td>Formation of initiator formyl-methionine</td>
+                      </tr>
+                      <tr>
+                        <td>HEPES 1 M (Sigma)</td>
+                        <td>50 mM</td>
+                        <td>Buffer</td>
+                      </tr>
+                      <tr>
+                        <td>K-Glutamate (Sigma)</td>
+                        <td>70 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>Mg-Glutamate (Sigma)</td>
+                        <td>15 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>PEG</td>
+                        <td>3%</td>
+                        <td>Crowding reagent</td>
+                      </tr>
+                      <tr>
+                        <td>3-PGA</td>
+                        <td>10mM, 15mM, 20mM, 25mM,30mM</td>
+                        <td>Energy regeneration</td>
+                      </tr>
+                      <tr>
+                        <td>Cell extract</td>
+                        <td>33%</td>
+                        <td>Containing transcription-translation machinery synthesizes proteins from template DNA</td>
+                      </tr>
+                      <tr>
+                        <td>Plasmid</td>
+                        <td>30 ng/μl</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 3.1</b> Elements included into CFS for 3-PGA Optimization Experiment.</small></p>
+                  <hr>
+
+                  <h5><strong>3-PGA optimization result</strong></h5>
+                  <br>
+                  <p>The fluorescence results of each concentration are shown below.  We can see that the fluorescence decreased by the increasing concentrations of 3-PGA, and the 10mM concentration of 3-PGA produces the highest fluorescence output, so 10mM concentration of 3-PGA is the most effective concentration in our cell free system. According to the results, we chose to use 30mM of 3-PGA. In this testing experiment, the only change was 3-PGA concentration, each concentration has two replicates and one negative control which is without any plasmid. The plasmid we used in the experiments in pSB1C3-GFP. We incubated the samples for 16 hours, and the plate we used for reading is a 384-well White plate. The measurement volume is 10μl. For the wavelength for plate reading, we used 488 nm for excitation(Ex),530 nm for emission(Em).</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-3-figure-1.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 3.2</b> Relative fluorescence intensity (A.U.) of 3-PGA concentration (10mM, 15mM, 20mM, 25mM, 30mM). The data points are repeated 2 times and compared with the negative control.</small></p>
+                  <hr>
+
+                  <h5><strong>Amino Acids in cell free system</strong></h5>
+                  <br>
+                  <p>Amino acids are responsible for saturating the translation in the master mix, and the experiment we conducted for CFS optimization found that the higher concentration of amino acids may provide higher productivity for CFS.</p>
+                  <p>The CFS platform avoids some limitations on cell permeability and toxicity, and provides greater control and flexibility during protein modification. Incorporation of unnatural amino acids into cellular approaches often relies on reassignment of stop codons to minimize the negative effects of coding on cell viability. In a cell-free system, however, the entire codon table could theoretically be reprogrammed, allowing not only the incorporation of unnatural amino acids, but also the creation of entirely new codon tables<sup><a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-019-0685-x" target="_blank">[18]</a></sup>.</p>
+                  <hr>
+
+                  <h5><strong>Amino Acids Experiments</strong></h5>
+                  <br>
+                  <p>According to the instructions, the components we used to prepare the amino acid mixture need to be stored in -20°C. After getting the whole mixture of amino acids, it should be stored at -80°C. The table below shows the components we used for preparing the amino acids. (Fig.2 Concentration of Components in Amino Acids Mixture). Cell assemblies were prepared using consistent concentrations of other components. The only change was glycine concentration, each concentration has two replicates and one negative control which is without any plasmid. The plasmid we used in the experiments is pSB1C3-GFP.</p>
+                  <p>Glycine(Gly) is the most abundant component in amino acid mixture. This is because Gly is an inhibitory neurotransmitter in amino acids. It is needed for the synthesis of peptides and proteins, creatine, glutathione, porphyrins, and purines, and for the conjugation of bile acids and xenobiotics (Alves,et al.,2019). This is why we want an optimal concentration for Gly in making amino acid mixture.For the experiments we made for getting the optimal concentration of Gly in making amino acids mixture, we tested the Gly in different concentrations, which are 2mM, 2.5mM, 3mM, 3.5mM and 4mM.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-3-fig-2-concentration-of-components-in-amino-acids-mixture.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 3.3</b> Concentration of Components in Amino Acids Mixture. This table shows the concentration of each component we used for making amino acid mixture. The concentration of Gly is the highest among all the components.</small></p>
+                  <hr>
+
+                  <h5><strong>Amino acids Optimization</strong></h5>
+                  <br>
+                  <p>Through our experimental results and referring to other protocols, we concluded that 2mM of amino acids can provide the most energy source for our cell free system. After that, 2mM amino acids were chosen in our experiments for making master mix. 2mM concentration of Gly is also chosen for making amino acids mixture.</p>
+                  <hr>
+
+                  <h5><strong>Gathering Reference Protocols:</strong></h5>
+                  <br>
+                  <ol type="1">
+                    <li><em>Cell-free protein synthesis from genomically recoded bacteria enables multisite incorporation of noncanonical amino acids</em> the optimal concentration of amino acids for cell free system is 2mM<sup><a href="https://www.nature.com/articles/s41467-018-03469-5" target="_blank">[19]</a></sup>.</li>
+                    <li><em>Preparation of amino acid mixtures for cell-free expression systems</em> all the amino acids components should be stored in -20°C, and the amino acids mixture needs to be stored in -80°C<sup><a href="https://pubmed.ncbi.nlm.nih.gov/25605580/" target="_blank">[20]</a></sup>.</li>
+                  </ol>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Working Concentration</th>
+                        <th scope="col">Function</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ATP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (major); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>GTP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (minor); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>UTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>CTP (Thermo Fisher)</th>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>Amino acids mix solution (Sigma-Aldrich)</td>
+                        <td>1.5mM, 2 mM</td>
+                        <td>Substrate of translation</td>
+                      </tr>
+                      <tr>
+                        <td>MRE600 E. coli tRNA (Roche)</td>
+                        <td>0.2 mg/mL</td>
+                        <td>Supply of amino acids</td>
+                      </tr>
+                      <tr>
+                        <td>Folinic acid (Sigma-Aldrich)</td>
+                        <td>0.07 mM</td>
+                        <td>Formation of initiator formyl-methionine</td>
+                      </tr>
+                      <tr>
+                        <td>HEPES 1 M (Sigma)</td>
+                        <td>50 mM</td>
+                        <td>Buffer</td>
+                      </tr>
+                      <tr>
+                        <td>K-Glutamate (Sigma)</td>
+                        <td>70 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>Mg-Glutamate (Sigma)</td>
+                        <td>15 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>PEG</th>
+                        <td>3%</td>
+                        <td>Crowding reagent</td>
+                      </tr>
+                      <tr>
+                        <td>3-PGA</td>
+                        <td>16mM</td>
+                        <td>Energy regeneration</td>
+                      </tr>
+                      <tr>
+                        <td>Cell extract</td>
+                        <td>33%</td>
+                        <td>Containing transcription-translation machinery synthesizes proteins from template DNA</td>
+                      </tr>
+                      <tr>
+                        <td>Plasmid</td>
+                        <td>30 ng/μl</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 3.4</b> Elements included into CFS for Amino Acids Optimization Experiment.</small></p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-3-fig-3-normalized-fluorescence-a-u-vs-glycine-mm.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 3.5</b> Normalized fluorescence intensity (A.U.) of Gly concentration (2mM, 2.5mM, 3mM, 3.5mM, 4mM).</small></p>
+                  <p>According to the protocols we referred to, the optimal concentration of Gly is 2mM for making amino acids mixture for cell free system, however, in our testing, when the concentration of Gly reached 2.5mM, there was a slight increase of normalized fluorescence. However, the increase is not that significant, 2mM concentration of Gly is still used in our amino acids mixture.</p>
+                  <hr>
+
+                  <h5><strong>E.coli tRNA in cell free system</strong></h5>
+                  <br>
+                  <p>E. coli tRNA is an energy supply of amino acids, it is also responsible for translation in cell free system.</p>
+                  <p>Exogenous total E. coli tRNA is components of the CFPS reaction and has long been included in cell-free reactions and comprise ~30% of the reagent cost. Total tRNA is added to supplement the endogenous E. coli tRNA in the cell-free system which is required for prokaryotic translation initiation<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627940/" target="_blank">[21]</a></sup>.</p>
+                  <hr>
+
+                  <h5><strong>E.coli tRNA Optimization Experiments</strong></h5>
+                  <br>
+                  <p>In the paper we referred to, it said that for E.coli tRNA the highest yield was observed when it was eliminated from the CFPS reaction entirely, while the standard concentrations gave a 10 to 20% reduction in yield. This finding indicates that exogenous tRNA is not required for efficient translation in CFPS responses. Since E.coli tRNA molecules are required for translation in the system, they concluded that cell extracts produced using current protocols must contain sufficient tRNA and fMet or its precursors to support translation and initiates translation in a 101-hour CFPS reaction. It is also possible that the glycine cleavage system, which can generate the precursor fMet N5, N10-methylenetetrahydrofolate from glycine and tetrahydrofolate35, is active in cell extracts<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5029582/" target="_blank">[22]</a></sup>.</p>
+                  <p>In the experiment we made for testing the effectiveness of E.coli tRNA in cell free system, we used different concentrations of it, which are 0mM, 0.1mM, 0.2mM, and 0.4mM. Cell assemblies were prepared using consistent concentrations of other components. The only change was E.coli tRNA concentration, each concentration has two replicates and one negative control which is without any plasmid. The plasmid we used in the experiments in pSB1C3-GFP. We incubated the samples for 16 hours, and the plate we used for reading is a 384-well White plate. The measurement volume is 10μl. For the wavelength for plate reading, we used 488 nm for excitation(Ex),530 nm for emission(Em).</p>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Component</th>
+                        <th scope="col">Working Concentration</th>
+                        <th scope="col">Function</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>ATP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (major); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>GTP (Thermo Fisher)</td>
+                        <td>2 mM</td>
+                        <td>Energy source (minor); substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>UTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>CTP (Thermo Fisher)</td>
+                        <td>1 mM</td>
+                        <td>Substrate of transcription</td>
+                      </tr>
+                      <tr>
+                        <td>Amino acids mix solution (Sigma-Aldrich)</td>
+                        <td>2 mM</td>
+                        <td>Substrate of translation</td>
+                      </tr>
+                      <tr>
+                        <td>MRE600 E. coli tRNA (Roche)</td>
+                        <td>0 mg/mL, 0.1mg/mL, 0.2 mg/mL, 0.4mg/mL</td>
+                        <td>Supply of amino acids</td>
+                      </tr>
+                      <tr>
+                        <td>Folinic acid (Sigma-Aldrich)</td>
+                        <td>0.07 mM</td>
+                        <td>Formation of initiator formyl-methionine</td>
+                      </tr>
+                      <tr>
+                        <td>HEPES 1 M (Sigma)</td>
+                        <td>50 mM</td>
+                        <td>Buffer</td>
+                      </tr>
+                      <tr>
+                        <td>K-Glutamate (Sigma)</td>
+                        <td>70 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>Mg-Glutamate (Sigma)</td>
+                        <td>15 mM</td>
+                        <td>Ion supplements</td>
+                      </tr>
+                      <tr>
+                        <td>PEG</td>
+                        <td>3%</td>
+                        <td>Crowding reagent</td>
+                      </tr>
+                      <tr>
+                        <td>3-PGA</td>
+                        <td>16mM</td>
+                        <td>Energy regeneration</td>
+                      </tr>
+                      <tr>
+                        <td>Cell extract</td>
+                        <td>33%</td>
+                        <td>Containing transcription-translation machinery synthesizes proteins from template DNA</td>
+                      </tr>
+                      <tr>
+                        <td>Plasmid</td>
+                        <td>30 ng/μl</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p style="text-align:center;"><small><b>Figure 3.6</b> Elements included into CFS for E.coli tRNA Optimization Experiment.</small></p>
+                  <hr>
+
+                  <h5><strong>E.coli tRNA Test Result</strong></h5>
+                  <br>
+                  <p>According to the result of testing different concentrations of E. coli tRNA, we can see when tRNA is 0 mg/mL, there is still significant fluorescence fold change in cell free system compared to negative control, which signifies its negligibility in cell free system formula. In conclusion, E. coli tRNA is not a necessary component in cell free system.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-3-figure-4.png"/></p>
+                  <p style="text-align:center;"><small><b>Figure 3.7</b> Relative fluorescence intensity (A.U.) of E.coli tRNA (0mM, 0.1mM, 0.2mM, 0.4mM). The data points are repeated 2 times and compared with the negative control.</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75" id="exp4-cfs">
+    <h1 class="pt-5 mx-auto text-center">
+        4. Reaction Conditions and DNA templates<br>of Cell-free System
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center">
+    </p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <h5><strong>Reaction Vessels</strong></h5>
+                  <br>
+                  <p>After optimizing the concentrations of essential components, we further investigated the effects of different reaction vessels on cell-free protein synthesis. E. coli crude extracts obtained from either sonication or homogenization (followed by centrifugation) are typically enriched with inverted inner membrane vesicles (IMVs), which accommodate protein machinery necessary for oxidative phosphorylation<sup><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2583083/" target="_blank">[23]</a></sup>. Therefore, during CFS protein synthesis, continuous and sufficient accessibility of oxygen is always required to ensure efficient energy replenishment through oxidative phosphorylation.</p>
+                  <p>In the historical development of cell-free protein synthesis, several reaction vessels featuring various ratios of reaction volume to available air, such as 1.5 mL microfuge tubes, PCR tubes, 96-well plates, and 384-well plates, have been employed to hold cell-free reactions<sup><a href="https://www.nature.com/articles/s43586-021-00046-x" target="_blank">[24]</a></sup>. Typically, the ratio of the reaction volume to the available air should be in the order of 100. For instance, a 15-µl reaction is recommended to be placed in a 1.5-ml Eppendorf tube. Moreover, due to the small volume property of cell-free reaction, it’s well-noted that different vessels also render a specific CFS reaction distinct surface areas for gas transfer. Thus, these two factors collectively signify considerable space for improvements in reaction vessel selection when one is operating on a particular CFS synthesis.</p>
+                  <p>By reason of the foregoing, we tested different reaction vessels (1.5 mL microfuge tubes and PCR tubes) on their performances in CFS synthesis of GFP. Reactions involved were all assembled in the same volume (15 uL) with at least three technical repeats and the same concentrations of every component, including master mix, amino acid mix, and pSB1C3 plasmids. (See our general CFS formula for this experiment.) The reaction vessels were tightly closed or sealed with plastic wrappers to avoid evaporation. After the 16-Hour incubation under 37°C, all reactions were transferred to 384-well plates in the same volume and subjected to fluorescence measurement (Ex. 488 nm, Em. 530 nm).</p>
+                  <p>According to our results, 1.5 mL tubes rendered a higher expression level to our assembled cell-free reaction compared to 0.2 mL tubes that essentially have a lower oxygen availability (Figure 4.1). Considering our crude extracts contain inverted inner membrane vesicles, which highly depend on oxygen availability, this experiment result provides explicitly more insights for our hardware design to ensure a sufficient oxygen amount.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-4-figure-1.png" width=80%/></p>
+                  <p style="text-align:center;"><small><b>Figure 4.1</b> Normalized fluorescence outputs of cell-free reactions contained in 1.5 mL Eppendorf tube and 0.2 mL PCR tube.</small></p>
+                  <hr>
+
+                  <h5><strong>Reaction Temperature:</strong></h5>
+                  <br>
+                  <p>Underscored by Prof. ZHENG Bo, a professional in artificial cell systems we interviewed in July, the incubation temperature is a determining factor of cell-free protein synthesis efficiency. As an optimal growth temperature for live <em>E. coli</em>, 37°C particularly represents a more suitable temperature for <em>E. coli</em> cell extract-based in vitro synthesis since it assures the fidelity of the vital proteins within.</p>
+                  <p>Even though it’s relatively effortless to confer 37°C reaction temperature in the laboratory, when it comes to consumer use, this additional requirement is undoubtedly a hurdle for the implementation of our product. Therefore, we first carried out experiments to investigate the extent to which the temperature would affect the overall yields of our cell-free reactions. Under the treatment of 10mM H<sub>2</sub>O<sub>2</sub>, CFS reactions under 37°C and 25°C were constructed with or without DNA material. The fluorescence outputs (Ex. 488 nm, Em. 530 nm) in arbitrary units after the incubation time of 16 hours are shown below (at least two replicates were examined and taken the average for each combination), where DNA represents pSB1C3-Pcon-OxyR-OxySp-GFP that act as a critical effector upon the trigger of H<sub>2</sub>O<sub>2</sub> in our biosensor.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-4-figure-2.png" width=80%/></p>
+                  <p style="text-align:center;"><small><b>Figure 4.2</b> Fluorescence intensity (GFP) of cell-free reactions harboring pSB1C3-Pcon-OxyR-OxySp-GFP incubated for 16 Hrs under 37°C/25°C.</small></p>
+                  <p>Notably, reactions incubated under 37°C showed a more significant distinction from the negative control compared with those incubated under 25°C. Additionally, inferred from the lower fluorescence intensity of N.C. reactions under 25°C,  we concluded that 25°C may be unfavored by the CFS reaction since to our best knowledge, the leftover DNA material in cell extracts would have led to a small amount of TX-TL activities.</p>
+                  <p>Therefore, future modifications are needed either in the strain of cell extract or hardware design to meet the desired detection effectiveness of our biosensor.</p>
+                  <hr>
+
+                  <h5><strong>DNA templates of Cell-free System</strong></h5>
+                  <p><u><b>Purity of plasmids</b></u></p>
+                  <br>
+                  <p>CFPS possesses excellent versatility in its ability to serve various genetic templates. Most commonly used is a supercoiled plasmid due to its stability against nucleases and adaptability to in vitro expression. Essentially, the purity of plasmids was found to affect our experimental outcome substantially.</p>
+                  <p>In our preliminary characterization of promoter oxySp, OxyR transcription factor was linked to GFP led by oxySp in one single plasmid for easier ratio control. However, we couldn’t establish a valid activation curve for this specific circuit branch when treating CFS harboring this plasmid with [H<sub>2</sub>O<sub>2</sub>] gradients (Data not shown). Whereafter, through reading previous research related to cell-free expression, we identified several potential reasons, one of which lies in the purity of plasmids used. We subsequently ran DNA electrophoresis with the plasmids involved in that experiment and found RNA contamination in that specific Miniprep plasmid product (see Figure 4.3 below). Uneliminated RNA components would significantly compete with the desired transcripts and obscure the anticipated outputs. Hence, it triggered us to put more emphasis on the purity of plasmids added in CFS by quality check using gel electrophoresis beforehand.</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-4-figure-3.png" width=80%/></p>
+                  <p style="text-align:center;"><small><b>Figure 4.3</b> DNA electrophoresis of Miniprep plasmid product</small></p>
+                  <br>
+                  <p><u><b>Miniprep troubleshooting</b></u></p>
+                  
+                  <p>On account of the high-quality requirement and quantity demand for plasmids, we encountered some other obstacles regarding Miniprep, a common way to extract plasmids from competent cells. We then carefully looked into each procedure and successfully troubleshot the major problems.</p>
+                  <p>One of them was the contamination of bacterial genomic DNA, which would be incurred by an overextended neutralization step. In a nutshell, the separation of plasmids from genomic DNA, which is much larger than the former, relies heavily on genomic DNA’s delay of double-strand recovery after the neutralization step. In fact, we found that a 20-min neutralization treatment was sufficient to allow the restoration of the hydrogen bonds in genomic DNA, which notably contaminated our Miniprep products (See Figure 4.4 below).</p>
+                  <p style="text-align:center;"><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/chassis-4-figure-4.png" width=80%/></p>
+                  <p style="text-align:center;"><small><b>Figure 4.4</b></small></p>
+                  <p>Through controlling the neutralization time in 5 min and other modifications in the procedures, we were able to produce consistently high-quality plasmids for the sake of cell-free assembly. Therefore, we want to provide our exhaustive and effective Miniprep protocol hereby to boost other groups’ preparation of high-quality plasmids for downstream uses.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto mt-5 w-75">
+    <h1 class="pt-5 mx-auto text-center">
+        References
+    </h1>
+    <div class="outerheadingunder mx-auto"></div>
+    <p class="w-80 mx-auto pt-4 pb-4 text-center"></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container w-80 h-80 mx-auto mt-5 mb-5">
+            <div class="row mt-4" style="text-align:justify">
+                <div class="col">
+                  <p>[1] Carlson, E. D., Gan, R., Hodgman, C. E., & Jewett, M. C. (2012). Cell-Free Protein Synthesis: Applications Come of Age. Biotechnology Advances, 30(5), 1185–1194. https://doi.org/10.1016/j.biotechadv.2011.09.016</p>
+                  <p>[2] Levine, M. Z., Gregorio, N. E., Jewett, M. C., Watts, K. R., & Oza, J. P. (2019). Escherichia coli-Based Cell-Free Protein Synthesis: Protocols for a robust, flexible, and accessible platform technology. Journal of Visualized Experiments, 144. https://doi.org/10.3791/58882</p>
+                  <p>[3] Snapyan, M., Robin, S., Yeretssian, G., Lecocq, M., Marc, F., & Sakanyan, V. (2021). Cell-Free Protein Synthesis by Diversifying Bacterial Transcription Machinery. BioTech, 10(4), 24. https://doi.org/10.3390/biotech10040024</p>
+                  <p>[4] Kwon, Y.-C., & Jewett, M. C. (2015). High-throughput preparation methods of crude extract for robust cell-free protein synthesis. Scientific Reports, 5(1). https://doi.org/10.1038/srep08663 </p>
+                  <p>[5] Shrestha, P. (2018, April).  Streamlined extract preparation for Escherichia coli-based cell-free protein synthesis by sonication or bead vortex mixing. Retrieved September 28, 2022, from https://www.future-science.com/doi/10.2144/0000113924</p>
+                  <p>[6] Lee, A. K., Lewis, D. M., & Ashman, P. J. (2012). Disruption of microalgal cells for the extraction of lipids for biofuels: Processes and specific energy requirements. Biomass and Bioenergy, 46, 89–101. https://doi.org/10.1016/j.biombioe.2012.06.034</p>
+                  <p>[7] Banks, A. M., Whitfield, C. J., Brown, S. R., Fulton, D. A., Goodchild, S. A., Grant, C., . . . Howard, T. P. (2021, December 13). Key reaction components affect the kinetics and performance robustness of cell-free protein synthesis reactions. Retrieved from https://www.sciencedirect.com/science/article/pii/S2001037021005213 technology. J. Vis. Exp. (144), e58882, https://doi.org/10.3791/58882</p>
+                  <p>[8] Cheriyedath, S. (2019, December 05). Adenosine Triphosphate (ATP) Function in Cells. Retrieved from https://www.news-medical.net/life-sciences/Adenosine-Triphosphate-(ATP)-Function-in-Cells.aspx</p>
+                  <p>[9] Garenne, D., Haines, M. C., Romantseva, E. F., Freemont, P., Strychalski, E. A., & Noireaux, V. (2021, July 15). Cell-free gene expression. Retrieved from https://www.nature.com/articles/s43586-021-00046-x</p>
+                  <p>[10] Kim, DM., Swartz, J.R. (2001). Regeneration of adenosine triphosphate from glycolytic intermediates for cell-free protein synthesis. 74(4), 309–316. https://doi.org/10.1002/bit.1121 </p>
+                  <p>[11] Levine, M.Z., Gregorio, N.E., Jewett, M.C., Watts, K.R., Oza, J.P. (2019). Escherichia coli-Based Cell-Free Protein Synthesis: Protocols for a robust, flexible, and accessible platform </p>
+                  <p>[12] Pontes, M. H., Sevostyanova, A., & Groisman, E. A. (2015, August 14). When Too Much ATP Is Bad for Protein Synthesis. Retrieved from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4531837/</p>
+                  <p>[13] Rolf, J., Rosenthal, K., & Lütz, S. (2019, February 19). Application of Cell-Free Protein Synthesis for Faster Biocatalyst Development. Retrieved from https://www.mdpi.com/2073-4344/9/2/190/htm</p>
+                  <p>[14] Thoring, L. Wüstenhagen, D.A., Borowiak, M., Stech, M., Sonnabend, A., Kubick, S. (2016). Cell-Free Systems Based on CHO Cell Lysates: Optimization Strategies, Synthesis of “Difficult-to-Express” Proteins and Future Perspectives. PLoSONE 11(9): e0163670. 
+              https://doi.org/10.1371/journal.pone.0163670</p>
+                  <p>[15] WB, V. (n.d.). The role of magnesium in nucleic-acid and protein metabolism. Retrieved from https://pubmed.ncbi.nlm.nih.gov/2472534/#:~:text=Magnesium is an essential cofactor,RNA and translation into protein.</p>
+                  <p>[16] Caschera F, Noireaux V. Synthesis of 2.3 mg/ml of protein with an all Escherichia coli cell-free transcription-translation system. Biochimie. 2014 Apr;99:162-8. doi: 10.1016/j.biochi.2013.11.025https://pubmed.ncbi.nlm.nih.gov/24326247/</p>
+                  <p>[17] Filippo Caschera, Ashty S. Karim, Gianluca Gazzola, Anne E. d’Aquino, Norman H. Packard, and Michael C. Jewett. High-Throughput Optimization Cycle of a Cell-Free Ribosome Assembly and Protein Synthesis System. ACS Synthetic Biology 2018 7 (12), http://jewettlab.northwestern.edu/wp-content/uploads/2021/04/89.pdf</p>
+                  <p>[18] Tinafar, A., Jaenes, K. & Pardee, K. Synthetic Biology Goes Cell-Free. BMC Biol 17, 64 (2019). https://doi.org/10.1186/s12915-019-0685-x</p>
+                  <p>[19] Martin, R.W., Des Soye, B.J., Kwon, YC. et al. Cell-free protein synthesis from genomically recoded bacteria enables multisite incorporation of noncanonical amino acids. Nat Commun 9, 1203 (2018). https://doi.org/10.1038/s41467-018-03469-5</p>
+                  <p>[20] Caschera F, Noireaux V. Preparation of amino acid mixtures for cell-free expression systems. Biotechniques. 2015 Jan 1;58(1):40-3. doi: 10.2144/000114249. PMID: 25605580.</p>
+                  <p>[21] Alves A, Bassot A, Bulteau AL, Pirola L, Morio B. Glycine Metabolism and Its Alterations in Obesity and Metabolic Diseases. Nutrients. 2019 Jun 16 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627940/</p>
+                  <p>[22] Cai Q, Hanson JA, Steiner AR, Tran C, Masikat MR, Chen R, Zawada JF, Sato AK, Hallam TJ, Yin G. A simplified and robust protocol for immunoglobulin expression in Escherichia coli cell-free protein synthesis systems. Biotechnol Prog. 2015 May-Jun;31 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5029582/</p>
+                  <p>[23] Jewett, M. C., Calhoun, K. A., Voloshin, A., Wuu, J. J., &amp; Swartz, J. R. (2008). An integrated cell-free metabolic platform for protein production and Synthetic Biology. Molecular systems biology. Retrieved September 27, 2022, from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2583083/</p>
+                  <p>[24] Garenne, D., Haines, M. C., Romantseva, E. F., Freemont, P., Strychalski, E. A., &amp; Noireaux, V. (2021, July 15). Cell-free gene expression. Nature News. Retrieved September 27, 2022, from https://www.nature.com/articles/s43586-021-00046-x</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="bnav">
+	<div>
+		<ul class="bnav__menu">
+            <li class="bnav__menuitem">
+                <a href="#overview" class="bnav__link bnav__link--full-width">Overview</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp1-cfs" class="bnav__link bnav__link--full-width">E. coli optimization</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp2-cfs" class="bnav__link bnav__link--full-width">Mg, PEG and<br> ATP optimization</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp3-cfs" class="bnav__link bnav__link--full-width">3-PGA, Amino<br>Acid, tRNA</a>
+            </li>
+            <li class="bnav__menuitem">
+                <a href="#exp4-cfs" class="bnav__link bnav__link--full-width">Reaction conditions</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+{% endblock %}

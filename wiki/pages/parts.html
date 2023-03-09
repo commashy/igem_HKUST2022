@@ -1,0 +1,232 @@
+{% extends "layout.html" %}
+  
+{% block title %}Parts{% endblock %}
+{% block lead %}The biobricks of Fisherly{% endblock %}
+
+{% block page_content %}
+
+<div class="row mt-4">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Part</th>
+          <th scope="col">Part Name</th>
+          <th scope="col">Registry ID</th>
+          <th scope="col">Part Type</th>
+        </tr>
+        <tr>
+          <th scope="col" colspan="4">Existing Basic Parts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-rdao.png" width=20%/></th>
+          <td>Rat Diamine Oxidase (rDAO)</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K3684002">BBa_K3684002</a></td>
+          <td>Coding</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-oxyr.png" width=20%/></th>
+          <td>OxyR</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K1104200">BBa_K1104200</a></td>
+          <td>Coding</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-pelb.png" width=20%/></th>
+          <td>pelB leader sequence/ translocation tag</td>
+          <td><a href="http://parts.igem.org/Part:BBa_J32015">BBa_J32015</a></td>
+          <td>Tag</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac.png" width=20%/></th>
+          <td>Ptac</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K3254014">BBa_K3254014</a></td>
+          <td>Promoter</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-lva-tag.png" width=20%/></th>
+          <td>LVA degradation tag</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K880004">BBa_K880004</a></td>
+          <td>Tag</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-tev-protease.png" width=20%/></th>
+          <td>TEV Protease Cleavage Site (CS)</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K1319016">BBa_K1319016</a></td>
+          <td>Coding</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-myc-tag.png" width=20%/></th>
+          <td>Myc-tag</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K823036">BBa_K823036</a></td>
+          <td>Tag</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-6xhis-tag.png" width=20%/></th>
+          <td>6xHis</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K1223006">BBa_K1223006</a></td>
+          <td>Tag</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th scope="col" colspan="4">New Basic Parts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-oxysp.png" width=20%/></th>
+          <td>oxySp</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225001">BBa_K4225001</a></td>
+          <td>Promoter</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-katgp.png" width=20%/></th>
+          <td>katGp</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225004">BBa_K4225004</a></td>
+          <td>Promoter</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-tev-protease.png" width=20%/></th>
+          <td>TEV Protease</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225009">BBa_K4225009</a></td>
+          <td>Coding</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-inhibitory-sequence.png" width=20%/></th>
+          <td>Inhibitory Sequence (IS)</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225013">BBa_K4225013</a></td>
+          <td>Coding</td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th scope="col" colspan="4">Composite Parts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-pc-oxyr.png" width=20%/></th>
+          <td>Pc-OxyR</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225000">BBa_K4225000</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-oxysp-gfp.png" width=20%/></th>
+          <td>oxySp-GFP</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225002">BBa_K4225002</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-katgp-rfp.png" width=20%/></th>
+          <td>katGp-RFP</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225005">BBa_K4225005</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-oxysp-gfp-pc-oxyr.png" width=30%/></th>
+          <td>oxySp-GFP-Pc-OxyR</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225003">BBa_K4225003</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-katgp-rfp-pc-oxyr.png" width=30%/></th>
+          <td>katGp-RFP-Pc-OxyR</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225006">BBa_K4225006</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-new-pelb-rdao.png" width=20%/></th>
+          <td>pelB-rDAO</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225022">BBa_K4225022</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-pc-rdao-6xhis.png" width=30%/></th>
+          <td>Pc-rDAO-6xHis</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225021">BBa_K4225021</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-pc-pelb-rdao-6xhis.png" width=30%/></th>
+          <td>Pc-pelB-rDAO-6xHis</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225007">BBa_K4225007</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac-tev-myc.png" width=30%/></th>
+          <td>Ptac-TEV-myc</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225008">BBa_K4225008</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-pc-rfp-cs-lva.png" width=30%/></th>
+          <td>Pc-RFP-CS-LVA</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225010">BBa_K4225010</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac-tev-myc-pc-rfp.png" width=30%/></th>
+          <td>Ptac-TEV-myc-Pc-RFP</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225011">BBa_K4225011</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac-tev-myc-pc-rfp-cs-lva.png" width=30%/></th>
+          <td>Ptac-TEV-myc-Pc-RFP-CS-LVA</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225012">BBa_K4225012</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-lva-cs.png" width=20%/></th>
+          <td>LVA-CS</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225015">BBa_K4225015</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-lva-cs-is.png" width=20%/></th>
+          <td>LVA-CS-IS</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225014">BBa_K4225014</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-gfp-lva-cs.png" width=20%/></th>
+          <td>GFP-LVA-CS</td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225016">BBa_K4225016</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-gfp-lva-cs-is.png" width=20%/></th>
+          <td>GFP-LVA-CS-IS </td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225017">BBa_K4225017</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac-tev-pc-gfp-lva-cs.png" width=35%/></th>
+          <td>Ptac-TEV-Pc-GFP-LVA-CS </td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225018">BBa_K4225018</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac-tev-pc-gfp-lva-cs-is.png" width=35%/></th>
+          <td>Ptac-TEV -Pc-GFP-LVA-CS-IS </td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225019">BBa_K4225019</a></td>
+          <td>Composite</td>
+        </tr>
+        <tr>
+          <td><img class="img-fluid" src="https://static.igem.wiki/teams/4225/wiki/parts-ptac-tev-pc-gfp.png" width=35%/></th>
+          <td>Ptac-TEV-Pc-GFP </td>
+          <td><a href="http://parts.igem.org/Part:BBa_K4225020">BBa_K4225020</a></td>
+          <td>Composite</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
